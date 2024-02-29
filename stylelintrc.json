@@ -1,0 +1,11 @@
+{
+    "root": true,
+    "extends": [
+        "stylelint-config-standard"
+    ],
+    "rules": {
+        "indentation": 2,
+        "function-url-quotes": "never",
+        "number-leading-zero": "never"
+    }
+}
