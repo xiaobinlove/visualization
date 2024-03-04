@@ -7,7 +7,10 @@ import './index.less'
 
 const prefix = 'db-dash-canvas'
 const DashCanvas: FC = () => {
-  const [layouts, setLayouts] = useState<Layout[]>([{ i: '0', x: 2, y: 1, w: 30, h: 10, minH: 2, minW: 2 }])
+  const [layouts, setLayouts] = useState<Layout[]>([
+    { i: '0', x: 0, y: 1, w: 30, h: 10, minH: 2, minW: 2 },
+    { i: '1', x: 30, y: 1, w: 30, h: 10, minH: 2, minW: 2 }
+  ])
   const defaultProps = {
     className: 'layout',
     rowHeight: 10,
@@ -38,10 +41,9 @@ const DashCanvas: FC = () => {
         {...defaultProps}
         onLayoutChange={onLayoutChange}
         onDrop={onDrop}
-        preventCollision={true}
-        isBounded={false}
+        preventCollision={false}
         isDroppable={true}
-        droppingItem={{ i: 'test', w: 30, h: 29 }}
+        droppingItem={{ i: 'test', w: 30, h: 10 }}
       >
         {layouts.map((item) => {
           return (
