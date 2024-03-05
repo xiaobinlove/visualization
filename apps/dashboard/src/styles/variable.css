@@ -1,0 +1,11 @@
+:root {
+  --bi-heading-color: rgb(0 0 0 / 85%);
+  --bi-color-font-secondary: rgb(0 0 0 / 65%);
+  --bi-color-font-primary: rgb(0 0 0 / 85%);
+  --bi-color-border-divider: rgb(0 0 0 / 12%);
+  --bi-divider-color: rgb(0 0 0 / 6%);
+  --bi-color-surface-page-level1: #fff;
+  --bi-primary-color: #2e74ff;
+  --bi-color-border-divider-weak: rgb(0 0 0 / 6%);
+  --bi-color-font-hint: rgb(0 0 0 / 25%);
+}

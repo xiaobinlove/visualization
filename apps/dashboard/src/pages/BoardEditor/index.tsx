@@ -3,6 +3,7 @@ import './index.less'
 import NavigationBar from './components/NavigationBar'
 import Menu from './components/Menu'
 import DashCanvas from './components/DashCanvas'
+import SettingPanel from './components/SettingPanel'
 const prefix = 'db-board-editor'
 const BoardEditor: FC = () => {
   return (
@@ -14,6 +15,9 @@ const BoardEditor: FC = () => {
         </div>
         <div className={`${prefix}__main`}>
           <DashCanvas />
+        </div>
+        <div className={`${prefix}__setting`}>
+          <SettingPanel />
         </div>
       </div>
     </div>

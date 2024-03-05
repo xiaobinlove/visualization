@@ -1,0 +1,32 @@
+.db-setting-panel {
+  --wrap-padding: 0 12px;
+
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  background: var(--bi-color-surface-page-level1, #fff);
+  border-left: 1px solid var(--bi-color-border-divider, rgb(0 0 0 / 10%));
+
+  &__wrapper {
+    box-sizing: border-box;
+    background: #fff;
+
+    .ant-tabs-nav {
+      border-top: 1px solid var(--bi-divider-color, rgb(0 0 0 / 6%));
+      margin: 0;
+    }
+  }
+
+  &__cube-wrapper {
+    box-sizing: border-box;
+    background: #fff;
+    border-left: 1px solid var(--bi-color-border-divider, rgb(0 0 0 / 10%));
+    border-right: 1px solid var(--bi-color-border-divider, rgb(0 0 0 / 10%));
+  }
+
+  &__tabs {
+    .ant-tabs-tab {
+      padding: 9px 0;
+    }
+  }
+}

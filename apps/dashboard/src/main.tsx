@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { ConfigProvider, App } from 'antd'
 import router from './router'
+import 'virtual:svg-icons-register'
 import 'antd/dist/reset.css'
 import '@/styles/index.less'
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -41,7 +41,6 @@ const DashCanvas: FC = () => {
         {...defaultProps}
         onLayoutChange={onLayoutChange}
         onDrop={onDrop}
-        preventCollision={false}
         isDroppable={true}
         droppingItem={{ i: 'test', w: 30, h: 10 }}
       >
