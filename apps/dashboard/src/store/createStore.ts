@@ -32,7 +32,11 @@ export const useStore = create<Store>()(
         state.widgets[`widget_${new Date().getTime()}`] = widget
       })
     },
-    deleteWidget(widgetId) {},
+    deleteWidget(widgetId) {
+      set((state) => {
+        state.widgets[widgetId]
+      })
+    },
     setMode(mode) {
       set({
         mode

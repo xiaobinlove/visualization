@@ -10,7 +10,7 @@ type Props = {
 }
 const GridItemContainer: FC<Props> = ({ title, children, isEdit = true }) => {
   return (
-    <div className={classNames(prefix, { [`${prefix}-edit`]: isEdit, [`${prefix}--selected`]: false })}>
+    <div className={classNames(prefix, { [`${prefix}--selected`]: false })}>
       {isEdit && <HeaderOperateContainer />}
       {title && <div className={`${prefix}__header`}>{title}</div>}
       <div className={`${prefix}__content`}>{children}</div>
