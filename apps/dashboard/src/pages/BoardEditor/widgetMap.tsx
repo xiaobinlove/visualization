@@ -5,5 +5,6 @@ export const widgetMap = {
   [DashComponentType.BAR_CHART]: BarChart,
   [DashComponentType.RADAR_CHART]: RadarChart,
   [DashComponentType.PIE_CHART]: PieChart,
-  [DashComponentType.LINE_CHART]: LineChart
+  [DashComponentType.LINE_CHART]: LineChart,
+  [DashComponentType.AREA_CHART]: LineChart
 }

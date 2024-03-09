@@ -25,9 +25,6 @@
   }
 
   &__item {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     box-sizing: border-box;
     border-radius: var(--bi-radius-100, 4px);
     cursor: pointer;
@@ -35,6 +32,16 @@
     width: 52px;
     padding: 4px;
     margin-bottom: 4px;
+  }
+
+  &__item-inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &:hover {
+      background-color: var(--bi-color-surface-hovereffect);
+    }
   }
 
   &__icon-container {

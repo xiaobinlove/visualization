@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 import type { State } from './initialState'
 import { initialState } from './initialState'
-import { Widget } from '@/types'
+import { Widget, DashMode } from '@/types'
 import { Layout } from 'react-grid-layout'
 export type Action = {
   // 更新grid布局
@@ -13,6 +13,7 @@ export type Action = {
   addWidget: (widget: Widget) => void
   // 删除widget
   deleteWidget: (widgetId: string) => void
+  setMode: (mode: DashMode) => void
 }
 export type Store = State & Action
 export const useStore = create<Store>()(
@@ -26,7 +27,16 @@ export const useStore = create<Store>()(
       })
     },
     updateWidget(widgetId, val) {},
-    addWidget(widget) {},
-    deleteWidget(widgetId) {}
+    addWidget(widget) {
+      set((state) => {
+        state.widgets[`widget_${new Date().getTime()}`] = widget
+      })
+    },
+    deleteWidget(widgetId) {},
+    setMode(mode) {
+      set({
+        mode
+      })
+    }
   }))
 )

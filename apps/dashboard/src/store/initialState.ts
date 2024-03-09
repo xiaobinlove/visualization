@@ -1,8 +1,10 @@
-import { Widget, DashComponentType } from '@/types'
+import { Widget, DashComponentType, DashMode } from '@/types'
 export type State = {
   widgets: Record<string, Widget>
+  mode: DashMode
 }
 export const initialState: State = {
+  mode: DashMode.EDIT,
   widgets: {
     _widget_1709368827519: {
       title: '身高体重统计',

@@ -16,10 +16,6 @@ export const LineChart: FC = () => {
     data,
     xField: 'year',
     yField: 'value',
-    point: {
-      shapeField: 'square',
-      sizeField: 4
-    },
     interaction: {
       tooltip: {
         marker: false
@@ -29,5 +25,5 @@ export const LineChart: FC = () => {
       lineWidth: 2
     }
   }
-  return <Line {...config} className="global-antv-charts" />
+  return <Line {...config} autoFit className="global-antv-charts" />
 }

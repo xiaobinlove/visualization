@@ -33,5 +33,10 @@ export interface Widget {
   parent?: string
   xFields: Field[]
   metrics: Field[]
-  form: string
+  form?: string
+}
+
+export enum DashMode {
+  RENDER = 'render',
+  EDIT = 'edit'
 }

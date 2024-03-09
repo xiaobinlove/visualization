@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, DragEvent } from 'react'
 import './index.less'
 import './charts-icon.less'
 const prefix = 'hd-charts-panel'
@@ -65,6 +65,9 @@ const data = [
     ]
   }
 ]
+const onDragStart = (e: DragEvent, type: DashComponentType) => {
+  e.dataTransfer.setData('text/plain', type)
+}
 const ChartsPanel: FC = () => {
   return (
     <div className={prefix}>
@@ -76,11 +79,21 @@ const ChartsPanel: FC = () => {
               <div className={`${prefix}__items`}>
                 {chilren.map((item) => {
                   return (
-                    <div className={`${prefix}__item `}>
-                      <div className={`${prefix}__icon-container`}>
-                        <div className={`${prefix}__icon component-type-icon ${item.icon} light`}></div>
+                    <div
+                      className={`${prefix}__item`}
+                      key={item.icon}
+                      draggable={true}
+                      unselectable="on"
+                      onDragStart={(e) => {
+                        onDragStart(e, item.type)
+                      }}
+                    >
+                      <div className={`${prefix}__item-inner`}>
+                        <div className={`${prefix}__icon-container`}>
+                          <div className={`${prefix}__icon component-type-icon ${item.icon} light`}></div>
+                        </div>
+                        <div className={`${prefix}__name`}>{item.name}</div>
                       </div>
-                      <div className={`${prefix}__name`}>{item.name}</div>
                     </div>
                   )
                 })}
