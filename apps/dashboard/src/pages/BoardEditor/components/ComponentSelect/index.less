@@ -1,0 +1,30 @@
+.hd-component-select {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: var(--bi-radius-100, 4px);
+  color: var(--bi-color-font-secondary, rgb(0 0 0 / 65%));
+  padding: var(--bi-space-050, 4px);
+  transition: background-color 0.1s ease 0s;
+
+  &__arrow {
+    transform: scale(0.7);
+  }
+
+  &__prefix-icon {
+    margin-right: 4px;
+  }
+
+  &--expand {
+    color: var(--bi-color-theme, #2e74ff);
+    background-color: var(--bi-color-surface-selectedeffect-weak);
+
+    .hd-svg-icon {
+      color: var(--bi-color-theme, #2e74ff);
+    }
+
+    .hd-component-select__arrow {
+      transform: scale(0.7) rotate(180deg);
+    }
+  }
+}

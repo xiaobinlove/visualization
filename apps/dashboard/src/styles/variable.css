@@ -5,7 +5,20 @@
   --bi-color-border-divider: rgb(0 0 0 / 12%);
   --bi-divider-color: rgb(0 0 0 / 6%);
   --bi-color-surface-page-level1: #fff;
-  --bi-primary-color: #2e74ff;
+  --bi-primary-color: #00b899;
+  --bi-primary-color-disabled: #99e3d6;
   --bi-color-border-divider-weak: rgb(0 0 0 / 6%);
   --bi-color-font-hint: rgb(0 0 0 / 25%);
+  --bi-space-100: 8px;
+  --bi-space-150: 12px;
+  --bi-space-025: 2px;
+  --bi-radius-100: 4px;
+  --bi-color-font-tertiary: rgb(0 0 0 / 45%);
+  --bi-space-500: 40px;
+  --bi-space-050: 4px;
+}
+
+.theme-1 {
+  --bi-color-theme: #2e74ff;
+  --bi-color-surface-selectedeffect-weak: rgb(46 116 255 / 8%);
 }

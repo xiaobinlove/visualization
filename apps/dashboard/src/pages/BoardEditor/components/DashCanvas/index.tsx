@@ -1,32 +1,25 @@
-import { FC, useState } from 'react'
-import RGL, { WidthProvider, Layout, DragOverEvent } from 'react-grid-layout'
+import { FC } from 'react'
+import RGL, { WidthProvider, Layout } from 'react-grid-layout'
+import { widgetMap } from '../../widgetMap'
 const ReactGridLayout = WidthProvider(RGL)
+import GridItemContainer from '../GridItemContainer'
+import { useStore, gridLayoutSelector } from '@/store'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './index.less'
 
 const prefix = 'db-dash-canvas'
 const DashCanvas: FC = () => {
-  const [layouts, setLayouts] = useState<Layout[]>([
-    { i: '0', x: 0, y: 1, w: 30, h: 10, minH: 2, minW: 2 },
-    { i: '1', x: 30, y: 1, w: 30, h: 10, minH: 2, minW: 2 }
-  ])
+  const gridLayouts = useStore(gridLayoutSelector)
+  const widgets = useStore((state) => state.widgets)
+  const updateGrid = useStore((state) => state.updateGrid)
   const defaultProps = {
     className: 'layout',
-    rowHeight: 10,
+    rowHeight: 5,
     cols: 60
   }
   const onLayoutChange = (layout: Layout[]) => {
-    console.log(layout, 'layout')
-    setLayouts(
-      layout.map((item) => {
-        if (item.i === 'test') {
-          return { ...item, i: new Date().getTime() + '' }
-        } else {
-          return item
-        }
-      })
-    )
+    updateGrid(layout)
   }
   const onDrop = (layout: Layout[], layoutItem: Layout, event: any) => {
     const data = event.dataTransfer.getData('text/plain')
@@ -37,17 +30,21 @@ const DashCanvas: FC = () => {
   return (
     <div className={prefix}>
       <ReactGridLayout
-        layout={layouts}
+        layout={gridLayouts}
         {...defaultProps}
         onLayoutChange={onLayoutChange}
         onDrop={onDrop}
         isDroppable={true}
-        droppingItem={{ i: 'test', w: 30, h: 10 }}
+        droppingItem={{ i: 'widget_' + new Date().getTime(), w: 30, h: 20 }}
       >
-        {layouts.map((item) => {
+        {gridLayouts.map((item) => {
+          const cur = widgets[item.i]
+          const Component = widgetMap[cur.type]
           return (
-            <div key={item.i} className="test">
-              <span className="text">{item.i}</span>
+            <div key={item.i}>
+              <GridItemContainer title={cur.title}>
+                <Component />
+              </GridItemContainer>
             </div>
           )
         })}

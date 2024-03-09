@@ -13,7 +13,7 @@ const Menu: FC = () => {
       <div>
         <div className={`${prefix}__label`}>图表</div>
         <div className={`${prefix}__group`}>
-          <div className={`${prefix}__item`} onDragStart={onDragstart} draggable unselectable="on" data-grid={{ w: 30, h: 1 }}>
+          <div className={`${prefix}__item`} onDragStart={onDragstart} draggable unselectable="on">
             <div className={`${prefix}__thumb`}>
               <SolutionOutlined />
             </div>

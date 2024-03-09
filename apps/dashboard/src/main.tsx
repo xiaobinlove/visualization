@@ -9,7 +9,7 @@ import '@/styles/index.less'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ConfigProvider theme={{ cssVar: true, hashed: false }}>
-      <App>
+      <App className="theme-1">
         <RouterProvider router={router} />
       </App>
     </ConfigProvider>

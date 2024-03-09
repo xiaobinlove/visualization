@@ -1,14 +1,9 @@
 .db-dash-canvas {
-  height: 100%;
+  height: calc(100% - var(--bi-space-500, 40px));
   overflow: auto;
   padding-bottom: 10px;
 
   .react-grid-layout {
     min-height: 100%;
-  }
-
-  .react-grid-item {
-    background: #fff;
-    box-shadow: 0 2px 6px 0 rgb(84 48 132 / 10%);
   }
 }

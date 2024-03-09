@@ -1,0 +1,52 @@
+{
+  "user": {},
+  "department": {},
+  "flowNameMap": {},
+  "linkItemNameMap": {},
+  "xFields": [
+    {
+      "name": "_widget_1608778833035",
+      "form": "5fe404512bafa50006e7f5aa",
+      "type": "combo",
+      "title": "水果类型",
+      "tag": "f_1608782353168",
+      "is_delete": false,
+      "fieldName": "f_1608782353168"
+    }
+  ],
+  "yFields": [],
+  "metrics": [
+    {
+      "name": "_widget_1608778833037",
+      "form": "5fe404512bafa50006e7f5aa",
+      "type": "number",
+      "title": "单价",
+      "tag": "f_1608782353190",
+      "op": "sum",
+      "is_delete": false,
+      "fieldName": "f_1608782353190"
+    }
+  ],
+  "data": {
+    "x": [
+      {
+        "data": ["哈密瓜", "橘子", "梨子", "枇杷", "苹果", "葡萄", "石榴", "桃子", "西红柿", "香蕉", "樱桃"]
+      }
+    ],
+    "val": [
+      {
+        "is_summary_col": false,
+        "y": [],
+        "data": [23, 12, 47, 24, 29, 27, 12, 12, 6, 14, 60],
+        "tag": "f_1608782353190",
+        "text": "单价"
+      }
+    ]
+  },
+  "guideline": [],
+  "guideline_val": {},
+  "chart_label": {
+    "enable": true
+  },
+  "drilldown": "pc"
+}

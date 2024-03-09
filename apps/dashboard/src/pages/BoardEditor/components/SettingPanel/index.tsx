@@ -4,6 +4,7 @@ import SettingPannelDndContext from '../SettingPannelDndContext'
 import SettingPanelContainner from '../SettingPanelContainner'
 import SettingField from '../SettingField'
 import SettingDataPanel from '../SettingDataPanel'
+import ConfigFunc from '../ConfigFunc'
 const prefix = 'db-setting-panel'
 
 import './index.less'
@@ -17,7 +18,7 @@ const SettingPanel: FC = () => {
     {
       key: '2',
       label: '功能',
-      children: 'Content of Tab Pane 2'
+      children: <ConfigFunc />
     },
     {
       key: '3',

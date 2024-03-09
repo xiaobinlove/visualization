@@ -1,0 +1,42 @@
+.hd-grid-item-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 6px 0 rgb(84 48 132 / 10%);
+
+  &__header {
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 30px;
+    font-weight: 700;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    padding: 0 10px 10px;
+    flex: 1;
+    cursor: auto;
+    overflow: hidden;
+  }
+}
+
+.hd-grid-item-container-edit {
+  &--selected {
+    box-shadow: 0 0 0 3px rgba !important;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 3px var(--bi-primary-color-disabled, #99e3d6) !important;
+
+    .hd-header-operate-container {
+      opacity: 1;
+    }
+  }
+}

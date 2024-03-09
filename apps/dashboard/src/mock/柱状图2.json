@@ -1,0 +1,55 @@
+{
+  "user": {},
+  "department": {},
+  "flowNameMap": {},
+  "linkItemNameMap": {},
+  "xFields": [
+    {
+      "name": "_widget_1709368532403",
+      "form": "65e2e4d298ef1382262fdd06",
+      "type": "text",
+      "title": "姓名",
+      "tag": "f_1709368842553",
+      "is_delete": false,
+      "fieldName": "f_1709368842553"
+    }
+  ],
+  "yFields": [],
+  "metrics": [
+    {
+      "tag": "f_1709368846231",
+      "name": "_widget_1709368532404",
+      "form": "65e2e4d298ef1382262fdd06",
+      "type": "number",
+      "title": "身高",
+      "op": "avg",
+      "format": "0.",
+      "formatType": "preset",
+      "hasPercent": false,
+      "unit": "",
+      "is_delete": false,
+      "fieldName": "f_1709368846231"
+    },
+    {
+      "tag": "f_1709781420545",
+      "name": "_widget_1709368532405",
+      "form": "65e2e4d298ef1382262fdd06",
+      "type": "number",
+      "title": "体重",
+      "op": "sum",
+      "is_delete": false,
+      "fieldName": "f_1709781420545"
+    }
+  ],
+  "data": {
+    "x": [{ "data": ["赵宜", "张三", "王五", "王思", "鲁斯", "李四"] }],
+    "val": [
+      { "is_summary_col": false, "y": [], "data": [190, 170, 160, 150, 165, 175], "tag": "f_1709368846231", "text": "身高", "isPercent": false },
+      { "is_summary_col": false, "y": [], "data": [80, 60, 50, 40, 55, 70], "tag": "f_1709781420545", "text": "体重" }
+    ]
+  },
+  "guideline": [],
+  "guideline_val": {},
+  "chart_label": { "enable": true },
+  "drilldown": "pc"
+}

@@ -1,0 +1,143 @@
+{
+  "_id": "65e291f86d1e8278779eae64",
+  "appId": "65e291ef1ba7e63776b267b3",
+  "entryId": "65e291f86d1e8278779eae63",
+  "name": "测试仪表盘",
+  "components": {
+    "_widget_1709368827519": {
+      "title": "身高体重统计",
+      "hasExport": true,
+      "chart_label": { "enable": true },
+      "type": "column_chart",
+      "posX": 0,
+      "posY": 0,
+      "width": 15,
+      "height": 16,
+      "isShowRawData": false,
+      "form": "65e2e4d298ef1382262fdd06",
+      "useMemberFormOpt": true,
+      "permission": "all",
+      "value_size": "S",
+      "mobile_value_size": "S",
+      "drilldown": "pc",
+      "fields": [],
+      "conditionalFormatting": [],
+      "defaultSort": [{ "f_1709368846231": 1 }],
+      "yAxes": [{ "title": { "text": "test" }, "max": 200, "min": 10 }],
+      "legend": { "enable": true, "position": "top" },
+      "column_type": "column",
+      "mobileStyle": { "visible": true, "seq": 1, "width": 6, "height": 4 },
+      "styles": { "background": { "color": "#2C3F42", "type": "color" }, "fontSetting": { "titleColor": "#2A7443" } },
+      "xFields": [
+        {
+          "groupRule": "year_month",
+          "name": "createTime",
+          "type": "datetime",
+          "form": "65e2e4d298ef1382262fdd06",
+          "format": "yyyy-MM-dd HH:mm:ss",
+          "title": "提交时间",
+          "tag": "f_1709784115192"
+        }
+      ],
+      "yFields": [],
+      "metrics": [
+        {
+          "tag": "f_1709368846231",
+          "name": "_widget_1709368532404",
+          "form": "65e2e4d298ef1382262fdd06",
+          "type": "number",
+          "title": "身高",
+          "op": "avg",
+          "format": "0.",
+          "formatType": "preset",
+          "hasPercent": false,
+          "unit": "",
+          "color": "#B9BB83"
+        },
+        {
+          "tag": "f_1709781420545",
+          "name": "_widget_1709368532405",
+          "form": "65e2e4d298ef1382262fdd06",
+          "type": "number",
+          "title": "体重",
+          "op": "sum",
+          "color": "#E6B632"
+        },
+        {
+          "tag": "f_1709790619764",
+          "name": "_widget_1709368532404",
+          "form": "65e2e4d298ef1382262fdd06",
+          "type": "number",
+          "title": "身高",
+          "op": "sum",
+          "color": "#7898E1"
+        }
+      ],
+      "formulas": []
+    },
+    "_widget_1709805938475": {
+      "posX": 18,
+      "posY": 0,
+      "width": 36,
+      "height": 37,
+      "type": "group_container",
+      "title": "test布局容器",
+      "mobileStyle": { "visible": true, "seq": 0, "width": 6, "height": 11 }
+    },
+    "_widget_1709805946837": {
+      "title": "test饼图",
+      "hasExport": true,
+      "chart_label": { "dimension": { "enable": false }, "value": { "enable": true }, "value_percent": { "enable": true }, "enable": true },
+      "type": "pie_chart",
+      "posX": 0,
+      "posY": 0,
+      "width": 49,
+      "height": 17,
+      "parent": "_widget_1709805938475",
+      "isShowRawData": true,
+      "form": "65e2e4d298ef1382262fdd06",
+      "useMemberFormOpt": true,
+      "permission": "all",
+      "value_size": "L",
+      "mobile_value_size": "S",
+      "fields": [],
+      "conditionalFormatting": [],
+      "guideline": [],
+      "pie_type": "solid",
+      "defaultSort": [],
+      "drilldown": "pc",
+      "mobileStyle": { "visible": true, "seq": 0, "width": 6, "height": 10 },
+      "xFields": [{ "name": "_widget_1709368532403", "form": "65e2e4d298ef1382262fdd06", "type": "text", "title": "姓名", "tag": "f_1709805954125" }],
+      "yFields": [],
+      "metrics": [
+        { "tag": "f_1709805951924", "name": "_widget_1709368532404", "form": "65e2e4d298ef1382262fdd06", "type": "number", "title": "身高", "op": "sum" }
+      ],
+      "formulas": []
+    },
+    "_widget_1709810216334": {
+      "title": "未命名数据列表",
+      "type": "data_list",
+      "posX": 4,
+      "posY": 37,
+      "width": 20,
+      "height": 30,
+      "formTitles": [{ "form": "65e2e4d298ef1382262fdd06", "title": "个人信息" }],
+      "forms": ["65e2e4d298ef1382262fdd06"],
+      "permission": "form",
+      "mobileStyle": { "visible": true, "seq": 5, "width": 6, "height": 10 }
+    }
+  },
+  "mobileLayout": { "enable": true },
+  "styles": {
+    "theme": { "name": "preset_style_light_1", "highLightColor": "#0DB3A6", "palette": "preset_1", "gradation": "preset_map_1" },
+    "background": { "type": "color", "color": "#F4F6F9" },
+    "widget": {
+      "theme": { "color": "#E9E9E9", "icon": 1, "cardName": "preset_metric_1" },
+      "background": { "type": "color", "color": "#FFFFFF" },
+      "fontSetting": { "titleColor": "#1F2D3D", "headColor": "#5E6D82", "textColor": "#1F2D3D", "textAlign": "default" }
+    }
+  },
+  "mobileStyles": { "enable": false },
+  "attr": { "isPublic": false, "parent": "1", "isExport": false, "isPublishedAsHome": false, "isPublicExcelExport": false },
+  "checkConfig": {}
+}

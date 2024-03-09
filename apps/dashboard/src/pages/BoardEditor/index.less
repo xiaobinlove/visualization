@@ -9,22 +9,24 @@
   }
 
   &__menu {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    bottom: 0;
     background: #fff;
     border-right: 1px solid #ebecee;
     transition: width 0.2s cubic-bezier(0.19, 1, 0.22, 1);
-    height: 100%;
-    width: 150px;
+    width: 240px;
     overflow: auto;
+    z-index: 10;
   }
 
   &__main {
+    position: relative;
     box-sizing: border-box;
     height: 100%;
     flex-grow: 1;
     overflow: hidden auto;
     transition: left 0.2s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  &__setting {
   }
 }
