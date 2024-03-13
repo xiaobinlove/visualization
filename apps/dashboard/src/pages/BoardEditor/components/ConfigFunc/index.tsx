@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { SetterCollapse } from '@dash/setter'
 import type { CollapseProps } from 'antd'
-import './index.less'
 const prefix = 'db-config-func'
 
 const ConfigFunc: FC = () => {

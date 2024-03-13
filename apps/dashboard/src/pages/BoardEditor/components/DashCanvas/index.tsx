@@ -1,4 +1,4 @@
-import { FC, DragEvent, createElement } from 'react'
+import { FC, DragEvent, createElement, MouseEvent } from 'react'
 import RGL, { WidthProvider, Layout } from 'react-grid-layout'
 import { widgetMap } from '../../widgetMap'
 import GridItemContainer from '../GridItemContainer'
@@ -51,11 +51,16 @@ const DashCanvas: FC = () => {
     }
     doResize()
   }
-  const handleItemClick = (widgetId: string) => {
+  const handleItemClick = (e: MouseEvent, widgetId: string) => {
+    e.stopPropagation()
     setCurWidetId(widgetId)
   }
+  const handleLayoutClick = (e: MouseEvent) => {
+    e.stopPropagation()
+    setCurWidetId('')
+  }
   return (
-    <div className={prefix}>
+    <div className={prefix} onClick={handleLayoutClick}>
       <ReactGridLayout
         layout={gridLayouts}
         {...defaultProps}
@@ -74,8 +79,8 @@ const DashCanvas: FC = () => {
             <div
               key={item.i}
               className={classnames('hd-grid-item-container', { 'hd-grid-item-container--selected': curWidgetId === item.i })}
-              onClick={() => {
-                isEdit && handleItemClick(item.i)
+              onClick={(e) => {
+                isEdit && handleItemClick(e, item.i)
               }}
             >
               <GridItemContainer title={cur.title} widgetId={item.i} isEdit={isEdit}>
