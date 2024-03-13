@@ -9,11 +9,14 @@ export type Action = {
   updateGrid: (layout: Layout[]) => void
   // 更新单个widget
   updateWidget: (widgetId: string, val: Partial<Widget>) => void
+  updateCurWidget: (val: Partial<Widget>) => void
   // 增加widget
-  addWidget: (widget: Widget) => void
+  addWidget: (widget: Widget) => string
   // 删除widget
   deleteWidget: (widgetId: string) => void
+  setCurWidetId: (widgetId: string) => void
   setMode: (mode: DashMode) => void
+  setDraggableInEdit: (val: boolean) => void
 }
 export type Store = State & Action
 export const useStore = create<Store>()(
@@ -26,20 +29,47 @@ export const useStore = create<Store>()(
         })
       })
     },
-    updateWidget(widgetId, val) {},
-    addWidget(widget) {
+    updateWidget(widgetId, val) {
       set((state) => {
-        state.widgets[`widget_${new Date().getTime()}`] = widget
+        state.widgets[widgetId] = {
+          ...state.widgets[widgetId],
+          ...val
+        }
       })
+    },
+    updateCurWidget(val) {
+      set((state) => {
+        state.widgets[state.curWidgetId] = {
+          ...state.widgets[state.curWidgetId],
+          ...val
+        }
+      })
+    },
+    addWidget(widget) {
+      const widgetId = `widget_${new Date().getTime()}`
+      set((state) => {
+        state.widgets[widgetId] = widget
+      })
+      return widgetId
     },
     deleteWidget(widgetId) {
       set((state) => {
-        state.widgets[widgetId]
+        delete state.widgets[widgetId]
+      })
+    },
+    setCurWidetId(widgetId) {
+      set({
+        curWidgetId: widgetId
       })
     },
     setMode(mode) {
       set({
         mode
+      })
+    },
+    setDraggableInEdit(val) {
+      set({
+        isDraggableInEdit: val
       })
     }
   }))

@@ -5,7 +5,10 @@ export enum DashComponentType {
   RADAR_CHART = 'radarChart',
   BAR_CHART = 'barChart',
   LINE_CHART = 'lineChart',
-  AREA_CHART = 'areaChart‘'
+  AREA_CHART = 'areaChart',
+  RICH_TEXT = 'richText',
+  IMAGE = 'image',
+  TAB = 'tab'
 }
 export enum DataType {
   NUMBER = 'number',
@@ -31,9 +34,10 @@ export interface Widget {
   type: DashComponentType
   title: string
   parent?: string
-  xFields: Field[]
-  metrics: Field[]
+  xFields?: Field[]
+  metrics?: Field[]
   form?: string
+  content?: string // 富文本
 }
 
 export enum DashMode {

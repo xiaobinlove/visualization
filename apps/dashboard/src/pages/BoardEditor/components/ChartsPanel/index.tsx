@@ -1,6 +1,5 @@
 import { FC, DragEvent } from 'react'
 import './index.less'
-import './charts-icon.less'
 const prefix = 'hd-charts-panel'
 import { DashComponentType } from '@/types'
 const data = [
@@ -25,7 +24,7 @@ const data = [
       {
         name: '柱图',
         icon: 'component-type-bar',
-        type: DashComponentType.LINE_CHART
+        type: DashComponentType.COLUMN_CHART
       },
       {
         name: '堆积',
@@ -65,7 +64,7 @@ const data = [
     ]
   }
 ]
-const onDragStart = (e: DragEvent, type: DashComponentType) => {
+const onDragStart = (e: DragEvent<HTMLElement>, type: DashComponentType) => {
   e.dataTransfer.setData('text/plain', type)
 }
 const ChartsPanel: FC = () => {
@@ -90,7 +89,7 @@ const ChartsPanel: FC = () => {
                     >
                       <div className={`${prefix}__item-inner`}>
                         <div className={`${prefix}__icon-container`}>
-                          <div className={`${prefix}__icon component-type-icon ${item.icon} light`}></div>
+                          <div className={`global-component-icon ${item.icon} light`}></div>
                         </div>
                         <div className={`${prefix}__name`}>{item.name}</div>
                       </div>

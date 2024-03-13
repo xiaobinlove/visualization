@@ -1,3 +1,4 @@
+import type { Widget } from '@/types'
 import { DashMode } from '@/types'
 import type { Store } from './createStore'
 import { Layout } from 'react-grid-layout'
@@ -10,4 +11,6 @@ export const gridLayoutSelector = (store: Store): Layout[] => {
     return list
   }, [])
 }
+
 export const isEditModeSelector = (store: Store): boolean => store.mode === DashMode.EDIT
+export const curWidgetSelector = (store: Store): Widget => store.widgets[store.curWidgetId]

@@ -1,4 +1,5 @@
 export { useStore } from './createStore'
 export type { Store } from './createStore'
 export type { State } from './initialState'
+export { useSelector } from './useSelector'
 export * from './selectors'

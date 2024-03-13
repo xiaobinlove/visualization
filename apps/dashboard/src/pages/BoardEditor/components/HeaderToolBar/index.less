@@ -4,4 +4,34 @@
   display: flex;
   height: var(--bi-space-500, 40px);
   padding: 7px 16px;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__cop-group {
+    display: flex;
+  }
+
+  &__cop-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--bi-radius-100, 4px);
+    box-sizing: border-box;
+    padding: var(--bi-space-050, 4px);
+    transition: background-color 0.1s;
+    margin-right: 8px;
+  }
+
+  &__cop-icon {
+    transform: scale(0.3333) !important;
+  }
+
+  &__icon-wrap {
+    width: 20px;
+    height: 20px;
+  }
 }
