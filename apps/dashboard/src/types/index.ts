@@ -51,3 +51,9 @@ export enum DashMode {
   RENDER = 'render',
   EDIT = 'edit'
 }
+
+export type ChartMenuItem = { name: string; icon: string; type: DashComponentType }
+export type ChartMenu = {
+  title: string
+  chilren: ChartMenuItem[]
+}

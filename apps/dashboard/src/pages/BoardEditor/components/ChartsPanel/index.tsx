@@ -1,8 +1,13 @@
 import { FC, DragEvent } from 'react'
 import './index.less'
 const prefix = 'hd-charts-panel'
+import type { ChartMenuItem, ChartMenu } from '@/types'
 import { DashComponentType } from '@/types'
-const data = [
+type Props = {
+  type?: 'menu' | 'select'
+  onItemClick?: (item: ChartMenuItem) => void
+}
+const data: ChartMenu[] = [
   {
     title: '线/面图',
     chilren: [
@@ -67,7 +72,11 @@ const data = [
 const onDragStart = (e: DragEvent<HTMLElement>, type: DashComponentType) => {
   e.dataTransfer.setData('text/plain', type)
 }
-const ChartsPanel: FC = () => {
+
+const ChartsPanel: FC<Props> = ({ onItemClick, type = 'menu' }) => {
+  const handleClick = (item: ChartMenuItem) => {
+    onItemClick?.(item)
+  }
   return (
     <div className={prefix}>
       <div className={`${prefix}__group-list`}>
@@ -83,6 +92,9 @@ const ChartsPanel: FC = () => {
                       key={item.icon}
                       draggable={true}
                       unselectable="on"
+                      onClick={() => {
+                        handleClick(item)
+                      }}
                       onDragStart={(e) => {
                         onDragStart(e, item.type)
                       }}

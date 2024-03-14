@@ -1,0 +1,85 @@
+.switch-chart-menu {
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  margin-top: 5px;
+
+  &__text {
+    color: var(--bi-color-font-secondary, rgb(0 0 0 / 65%));
+    font-size: 12px;
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+
+  &__select {
+    box-sizing: border-box;
+    flex: 1;
+    border: 1px solid var(--bi-color-border-divider, rgb(0 0 0 / 10%));
+    border-radius: var(--bi-radius-100, 4px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 24px;
+    line-height: 24px;
+
+    &:hover {
+      border-color: var(--bi-color-theme, #2e74ff);
+    }
+
+    &::after {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M757.76 637.44 538.88 883.2c-14.72 16.64-40.32 16.64-54.4 0L265.6 637.44c-21.12-23.68-4.48-61.44 27.52-61.44h437.76c31.36 0 48.64 37.76 26.88 61.44z' fill='%23777d8c'/%3E%3C/svg%3E");
+      background-position-y: -3px;
+      background-repeat: no-repeat;
+      background-size: 16px;
+      content: '';
+      display: inline-block;
+      height: 16px;
+      left: 0;
+      position: relative;
+      top: 0;
+      transition: all 0.2s ease;
+      width: 16px;
+    }
+  }
+
+  &__icon-container {
+    vertical-align: middle;
+    margin: 0 8px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+    transform: scale(0.25) !important;
+  }
+
+  &__name {
+    flex: 1;
+    font-size: 14px;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &--active {
+    .switch-chart-menu__select::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__menu-box {
+    background-color: var(--bi-color-surface-page-level1, #fff);
+    bottom: 0;
+    margin-left: -12px;
+    position: fixed;
+    top: 129px;
+    width: 240px;
+    z-index: 100;
+  }
+}

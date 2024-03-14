@@ -1,7 +1,8 @@
 import { FC, useState } from 'react'
-import { Tabs, TabsProps } from 'antd'
+import { Tabs, TabsProps, Select } from 'antd'
 import SettingPannelDndContext from '../SettingPannelDndContext'
 import SettingPanelContainner from '../SettingPanelContainner'
+import SwitchChartMenu from '../SwitchChartMenu'
 import GlobalSettingPanel from '../GlobalSettingPanel'
 import SettingField from '../SettingField'
 import ConfigStyle from '../ConfigStyle'
@@ -56,7 +57,7 @@ const SettingPanel: FC = () => {
                 closedTabClick={closedTabClick}
                 configList={items.map(({ key, label }) => ({ key, label }))}
               >
-                {/* <div className={`${prefix}__switch-chart`}>切换图表</div> */}
+                <SwitchChartMenu />
                 <Tabs centered className={`${prefix}__tabs`} defaultActiveKey="1" items={items} onChange={onTabChange} />
               </SettingPanelContainner>
             </div>

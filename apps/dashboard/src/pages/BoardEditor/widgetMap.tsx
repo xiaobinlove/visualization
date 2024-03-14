@@ -7,14 +7,14 @@ type Config = {
   initData: Partial<Widget>
 }
 export const widgetMap: Record<DashComponentType, Config> = {
-  [DashComponentType.COLUMN_CHART]: { component: ColumnChart, initData: {} },
-  [DashComponentType.BAR_CHART]: { component: BarChart, initData: {} },
-  [DashComponentType.RADAR_CHART]: { component: RadarChart, initData: {} },
-  [DashComponentType.PIE_CHART]: { component: PieChart, initData: {} },
-  [DashComponentType.LINE_CHART]: { component: LineChart, initData: {} },
-  [DashComponentType.AREA_CHART]: { component: AreaChart, initData: {} },
+  [DashComponentType.COLUMN_CHART]: { component: ColumnChart, initData: { xFields: [], metrics: [] } },
+  [DashComponentType.BAR_CHART]: { component: BarChart, initData: { xFields: [], metrics: [] } },
+  [DashComponentType.RADAR_CHART]: { component: RadarChart, initData: { xFields: [], metrics: [] } },
+  [DashComponentType.PIE_CHART]: { component: PieChart, initData: { xFields: [], metrics: [] } },
+  [DashComponentType.LINE_CHART]: { component: LineChart, initData: { xFields: [], metrics: [] } },
+  [DashComponentType.AREA_CHART]: { component: AreaChart, initData: { xFields: [], metrics: [] } },
   // 富文本
-  [DashComponentType.RICH_TEXT]: { component: RichText, initData: { content: '' } },
-  [DashComponentType.TAB]: { component: Tab, initData: {} },
-  [DashComponentType.IMAGE]: { component: Image, initData: {} }
+  [DashComponentType.RICH_TEXT]: { component: RichText, initData: { content: '', xFields: [], metrics: [] } },
+  [DashComponentType.TAB]: { component: Tab, initData: { xFields: [], metrics: [] } },
+  [DashComponentType.IMAGE]: { component: Image, initData: { xFields: [], metrics: [] } }
 }

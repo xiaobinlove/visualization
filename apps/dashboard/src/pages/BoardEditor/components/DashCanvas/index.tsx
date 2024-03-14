@@ -1,21 +1,16 @@
-import { FC, DragEvent, createElement, MouseEvent } from 'react'
-import RGL, { WidthProvider, Layout } from 'react-grid-layout'
+import { FC, DragEvent, MouseEvent } from 'react'
+import { Layout } from 'react-grid-layout'
 import { widgetMap } from '../../widgetMap'
-import GridItemContainer from '../GridItemContainer'
+import GridLayouts from '@/components/GridLayouts'
 import { doResize } from '@/utils'
-import { useStore, gridLayoutSelector, isEditModeSelector, useSelector } from '@/store'
+import { useStore, isEditModeSelector, useSelector } from '@/store'
 import { DashComponentType } from '@/types'
 import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
 import './index.less'
-import classnames from 'classnames'
-const ReactGridLayout = WidthProvider(RGL)
 const prefix = 'db-dash-canvas'
 const DashCanvas: FC = () => {
   const isEdit = useStore(isEditModeSelector)
-  const gridLayouts = useStore(gridLayoutSelector)
-  console.log(gridLayouts, 'gridLayouts')
-  const { setCurWidetId, isDraggableInEdit, curWidgetId, addWidget, updateGrid, widgets } = useStore(
+  const { setCurWidetId, isDraggableInEdit, addWidget, updateGrid, widgets } = useStore(
     useSelector(['setCurWidetId', 'addWidget', 'updateGrid', 'isDraggableInEdit', 'curWidgetId', 'widgets'])
   )
 
@@ -51,18 +46,14 @@ const DashCanvas: FC = () => {
     }
     doResize()
   }
-  const handleItemClick = (e: MouseEvent, widgetId: string) => {
-    e.stopPropagation()
-    setCurWidetId(widgetId)
-  }
   const handleLayoutClick = (e: MouseEvent) => {
     e.stopPropagation()
     setCurWidetId('')
   }
   return (
     <div className={prefix} onClick={handleLayoutClick}>
-      <ReactGridLayout
-        layout={gridLayouts}
+      <GridLayouts
+        isEdit={isEdit}
         {...defaultProps}
         onLayoutChange={onLayoutChange}
         onDrop={onDrop}
@@ -72,24 +63,7 @@ const DashCanvas: FC = () => {
         onResizeStop={onResizeStop}
         droppingItem={{ i: 'fromMenu', w: 30, h: 20 }}
         // draggableHandle=".hd-grid-item-container__drag-handle"
-      >
-        {gridLayouts.map((item) => {
-          const cur = widgets[item.i]
-          return (
-            <div
-              key={item.i}
-              className={classnames('hd-grid-item-container', { 'hd-grid-item-container--selected': curWidgetId === item.i })}
-              onClick={(e) => {
-                isEdit && handleItemClick(e, item.i)
-              }}
-            >
-              <GridItemContainer title={cur.title} widgetId={item.i} isEdit={isEdit}>
-                {createElement(widgetMap[cur.type].component, { widgetId: item.i })}
-              </GridItemContainer>
-            </div>
-          )
-        })}
-      </ReactGridLayout>
+      ></GridLayouts>
     </div>
   )
 }
