@@ -1,10 +1,10 @@
 import { FC, ReactNode } from 'react'
-import { DndContext, KeyboardSensor, MouseSensor, useSensor, useSensors } from '@dnd-kit/core'
+import { DndContext, KeyboardSensor, MouseSensor, useSensor, useSensors, DndContextProps } from '@dnd-kit/core'
 import { sortableKeyboardCoordinates } from '@dnd-kit/sortable'
-type Props = {
+interface Props extends DndContextProps {
   children: ReactNode
 }
-const SettingPannelDndContext: FC<Props> = ({ children }) => {
+const SettingPannelDndContext: FC<Props> = ({ children, ...res }) => {
   const sensors = useSensors(
     useSensor(MouseSensor, {
       // Require the mouse to move by 10 pixels before activating
@@ -16,6 +16,10 @@ const SettingPannelDndContext: FC<Props> = ({ children }) => {
       coordinateGetter: sortableKeyboardCoordinates
     })
   )
-  return <DndContext sensors={sensors}>{children}</DndContext>
+  return (
+    <DndContext sensors={sensors} {...res}>
+      {children}
+    </DndContext>
+  )
 }
 export default SettingPannelDndContext

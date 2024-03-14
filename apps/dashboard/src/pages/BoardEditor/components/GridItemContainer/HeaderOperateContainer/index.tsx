@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, MouseEvent } from 'react'
 import { Tooltip, Popconfirm } from 'antd'
 import { CopyOutlined, DeleteOutlined } from '@ant-design/icons'
 import { useStore, useSelector } from '@/store'
@@ -9,8 +9,8 @@ type Props = {
 }
 const HeaderOperateContainer: FC<Props> = ({ widgetId }) => {
   const { deleteWidget, curWidgetId, setCurWidetId } = useStore(useSelector(['deleteWidget', 'setCurWidetId', 'curWidgetId']))
-  const handleDelete = (e: MouseEvent) => {
-    e.stopPropagation()
+  const handleDelete = (e?: MouseEvent<HTMLElement>) => {
+    e?.stopPropagation()
     if (curWidgetId === widgetId) {
       setCurWidetId('')
     }

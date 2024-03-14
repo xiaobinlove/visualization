@@ -4,6 +4,7 @@ import SettingPannelDndContext from '../SettingPannelDndContext'
 import SettingPanelContainner from '../SettingPanelContainner'
 import GlobalSettingPanel from '../GlobalSettingPanel'
 import SettingField from '../SettingField'
+import ConfigStyle from '../ConfigStyle'
 import SettingDataPanel from '../SettingDataPanel'
 import ConfigFunc from '../ConfigFunc'
 import { useStore, useSelector, curWidgetSelector } from '@/store'
@@ -27,7 +28,7 @@ const SettingPanel: FC = () => {
     {
       key: '3',
       label: '样式',
-      children: 'Content of Tab Pane 3'
+      children: <ConfigStyle />
     }
   ]
   const onTabChange = () => {
@@ -47,6 +48,7 @@ const SettingPanel: FC = () => {
           <>
             <div className={`${prefix}__wrapper`}>
               <SettingPanelContainner
+                className={`${prefix}__field`}
                 titleEditable
                 title={curWidget.title}
                 width="240px"

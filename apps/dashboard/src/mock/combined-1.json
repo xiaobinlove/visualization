@@ -1,0 +1,87 @@
+{
+  "showSummary": { "shouldShowSummaryRow": true, "shouldShowSummaryCol": true, "sumRowPosition": "bottom", "sumColPosition": "right" },
+  "user": {},
+  "department": {},
+  "flowNameMap": {},
+  "linkItemNameMap": {},
+  "xFields": [
+    {
+      "groupRule": "year_month",
+      "name": "createTime",
+      "type": "datetime",
+      "form": "65e2e4d298ef1382262fdd06",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "title": "提交时间",
+      "tag": "f_1709784115192",
+      "is_delete": false,
+      "fieldName": "f_1709784115192"
+    }
+  ],
+  "yFields": [
+    {
+      "name": "_widget_1709368532403",
+      "form": "65e2e4d298ef1382262fdd06",
+      "type": "text",
+      "title": "姓名",
+      "tag": "f_1710388450959",
+      "is_delete": false,
+      "fieldName": "f_1710388450959"
+    }
+  ],
+  "metrics": [
+    {
+      "tag": "f_1709368846231",
+      "name": "_widget_1709368532404",
+      "form": "65e2e4d298ef1382262fdd06",
+      "type": "number",
+      "title": "身高",
+      "op": "avg",
+      "format": "0.",
+      "formatType": "preset",
+      "hasPercent": false,
+      "unit": "",
+      "is_delete": false,
+      "fieldName": "f_1709368846231"
+    },
+    {
+      "tag": "f_1709790619764",
+      "name": "_widget_1709368532404",
+      "form": "65e2e4d298ef1382262fdd06",
+      "type": "number",
+      "title": "身高",
+      "op": "sum",
+      "is_delete": false,
+      "fieldName": "f_1709790619764"
+    }
+  ],
+  "data": {
+    "x": [{ "data": [{ "year": 2024, "month": 3 }] }],
+    "val": [
+      { "is_summary_col": false, "y": ["鲁斯"], "data": [165], "tag": "f_1709368846231", "text": "身高", "isPercent": false, "sum": 165 },
+      { "is_summary_col": false, "y": ["鲁斯"], "data": [165], "tag": "f_1709790619764", "text": "身高", "sum": 165 },
+      { "is_summary_col": false, "y": ["张三"], "data": [170], "tag": "f_1709368846231", "text": "身高", "isPercent": false, "sum": 170 },
+      { "is_summary_col": false, "y": ["张三"], "data": [170], "tag": "f_1709790619764", "text": "身高", "sum": 170 },
+      { "is_summary_col": false, "y": ["赵宜"], "data": [190], "tag": "f_1709368846231", "text": "身高", "isPercent": false, "sum": 190 },
+      { "is_summary_col": false, "y": ["赵宜"], "data": [190], "tag": "f_1709790619764", "text": "身高", "sum": 190 },
+      { "is_summary_col": false, "y": ["李四"], "data": [175], "tag": "f_1709368846231", "text": "身高", "isPercent": false, "sum": 175 },
+      { "is_summary_col": false, "y": ["李四"], "data": [175], "tag": "f_1709790619764", "text": "身高", "sum": 175 },
+      { "is_summary_col": false, "y": ["王思"], "data": [150], "tag": "f_1709368846231", "text": "身高", "isPercent": false, "sum": 150 },
+      { "is_summary_col": false, "y": ["王思"], "data": [150], "tag": "f_1709790619764", "text": "身高", "sum": 150 },
+      { "is_summary_col": false, "y": ["王五"], "data": [160], "tag": "f_1709368846231", "text": "身高", "isPercent": false, "sum": 160 },
+      { "is_summary_col": false, "y": ["王五"], "data": [160], "tag": "f_1709790619764", "text": "身高", "sum": 160 },
+      {
+        "is_summary_col": true,
+        "y": [],
+        "data": [168.33333333333334],
+        "tag": "f_1709368846231",
+        "text": "身高",
+        "isPercent": false,
+        "sum": 168.33333333333334
+      },
+      { "is_summary_col": true, "y": [], "data": [1010], "tag": "f_1709790619764", "text": "身高", "sum": 1010 }
+    ]
+  },
+  "guideline": [],
+  "guideline_val": {},
+  "drilldown": "pc"
+}

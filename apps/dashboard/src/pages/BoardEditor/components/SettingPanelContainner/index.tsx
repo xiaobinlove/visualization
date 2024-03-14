@@ -11,16 +11,17 @@ type Props = {
   closedTabClick: (key: string) => void
   width: string
   title: string
+  className?: string
   titleEditable?: boolean
   onTitleChange?: (val: string) => void
 }
-const SettingPanelContainner: FC<Props> = ({ children, configList = [], closedTabClick, width, title, onTitleChange, titleEditable = false }) => {
+const SettingPanelContainner: FC<Props> = ({ children, className, configList = [], closedTabClick, width, title, onTitleChange, titleEditable = false }) => {
   const [isExpand, setExpand] = useState<boolean>(true)
   const onCollaseClick = () => {
     setExpand((val) => !val)
   }
   return (
-    <div className={prefix} style={{ width: isExpand ? width : '40px' }}>
+    <div className={classnames([classnames, className])} style={{ width: isExpand ? width : '40px' }}>
       <div className={`${prefix}__title`}>
         {isExpand && (
           <Typography.Paragraph editable={titleEditable ? { onChange: onTitleChange } : false} style={{ margin: 0 }}>

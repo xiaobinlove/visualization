@@ -4,9 +4,11 @@ import classNames from 'classnames'
 interface Props extends UseDraggableArguments {
   children: ReactNode
   className?: string
+  id: string
 }
-const Draggable: FC<Props> = ({ children, className, ...res }) => {
+const Draggable: FC<Props> = ({ children, className, id, ...res }) => {
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+    id,
     ...res
   })
   return (

@@ -1,99 +1,113 @@
 import { FC, MouseEvent, useMemo } from 'react'
 import { Dropdown, MenuProps } from 'antd'
-import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable'
-import { useDndMonitor } from '@dnd-kit/core'
+import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import Droppable from '@/components/Droppable'
 import SortableItem from '@/components/SortableItem'
 import SvgIcon from '@/components/SvgIcon'
+import { Field, SortContainerId } from '@/types'
 import './index.less'
 const prefix = 'db-setting-field-item'
-export type Field = {
-  name: string
-  label: string
-}
+
 type Props = {
   title: string
+  id: SortContainerId
   fieldList: Field[]
-  onFieldChange: (fieldList: Field[]) => void
+  onDelete: (key: SortContainerId, index: number) => void
 }
 
-const SettingFieldItem: FC<Props> = ({ title, fieldList = [], onFieldChange }) => {
-  const sortItems = useMemo(() => fieldList.map((item) => item.name), [fieldList])
+const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) => {
+  const sortItems = useMemo(() => fieldList.map((item) => item.id), [fieldList])
   const items: MenuProps['items'] = [
     {
       key: '1',
-      type: 'group',
-      label: 'Group title',
+      label: '汇总方式',
       children: [
         {
           key: '1-1',
-          label: '1st menu item'
+          label: '求和'
         },
         {
           key: '1-2',
-          label: '2nd menu item'
+          label: '平均值'
+        },
+        {
+          key: '1-3',
+          label: '最大值'
+        },
+        {
+          key: '1-4',
+          label: '最小值'
+        },
+        {
+          key: '1-5',
+          label: '计数'
+        },
+        {
+          key: '1-6',
+          label: '去重计数'
         }
       ]
     },
     {
       key: '2',
-      label: 'sub menu',
+      label: '高级计算',
       children: [
         {
           key: '2-1',
-          label: '3rd menu item'
+          label: '环比'
         },
         {
           key: '2-2',
-          label: '4th menu item'
+          label: '占比'
+        },
+        {
+          key: '2-3',
+          label: '无'
         }
       ]
     },
     {
       key: '3',
-      label: 'disabled sub menu',
-      disabled: true,
+      label: '数据格式'
+    },
+    {
+      key: '4',
+      label: '排序',
       children: [
         {
-          key: '3-1',
-          label: '5d menu item'
+          key: '2-1',
+          label: '默认'
         },
         {
-          key: '3-2',
-          label: '6th menu item'
+          key: '2-2',
+          label: '升序'
+        },
+        {
+          key: '2-3',
+          label: '降序'
         }
       ]
     }
   ]
-  const handleDelete = (event: MouseEvent) => {
+  const handleDelete = (event: MouseEvent, index: number) => {
     event.stopPropagation()
+    onDelete(id, index)
   }
 
-  useDndMonitor({
-    onDragEnd(event) {
-      const { active, over } = event
-      if (!over?.id || active.id === over.id) {
-        return
-      }
-      const oldIndex = sortItems.indexOf(active.id as string)
-
-      if (active.data.current?.from === 'right') {
-        onFieldChange(fieldList.splice(oldIndex, 0, active.data.current?.field))
-      }
-      const newIndex = sortItems.indexOf(over.id as string)
-      if (active.id !== over.id) {
-        onFieldChange(arrayMove(fieldList, oldIndex, newIndex))
-      }
-    }
-  })
   return (
     <div className={prefix}>
       <div className={`${prefix}__header`}>{title}</div>
-      <SortableContext items={sortItems} strategy={verticalListSortingStrategy}>
-        <div className={`${prefix}__body`}>
-          {fieldList.length === 0 && <div className={`${prefix}__tip`}>拖动数据字段至此处</div>}
-          {fieldList.map((item) => {
+
+      <div className={`${prefix}__body`}>
+        {fieldList.length === 0 && (
+          <Droppable id={'empty_' + id} data={{ key: id, index: 0 }}>
+            <div className={`${prefix}__tip`}>拖动数据字段至此处</div>
+          </Droppable>
+        )}
+        <SortableContext id={id} items={sortItems} strategy={verticalListSortingStrategy}>
+          {fieldList.map((item, index) => {
             return (
-              <SortableItem id={item.name} key={item.name}>
+              <SortableItem id={item.id} key={item.id} data={{ key: id, index: index }}>
                 <div className={`${prefix}__field-box`}>
                   <Dropdown
                     menu={{
@@ -105,16 +119,23 @@ const SettingFieldItem: FC<Props> = ({ title, fieldList = [], onFieldChange }) =
                   >
                     <div className={`${prefix}__field-wrapper`}>
                       <SvgIcon name="箭头_下" className={`${prefix}__icon`} size={10} color="rgba(0,0,0,.65)" />
-                      <div className={`${prefix}__label`}>{item.label}</div>
-                      <SvgIcon name="delete" className={`${prefix}__delete`} size={12} onClick={handleDelete} />
+                      <div className={`${prefix}__label`}>{item.fieldLabel}</div>
+                      <SvgIcon
+                        name="delete"
+                        className={`${prefix}__delete`}
+                        size={12}
+                        onClick={(e) => {
+                          handleDelete(e, index)
+                        }}
+                      />
                     </div>
                   </Dropdown>
                 </div>
               </SortableItem>
             )
           })}
-        </div>
-      </SortableContext>
+        </SortableContext>
+      </div>
     </div>
   )
 }

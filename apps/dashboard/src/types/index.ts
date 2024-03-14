@@ -15,13 +15,19 @@ export enum DataType {
   DATETIME = 'datetime',
   TEXT = 'text'
 }
+export enum SortContainerId {
+  xFields = 'xFields',
+  metrics = 'metrics'
+}
+
 // 字段
 export interface Field {
   fieldName: string
   fieldLabel: string
-  widgetId: string
+  // widgetId?: string
   // TODO combo number
-  type: string
+  fieldType: string
+  id: string
   // TODO avg sum
   op?: string
   form?: string
@@ -34,8 +40,9 @@ export interface Widget {
   type: DashComponentType
   title: string
   parent?: string
-  xFields?: Field[]
-  metrics?: Field[]
+  [SortContainerId.xFields]?: Field[]
+  // yFields?: Field[]
+  [SortContainerId.metrics]?: Field[]
   form?: string
   content?: string // 富文本
 }
