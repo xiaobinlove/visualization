@@ -17,11 +17,17 @@ export type Action = {
   setCurWidetId: (widgetId: string) => void
   setMode: (mode: DashMode) => void
   setDraggableInEdit: (val: boolean) => void
+  setWidgets: (val: Record<string, Widget>) => void
 }
 export type Store = State & Action
 export const useStore = create<Store>()(
   immer((set) => ({
     ...initialState,
+    setWidgets(widgets) {
+      set({
+        widgets
+      })
+    },
     updateGrid(layout) {
       set((state) => {
         layout.forEach(({ i, w, h, x, y }) => {

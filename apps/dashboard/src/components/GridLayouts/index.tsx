@@ -41,8 +41,8 @@ const GridLayouts: FC<GridLayoutProps> = ({ isEdit, onLayoutChange, onDrop, isDr
               isEdit && handleItemClick(e, item.i)
             }}
           >
-            <GridItemContainer title={cur.title} widgetId={item.i} isEdit={isEdit}>
-              {createElement(widgetMap[cur.type].component, { widgetId: item.i })}
+            <GridItemContainer title={cur.title} widgetId={item.i} isEdit={isEdit} type={cur.type} data={cur.data}>
+              {createElement(widgetMap[cur.type].component, { widgetId: item.i, data: cur.data })}
             </GridItemContainer>
           </div>
         )

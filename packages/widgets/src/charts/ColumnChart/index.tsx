@@ -1,12 +1,11 @@
 import { FC } from 'react'
 import { Column } from '@ant-design/plots'
-
-export const ColumnChart: FC = () => {
+type Props = {
+  data: unknown
+}
+export const ColumnChart: FC<Props> = ({ data }) => {
   const config = {
-    data: {
-      type: 'fetch',
-      value: 'https://render.alipay.com/p/yuyan/180020010001215413/antd-charts/column-column.json'
-    },
+    data,
     xField: 'letter',
     yField: 'frequency',
     label: {

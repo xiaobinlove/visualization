@@ -45,6 +45,7 @@ export interface Widget {
   [SortContainerId.metrics]?: Field[]
   form?: string
   content?: string // 富文本
+  data?: unknown
 }
 
 export enum DashMode {

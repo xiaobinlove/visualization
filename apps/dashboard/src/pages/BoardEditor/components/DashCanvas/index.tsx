@@ -25,14 +25,14 @@ const DashCanvas: FC = () => {
   const onDrop = (_: Layout[], layoutItem: Layout, event: DragEvent) => {
     const data = event.dataTransfer.getData('text/plain') as DashComponentType
     const { w, h, x, y } = layoutItem
-    const initData = widgetMap[data].initData
+    const { initData, name } = widgetMap[data]
     const widgetId = addWidget({
       posX: x,
       posY: y,
       width: w,
       height: h,
       type: data,
-      title: [DashComponentType.RICH_TEXT].includes(data) ? '' : '未命名',
+      title: [DashComponentType.RICH_TEXT].includes(data) ? '' : '未命名' + name,
       ...initData
     })
     setCurWidetId(widgetId)

@@ -5,6 +5,7 @@ import { curWidgetSelector, useSelector, useStore } from '@/store'
 import { Button } from 'antd'
 import { SortContainerId, Field } from '@/types'
 import { arrayMove } from '@dnd-kit/sortable'
+import { dataMap } from '@/mock/data'
 import './index.less'
 const prefix = 'db-setting-field'
 const SettingField: FC = () => {
@@ -54,6 +55,11 @@ const SettingField: FC = () => {
       [key]: curWidget[key]?.filter((_, i) => i !== index)
     })
   }
+  const onUpate = () => {
+    updateCurWidget({
+      data: dataMap[curWidget.type]
+    })
+  }
   return (
     <div className={prefix}>
       <DragOverlay>{activeId ? <div className={`${prefix}__overlay`}></div> : null}</DragOverlay>
@@ -61,7 +67,7 @@ const SettingField: FC = () => {
       <SettingFieldItem title="度量" onDelete={onDelete} id={SortContainerId.metrics} key={SortContainerId.metrics} fieldList={curWidget.metrics!} />
       {/* <SettingFieldItem title="过滤器" key="3" fieldList={filterFieldList} /> */}
       <div className={`${prefix}__bottom`}>
-        <Button type="primary" className={`${prefix}__update-btn`}>
+        <Button type="primary" className={`${prefix}__update-btn`} onClick={onUpate}>
           更新
         </Button>
       </div>

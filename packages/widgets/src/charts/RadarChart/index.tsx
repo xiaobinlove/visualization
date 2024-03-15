@@ -1,15 +1,9 @@
 import { FC } from 'react'
 import { Radar } from '@ant-design/plots'
-const data = [
-  { name: 'G2', star: 10371 },
-  { name: 'G6', star: 7380 },
-  { name: 'F2', star: 7414 },
-  { name: 'L7', star: 2140 },
-  { name: 'X6', star: 660 },
-  { name: 'AVA', star: 885 },
-  { name: 'G2Plot', star: 1626 }
-]
-export const RadarChart: FC = () => {
+type Props = {
+  data: unknown
+}
+export const RadarChart: FC<Props> = ({ data }) => {
   const config = {
     data: data.map((d) => ({ ...d, star: Math.sqrt(d.star) })),
     xField: 'name',
