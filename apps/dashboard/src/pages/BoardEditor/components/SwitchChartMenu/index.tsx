@@ -2,12 +2,17 @@ import { FC, useState, useRef, useMemo } from 'react'
 import classnames from 'classnames'
 import { useHover } from 'ahooks'
 import ChartsPanel from '../ChartsPanel'
-import './index.less'
+import { useStore, curWidgetSelector, useSelector } from '@/store'
+import { widgetMap } from '../../widgetMap'
 import type { ChartMenuItem } from '@/types'
+import './index.less'
 const prefix = 'switch-chart-menu'
 const SwitchChartMenu: FC = () => {
-  const ref = useRef(null)
-  const [curSelect, setCurSelect] = useState<ChartMenuItem | null>(null)
+  const curWidget = useStore(curWidgetSelector)
+  const { updateCurWidget } = useStore(useSelector(['updateCurWidget']))
+  const ref = useRef()
+  const { type } = curWidget
+  const { icon, name } = widgetMap[type]
   const isHover = useHover(ref, {
     onLeave() {
       setExpand(false)
@@ -18,9 +23,10 @@ const SwitchChartMenu: FC = () => {
   const handleClick = () => {
     setExpand((expand) => !expand)
   }
-  console.log(isHover, 'isHover')
   const onItemClick = (item: ChartMenuItem) => {
-    setCurSelect(item)
+    updateCurWidget({
+      type: item.type
+    })
     setExpand(false)
   }
   return (
@@ -28,9 +34,9 @@ const SwitchChartMenu: FC = () => {
       <span className={`${prefix}__text`}>切换图表</span>
       <div className={`${prefix}__select`} onClick={handleClick}>
         <div className={`${prefix}__icon-container`}>
-          <i className={`global-component-icon ${prefix}__icon ${curSelect?.icon} light`}></i>
+          <i className={`global-component-icon ${prefix}__icon ${icon} light`}></i>
         </div>
-        <div className={`${prefix}__name`}>{curSelect?.name}</div>
+        <div className={`${prefix}__name`}>{name}</div>
       </div>
       <div className={`${prefix}__menu-box`} style={{ display: active ? 'block' : 'none' }}>
         <ChartsPanel onItemClick={onItemClick} />
