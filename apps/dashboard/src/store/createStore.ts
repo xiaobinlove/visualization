@@ -4,6 +4,7 @@ import type { State } from './initialState'
 import { initialState } from './initialState'
 import { Widget, DashMode } from '@/types'
 import { Layout } from 'react-grid-layout'
+import { COLS } from '@/components/GridLayouts'
 export type Action = {
   // 更新grid布局
   updateGrid: (layout: Layout[]) => void
@@ -14,6 +15,8 @@ export type Action = {
   addWidget: (widget: Widget) => string
   // 删除widget
   deleteWidget: (widgetId: string) => void
+  // 复制widget
+  copyWidget: (widgetId: string) => void
   setCurWidetId: (widgetId: string) => void
   setMode: (mode: DashMode) => void
   setDraggableInEdit: (val: boolean) => void
@@ -21,7 +24,7 @@ export type Action = {
 }
 export type Store = State & Action
 export const useStore = create<Store>()(
-  immer((set) => ({
+  immer((set, get) => ({
     ...initialState,
     setWidgets(widgets) {
       set({
@@ -61,6 +64,21 @@ export const useStore = create<Store>()(
     deleteWidget(widgetId) {
       set((state) => {
         delete state.widgets[widgetId]
+      })
+    },
+    copyWidget(widgetId) {
+      const { addWidget, widgets } = get()
+      const { width, height, type } = widgets[widgetId]
+      addWidget({
+        posX:
+          Object.values(widgets).reduce((pre, cur) => {
+            return (pre += cur.posX)
+          }, 0) % COLS,
+        posY: Infinity,
+        width,
+        height,
+        type,
+        title: ''
       })
     },
     setCurWidetId(widgetId) {

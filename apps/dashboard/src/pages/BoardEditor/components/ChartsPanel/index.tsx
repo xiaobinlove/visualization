@@ -9,6 +9,26 @@ type Props = {
 }
 const data: ChartMenu[] = [
   {
+    title: '指标',
+    chilren: [
+      {
+        name: '指标看板',
+        icon: 'component-type-indicator-card',
+        type: DashComponentType.INDICATOR_CARD
+      },
+      {
+        name: '进度条',
+        icon: 'component-type-progress-new',
+        type: DashComponentType.LINE_CHART
+      },
+      {
+        name: '仪表盘',
+        icon: 'component-type-gauge-new',
+        type: DashComponentType.LINE_CHART
+      }
+    ]
+  },
+  {
     title: '线/面图',
     chilren: [
       {

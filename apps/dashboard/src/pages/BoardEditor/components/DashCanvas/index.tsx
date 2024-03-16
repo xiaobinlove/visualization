@@ -14,11 +14,6 @@ const DashCanvas: FC = () => {
     useSelector(['setCurWidetId', 'addWidget', 'updateGrid', 'isDraggableInEdit', 'curWidgetId', 'widgets'])
   )
 
-  const defaultProps = {
-    className: 'layout',
-    rowHeight: 5,
-    cols: 60
-  }
   const onLayoutChange = (layout: Layout[]) => {
     updateGrid(layout.filter((item) => item.i !== 'fromMenu'))
   }
@@ -32,7 +27,7 @@ const DashCanvas: FC = () => {
       width: w,
       height: h,
       type: data,
-      title: [DashComponentType.RICH_TEXT].includes(data) ? '' : '未命名' + name,
+      title: '未命名' + name,
       ...initData
     })
     setCurWidetId(widgetId)
@@ -47,21 +42,20 @@ const DashCanvas: FC = () => {
     doResize()
   }
   const handleLayoutClick = (e: MouseEvent) => {
-    e.stopPropagation()
+    // e.stopPropagation()
     setCurWidetId('')
   }
   return (
     <div className={prefix} onClick={handleLayoutClick}>
       <GridLayouts
         isEdit={isEdit}
-        {...defaultProps}
         onLayoutChange={onLayoutChange}
         onDrop={onDrop}
         isDroppable={isEdit}
         isDraggable={isEdit && isDraggableInEdit}
         isResizable={isEdit}
         onResizeStop={onResizeStop}
-        droppingItem={{ i: 'fromMenu', w: 30, h: 20 }}
+        droppingItem={{ i: 'fromMenu', w: 12, h: 17 }}
         // draggableHandle=".hd-grid-item-container__drag-handle"
       ></GridLayouts>
     </div>

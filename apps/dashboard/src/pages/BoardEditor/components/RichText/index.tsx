@@ -46,17 +46,19 @@ export const RichText: FC<Props> = ({ widgetId }) => {
         <Editor
           tinymceScriptSrc="/tinymce/tinymce.min.js"
           onInit={(evt, editor) => {
-            editor.focus()
             editorRef.current = editor
           }}
           initialValue={curWidget.content}
           onBlur={onBlur}
           onFocus={onFocus}
           init={{
+            auto_focus: true,
             menubar: false,
             promotion: false,
             branding: false,
             language: 'zh-Hans',
+            font_size_input_default_unit: 'px',
+            font_size_formats: '12px 14px 16px 18px 20px 22px 24px 26px 28px 30px 34px 36px 40px',
             plugins: [
               'advlist',
               'autolink',
@@ -77,7 +79,12 @@ export const RichText: FC<Props> = ({ widgetId }) => {
               // 'wordcount'
             ],
             inline: true,
-            toolbar: 'styles ' + 'fontsize bold italic forecolor alignleft aligncenter ' + 'alignright alignjustify' + 'removeformat link image',
+            toolbar:
+              'styles ' +
+              'fontsize lineheight bold italic forecolor alignleft aligncenter ' +
+              'alignright alignjustify' +
+              'aligncenter' +
+              'removeformat link image',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:12px }'
           }}
         />

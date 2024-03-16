@@ -8,7 +8,8 @@ export enum DashComponentType {
   AREA_CHART = 'areaChart',
   RICH_TEXT = 'richText',
   IMAGE = 'image',
-  TAB = 'tab'
+  TAB = 'tab',
+  INDICATOR_CARD = 'indicatorCard'
 }
 export enum DataType {
   NUMBER = 'number',

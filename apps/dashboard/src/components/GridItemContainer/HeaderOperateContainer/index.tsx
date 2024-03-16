@@ -8,13 +8,16 @@ type Props = {
   widgetId: string
 }
 const HeaderOperateContainer: FC<Props> = ({ widgetId }) => {
-  const { deleteWidget, curWidgetId, setCurWidetId } = useStore(useSelector(['deleteWidget', 'setCurWidetId', 'curWidgetId']))
+  const { deleteWidget, curWidgetId, setCurWidetId, copyWidget } = useStore(useSelector(['deleteWidget', 'setCurWidetId', 'curWidgetId', 'copyWidget']))
   const handleDelete = (e?: MouseEvent<HTMLElement>) => {
     e?.stopPropagation()
     if (curWidgetId === widgetId) {
       setCurWidetId('')
     }
     deleteWidget(widgetId)
+  }
+  const handleCopy = () => {
+    copyWidget(widgetId)
   }
   return (
     <div className={prefix}>
@@ -25,7 +28,7 @@ const HeaderOperateContainer: FC<Props> = ({ widgetId }) => {
           </div>
         </Tooltip> */}
         <Tooltip title="复制" placement="bottom">
-          <div className={`${prefix}__btn`}>
+          <div className={`${prefix}__btn`} onClick={handleCopy}>
             <CopyOutlined />
           </div>
         </Tooltip>

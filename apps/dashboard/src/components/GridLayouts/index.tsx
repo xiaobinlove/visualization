@@ -10,6 +10,8 @@ const ReactGridLayout = WidthProvider(RGL)
 export interface GridLayoutProps extends ReactGridLayoutProps {
   isEdit: boolean
 }
+const ROW_HEIGHT = 10
+export const COLS = 24
 const GridLayouts: FC<GridLayoutProps> = ({ isEdit, onLayoutChange, onDrop, isDroppable, onResizeStop, isResizable, isDraggable, droppingItem }) => {
   const gridLayouts = useStore(gridLayoutSelector)
   const { setCurWidetId, curWidgetId, widgets } = useStore(useSelector(['curWidgetId', 'widgets', 'setCurWidetId']))
@@ -19,8 +21,8 @@ const GridLayouts: FC<GridLayoutProps> = ({ isEdit, onLayoutChange, onDrop, isDr
   }
   return (
     <ReactGridLayout
-      rowHeight={5}
-      cols={60}
+      rowHeight={ROW_HEIGHT}
+      cols={COLS}
       layout={gridLayouts}
       onLayoutChange={onLayoutChange}
       onDrop={onDrop}
@@ -33,6 +35,7 @@ const GridLayouts: FC<GridLayoutProps> = ({ isEdit, onLayoutChange, onDrop, isDr
     >
       {gridLayouts.map((item) => {
         const cur = widgets[item.i]
+        const { component, showTitle } = widgetMap[cur.type]
         return (
           <div
             key={item.i}
@@ -41,8 +44,8 @@ const GridLayouts: FC<GridLayoutProps> = ({ isEdit, onLayoutChange, onDrop, isDr
               isEdit && handleItemClick(e, item.i)
             }}
           >
-            <GridItemContainer title={cur.title} widgetId={item.i} isEdit={isEdit} type={cur.type} data={cur.data}>
-              {createElement(widgetMap[cur.type].component, { widgetId: item.i, data: cur.data })}
+            <GridItemContainer title={cur.title} widgetId={item.i} isEdit={isEdit} type={cur.type} data={cur.data} showTitle={showTitle}>
+              {createElement(component, { widgetId: item.i, data: cur.data })}
             </GridItemContainer>
           </div>
         )

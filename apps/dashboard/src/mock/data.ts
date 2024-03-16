@@ -1,4 +1,5 @@
 import { DashComponentType } from '@/types'
+import { Field } from '@/types'
 export const dataMap = {
   [DashComponentType.AREA_CHART]: [
     { year: '1991', value: 15468 },
@@ -73,5 +74,22 @@ export const dataMap = {
     { name: 'X6', star: 660 },
     { name: 'AVA', star: 885 },
     { name: 'G2Plot', star: 1626 }
+  ],
+  [DashComponentType.INDICATOR_CARD]: {
+    name: '留存率',
+    value: '26,930.34%'
+  }
+}
+export const dataSourceMap: Record<string, Field[]> = {
+  '1': [
+    { fieldName: 'height', fieldLabel: '身高', fieldType: 'number', id: 'f_321321312321' },
+    { fieldName: 'weight', fieldLabel: '体重', fieldType: 'number', id: 'f_321321312322' },
+    { fieldName: 'gender', fieldLabel: '性别', fieldType: 'text', id: 'f_321321312323' }
+  ],
+  '2': [
+    { fieldName: '1', fieldLabel: '3日留存率', fieldType: 'number', id: 'f_321321312324' },
+    { fieldName: '2', fieldLabel: '次日留存率', fieldType: 'number', id: 'f_321321312325' },
+    { fieldName: '3', fieldLabel: '30日留存率', fieldType: 'number', id: 'f_321321312326' },
+    { fieldName: '4', fieldLabel: '7日留存率', fieldType: 'number', id: 'f_321321312328' }
   ]
 }

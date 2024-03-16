@@ -1,5 +1,5 @@
 import { DashComponentType, Widget } from '@/types'
-import { ColumnChart, BarChart, PieChart, RadarChart, LineChart, AreaChart, Tab, Image } from '@dash/widgets'
+import { ColumnChart, BarChart, PieChart, RadarChart, LineChart, AreaChart, Tab, Image, IndicatorCard } from '@dash/widgets'
 import { RichText } from './components/RichText'
 import { FC } from 'react'
 type Config = {
@@ -8,6 +8,7 @@ type Config = {
   icon?: string // 图标
   name: string
   isChart?: boolean // 是否是图表控件
+  showTitle?: boolean // 图表是否显示标题 默认显示
 }
 export const widgetMap: Record<DashComponentType, Config> = {
   [DashComponentType.COLUMN_CHART]: {
@@ -29,7 +30,8 @@ export const widgetMap: Record<DashComponentType, Config> = {
     initData: { xFields: [], metrics: [] }
   },
   // 富文本
-  [DashComponentType.RICH_TEXT]: { component: RichText, name: '富文本', icon: '', initData: { content: '', xFields: [], metrics: [] } },
+  [DashComponentType.RICH_TEXT]: { component: RichText, showTitle: false, name: '富文本', icon: '', initData: { content: '', xFields: [], metrics: [] } },
   [DashComponentType.TAB]: { component: Tab, name: 'tab', initData: { xFields: [], metrics: [] } },
-  [DashComponentType.IMAGE]: { component: Image, name: '图片', initData: { xFields: [], metrics: [] } }
+  [DashComponentType.IMAGE]: { component: Image, showTitle: false, name: '图片', initData: { xFields: [], metrics: [] } },
+  [DashComponentType.INDICATOR_CARD]: { component: IndicatorCard, showTitle: false, isChart: true, name: '指标看板', initData: { xFields: [], metrics: [] } }
 }

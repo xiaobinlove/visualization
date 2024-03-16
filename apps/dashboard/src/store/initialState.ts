@@ -1,4 +1,4 @@
-import { Widget, DashComponentType, DashMode } from '@/types'
+import { Widget, DashMode } from '@/types'
 export type State = {
   widgets: Record<string, Widget>
   // 当前选择的widgetId

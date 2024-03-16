@@ -12,14 +12,15 @@ type Props = {
   widgetId: string
   data?: unknown
   type: DashComponentType
+  showTitle?: boolean
 }
-const GridItemContainer: FC<Props> = ({ title, children, isEdit = true, widgetId, data, type }) => {
+const GridItemContainer: FC<Props> = ({ title, children, isEdit = true, widgetId, data, type, showTitle = true }) => {
   const { isDraggableInEdit } = useStore(useSelector(['isDraggableInEdit']))
   const { isChart } = widgetMap[type]
   return (
     <>
       {isEdit && isDraggableInEdit && <HeaderOperateContainer widgetId={widgetId} />}
-      {title && <div className={`${prefix}__header`}>{title}</div>}
+      {showTitle && <div className={`${prefix}__header`}>{title}</div>}
       {!data && isChart && (
         <div className={`${prefix}__loader-error`}>
           <div className={`${prefix}__error-descript`}>当前图表暂无数据</div>
