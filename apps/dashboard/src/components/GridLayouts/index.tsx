@@ -45,7 +45,7 @@ const GridLayouts: FC<GridLayoutProps> = ({ isEdit, onLayoutChange, onDrop, isDr
             }}
           >
             <GridItemContainer title={cur.title} widgetId={item.i} isEdit={isEdit} type={cur.type} data={cur.data} showTitle={showTitle}>
-              {createElement(component, { widgetId: item.i, data: cur.data })}
+              {createElement(component, { widgetId: item.i, data: cur.data, isEdit })}
             </GridItemContainer>
           </div>
         )

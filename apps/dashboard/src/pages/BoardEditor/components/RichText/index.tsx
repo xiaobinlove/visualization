@@ -6,8 +6,9 @@ import './index.less'
 const prefix = 'hd-rich-text'
 type Props = {
   widgetId: string
+  isEdit?: boolean
 }
-export const RichText: FC<Props> = ({ widgetId }) => {
+export const RichText: FC<Props> = ({ widgetId, isEdit = true }) => {
   const { isDraggableInEdit, setDraggableInEdit, updateWidget, widgets } = useStore(
     useSelector(['isDraggableInEdit', 'setDraggableInEdit', 'updateWidget', 'widgets'])
   )
@@ -17,7 +18,7 @@ export const RichText: FC<Props> = ({ widgetId }) => {
   useDoubleClick({
     ref: contentRef,
     onDBClick() {
-      setDraggableInEdit(false)
+      isEdit && setDraggableInEdit(false)
     }
   })
   const onBlur = () => {
