@@ -9,7 +9,8 @@ export enum DashComponentType {
   RICH_TEXT = 'richText',
   IMAGE = 'image',
   TAB = 'tab',
-  INDICATOR_CARD = 'indicatorCard'
+  INDICATOR_CARD = 'indicatorCard',
+  GANTT_CHART = 'ganttChart'
 }
 export enum DataType {
   NUMBER = 'number',
@@ -58,4 +59,8 @@ export type ChartMenuItem = { name: string; icon: string; type: DashComponentTyp
 export type ChartMenu = {
   title: string
   chilren: ChartMenuItem[]
+}
+export interface ComponentTreeItem extends Widget {
+  children: ComponentTreeItem[]
+  id: string
 }

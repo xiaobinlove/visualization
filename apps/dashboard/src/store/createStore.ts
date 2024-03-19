@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 import type { State } from './initialState'
 import { initialState } from './initialState'
-import { Widget, DashMode } from '@/types'
+import { Widget, DashMode, DashComponentType } from '@/types'
 import { Layout } from 'react-grid-layout'
 import { COLS } from '@/components/GridLayouts'
 export type Action = {
@@ -17,6 +17,7 @@ export type Action = {
   deleteWidget: (widgetId: string) => void
   // 复制widget
   copyWidget: (widgetId: string) => void
+  moveWidgetToTab: (from: string, to: string) => void
   setCurWidetId: (widgetId: string) => void
   setMode: (mode: DashMode) => void
   setDraggableInEdit: (val: boolean) => void
@@ -80,6 +81,32 @@ export const useStore = create<Store>()(
         type,
         title: ''
       })
+    },
+    moveWidgetToTab(from, to) {
+      debugger
+      const { widgets } = get()
+      const fromWidget = widgets[from]
+      const toWidget = widgets[to]
+      // 如果移动的是容器元素，不与移动
+      if (fromWidget.type === DashComponentType.TAB) {
+        return
+      }
+      // 如果form和to是同级，则无需移动
+      if (toWidget.parent && toWidget.parent === fromWidget.parent) {
+        return
+      }
+      // 移动到画布顶层
+      if (to === 'root') {
+        // dd
+        set((state) => {
+          delete state.widgets[from].parent
+        })
+      } else {
+        // 移动到tab容器
+        set((state) => {
+          state.widgets[from].parent = to
+        })
+      }
     },
     setCurWidetId(widgetId) {
       set({

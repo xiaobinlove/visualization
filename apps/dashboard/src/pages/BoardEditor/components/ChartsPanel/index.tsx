@@ -75,6 +75,11 @@ const data: ChartMenu[] = [
         name: '百分比',
         icon: 'component-type-polyline-stack-percent',
         type: DashComponentType.LINE_CHART
+      },
+      {
+        name: '甘特图',
+        icon: 'component-type-polyline-stack-percent',
+        type: DashComponentType.GANTT_CHART
       }
     ]
   },

@@ -1,0 +1,154 @@
+{
+  "_id": "65f7a85c1cb8993f6d3eb426",
+  "appId": "65f7a85c1cb8993f6d3eb419",
+  "entryId": "5fe409d84b5cc20006d6d0af",
+  "name": "极简风",
+  "components": {
+    "_widget_1608780775670": {
+      "title": "总重量",
+      "form": "5fe404512bafa50006e7f5aa",
+      "type": "metric_table",
+      "hasExport": true,
+      "chart_label": { "enable": true },
+      "width": 20,
+      "height": 15,
+      "posX": 0,
+      "posY": 0,
+      "permission": "all",
+      "value_size": "M",
+      "drilldown": "pc",
+      "fields": [],
+      "filter": { "cond": [], "rel": "and" },
+      "top": {},
+      "rowOrder": {},
+      "thresholds": [],
+      "guideline": [],
+      "conditionalFormatting": [],
+      "color": "",
+      "styles": { "theme": { "cardName": "preset_metric_2" }, "background": { "type": "color", "color": "#4978FE" }, "fontSetting": {} },
+      "defaultSort": [],
+      "useMemberFormOpt": true,
+      "mobile_value_size": "S",
+      "parent": "_widget_1710754652036",
+      "xFields": [],
+      "yFields": [],
+      "metrics": [
+        {
+          "name": "_widget_1608778833036",
+          "form": "5fe404512bafa50006e7f5aa",
+          "type": "number",
+          "title": "重量",
+          "tag": "f_1608781069136",
+          "op": "sum",
+          "formatType": "preset",
+          "format": "0.",
+          "unit": "kg"
+        }
+      ],
+      "formulas": []
+    },
+    "_widget_1608788500886": {
+      "title": "饼图粗圆环",
+      "form": "5fe404512bafa50006e7f5aa",
+      "type": "pie_chart",
+      "hasExport": true,
+      "chart_label": { "dimension": { "enable": true }, "value": { "enable": false }, "value_percent": { "enable": false }, "enable": true },
+      "width": 39,
+      "height": 16,
+      "posX": 20,
+      "posY": 0,
+      "permission": "all",
+      "value_size": "L",
+      "drilldown": "pc",
+      "fields": [],
+      "filter": {
+        "cond": [
+          {
+            "title": "水果类型",
+            "name": "_widget_1608778833035",
+            "items": [
+              { "text": "梨子", "value": "梨子", "color": "#FA5353" },
+              { "text": "哈密瓜", "value": "哈密瓜", "color": "#F5C13C" },
+              { "text": "橘子", "value": "橘子", "color": "#2FCD6E" },
+              { "text": "苹果", "value": "苹果", "color": "#3F8CFF" },
+              { "text": "枇杷", "value": "枇杷", "color": "#D144F4" },
+              { "text": "葡萄", "value": "葡萄", "color": "#656565" },
+              { "text": "石榴", "value": "石榴", "color": "#FF9D8D" },
+              { "text": "桃子", "value": "桃子", "color": "#A5C71C" },
+              { "text": "西红柿", "value": "西红柿", "color": "#00C7C7" },
+              { "text": "香蕉", "value": "香蕉", "color": "#7957FF" },
+              { "text": "樱桃", "value": "樱桃", "color": "#F24BAF" }
+            ],
+            "type": "text",
+            "entryId": "5fe404512bafa50006e7f5aa",
+            "field": "_widget_1608778833035",
+            "method": "in",
+            "value": ["哈密瓜", "橘子", "梨子", "苹果", "葡萄"],
+            "hasEmpty": false,
+            "hasCurrentUser": false,
+            "hasCurrentDept": false
+          }
+        ],
+        "rel": "and"
+      },
+      "top": { "enable": true, "limit": 5 },
+      "rowOrder": {},
+      "thresholds": [],
+      "guideline": [],
+      "conditionalFormatting": [],
+      "color": "",
+      "curve": false,
+      "marker": { "symbol": "circle" },
+      "pie_type": "thick",
+      "legend": { "enable": false, "position": "bottom" },
+      "defaultSort": [],
+      "useMemberFormOpt": true,
+      "mobile_value_size": "S",
+      "parent": "_widget_1710754652036",
+      "xFields": [
+        {
+          "name": "_widget_1608778833035",
+          "form": "5fe404512bafa50006e7f5aa",
+          "type": "combo",
+          "title": "水果类型",
+          "tag": "f_1608782498342",
+          "colors": [
+            { "value": "橘子", "color": "#E25867" },
+            { "value": "葡萄", "color": "#7562E2" },
+            { "value": "哈密瓜", "color": "#1A99FF" },
+            { "value": "苹果", "color": "#90CB7E" },
+            { "value": "梨子", "color": "#F8CB7F" }
+          ]
+        }
+      ],
+      "yFields": [],
+      "metrics": [
+        { "name": "_widget_1608778833036", "form": "5fe404512bafa50006e7f5aa", "type": "number", "title": "重量", "tag": "f_1608782498412", "op": "sum" }
+      ],
+      "formulas": []
+    },
+    "_widget_1710754652036": {
+      "posX": 2,
+      "posY": 0,
+      "width": 28,
+      "height": 21,
+      "type": "group_container",
+      "title": "未命名布局容器",
+      "titleStyle": { "visible": false },
+      "enableTab": false,
+      "tabList": []
+    }
+  },
+  "styles": {
+    "theme": { "name": "preset_style_light_1", "highLightColor": "#0DB3A6", "palette": "preset_1", "gradation": "preset_map_1" },
+    "background": { "type": "color", "color": "#F4F6F9" },
+    "widget": {
+      "theme": { "color": "#E9E9E9", "icon": 1, "cardName": "preset_metric_1" },
+      "background": { "type": "color", "color": "#FFFFFF" },
+      "fontSetting": { "titleColor": "#1F2D3D", "headColor": "#5E6D82", "textColor": "#1F2D3D", "textAlign": "default" }
+    }
+  },
+  "mobileStyles": {},
+  "attr": { "isPublic": false, "parent": "1", "isExport": false, "isPublishedAsHome": false, "isPublicExcelExport": false },
+  "checkConfig": {}
+}

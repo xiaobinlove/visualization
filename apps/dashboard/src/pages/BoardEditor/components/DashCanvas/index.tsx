@@ -3,7 +3,7 @@ import { Layout } from 'react-grid-layout'
 import { widgetMap } from '../../widgetMap'
 import GridLayouts from '@/components/GridLayouts'
 import { doResize } from '@/utils'
-import { useStore, isEditModeSelector, useSelector } from '@/store'
+import { useStore, isEditModeSelector, useSelector, gridLayoutSelector } from '@/store'
 import { DashComponentType } from '@/types'
 import 'react-grid-layout/css/styles.css'
 import './index.less'
@@ -13,7 +13,7 @@ const DashCanvas: FC = () => {
   const { setCurWidetId, isDraggableInEdit, addWidget, updateGrid, widgets } = useStore(
     useSelector(['setCurWidetId', 'addWidget', 'updateGrid', 'isDraggableInEdit', 'curWidgetId', 'widgets'])
   )
-
+  const componentTree = useStore(gridLayoutSelector)
   const onLayoutChange = (layout: Layout[]) => {
     updateGrid(layout.filter((item) => item.i !== 'fromMenu'))
   }
@@ -51,6 +51,7 @@ const DashCanvas: FC = () => {
         isEdit={isEdit}
         onLayoutChange={onLayoutChange}
         onDrop={onDrop}
+        componentTree={componentTree}
         isDroppable={isEdit}
         isDraggable={isEdit && isDraggableInEdit}
         isResizable={isEdit}

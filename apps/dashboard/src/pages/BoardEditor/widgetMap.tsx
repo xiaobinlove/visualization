@@ -1,5 +1,5 @@
 import { DashComponentType, Widget } from '@/types'
-import { ColumnChart, BarChart, PieChart, RadarChart, LineChart, AreaChart, Tab, Image, IndicatorCard } from '@dash/widgets'
+import { ColumnChart, BarChart, PieChart, RadarChart, LineChart, AreaChart, Tab, Image, IndicatorCard, GanttChart } from '@dash/widgets'
 import { RichText } from './components/RichText'
 import { FC } from 'react'
 type Config = {
@@ -29,6 +29,7 @@ export const widgetMap: Record<DashComponentType, Config> = {
     icon: 'component-type-polyline',
     initData: { xFields: [], metrics: [] }
   },
+  [DashComponentType.GANTT_CHART]: { component: GanttChart, isChart: true, name: '甘特图', icon: '', initData: { xFields: [], metrics: [] } },
   // 富文本
   [DashComponentType.RICH_TEXT]: { component: RichText, showTitle: false, name: '富文本', icon: '', initData: { content: '', xFields: [], metrics: [] } },
   [DashComponentType.TAB]: { component: Tab, name: 'tab', initData: { xFields: [], metrics: [] } },

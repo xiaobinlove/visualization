@@ -1,5 +1,8 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import './index.less'
-export const Tab: FC = () => {
-  return <div>Tab</div>
+type Props = {
+  children: ReactNode
+}
+export const Tab: FC<Props> = ({ children }) => {
+  return <div>{children}</div>
 }
