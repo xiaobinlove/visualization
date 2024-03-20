@@ -3,7 +3,6 @@ import { useStore, useSelector } from '@/store'
 import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout'
 import GridItemContainer from '../GridItemContainer'
 import { ComponentTreeItem } from '@/types'
-import classnames from 'classnames'
 import { widgetMap } from '@/pages/BoardEditor/widgetMap'
 import 'react-grid-layout/css/styles.css'
 import './index.less'
@@ -49,55 +48,25 @@ const GridLayouts: FC<GridLayoutProps> = ({
         {layout.map((item) => {
           const { component, showTitle } = widgetMap[item.type]
           return (
-            <div
-              key={item.id}
-              className={classnames('hd-grid-item-container', { 'hd-grid-item-container--selected': curWidgetId === item.id })}
+            <GridItemContainer
               onClick={(e) => {
                 isEdit && handleItemClick(e, item.id)
               }}
-            >
-              <GridItemContainer title={item.title} widgetId={item.id} isEdit={isEdit} type={item.type} data={item.data} showTitle={showTitle}>
-                {createElement(component, { widgetId: item.id, data: item.data, isEdit }, item.children.length > 0 && render(item.children))}
-              </GridItemContainer>
-            </div>
+              key={item.id}
+              contentRender={createElement(component, { widgetId: item.id, data: item.data, isEdit }, item.children.length > 0 && render(item.children))}
+              title={item.title}
+              widgetId={item.id}
+              isEdit={isEdit}
+              type={item.type}
+              data={item.data}
+              showTitle={showTitle}
+              isSelected={curWidgetId === item.id}
+            />
           )
         })}
       </ReactGridLayout>
     )
   }
   return render(componentTree)
-  // return (
-  //   <ReactGridLayout
-  //     rowHeight={ROW_HEIGHT}
-  //     cols={COLS}
-  //     layout={gridLayouts}
-  //     onLayoutChange={onLayoutChange}
-  //     onDrop={onDrop}
-  //     isDroppable={isDroppable}
-  //     isDraggable={isDraggable}
-  //     isResizable={isResizable}
-  //     onResizeStop={onResizeStop}
-  //     droppingItem={droppingItem}
-  //     // draggableHandle=".hd-grid-item-container__drag-handle"
-  //   >
-  //     {gridLayouts.map((item) => {
-  //       const cur = widgets[item.i]
-  //       const { component, showTitle } = widgetMap[cur.type]
-  //       return (
-  //         <div
-  //           key={item.i}
-  //           className={classnames('hd-grid-item-container', { 'hd-grid-item-container--selected': curWidgetId === item.i })}
-  //           onClick={(e) => {
-  //             isEdit && handleItemClick(e, item.i)
-  //           }}
-  //         >
-  //           <GridItemContainer title={cur.title} widgetId={item.i} isEdit={isEdit} type={cur.type} data={cur.data} showTitle={showTitle}>
-  //             {createElement(component, { widgetId: item.i, data: cur.data, isEdit })}
-  //           </GridItemContainer>
-  //         </div>
-  //       )
-  //     })}
-  //   </ReactGridLayout>
-  // )
 }
 export default GridLayouts

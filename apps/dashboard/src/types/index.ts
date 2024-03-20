@@ -10,6 +10,7 @@ export enum DashComponentType {
   IMAGE = 'image',
   TAB = 'tab',
   INDICATOR_CARD = 'indicatorCard',
+  DATA_TABLE = 'dataTable',
   GANTT_CHART = 'ganttChart'
 }
 export enum DataType {

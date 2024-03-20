@@ -9,6 +9,21 @@ type Props = {
 }
 const data: ChartMenu[] = [
   {
+    title: '表格',
+    chilren: [
+      {
+        name: '明细表',
+        icon: 'component-type-common-table',
+        type: DashComponentType.DATA_TABLE
+      },
+      {
+        name: '交叉表',
+        icon: 'component-type-cross-table',
+        type: DashComponentType.LINE_CHART
+      }
+    ]
+  },
+  {
     title: '指标',
     chilren: [
       {
@@ -105,16 +120,16 @@ const ChartsPanel: FC<Props> = ({ onItemClick, type = 'menu' }) => {
   return (
     <div className={prefix}>
       <div className={`${prefix}__group-list`}>
-        {data.map(({ title, chilren }) => {
+        {data.map(({ title, chilren }, index) => {
           return (
-            <div className={`${prefix}__group`}>
+            <div className={`${prefix}__group`} key={index}>
               <div className={`${prefix}__title`}>{title}</div>
               <div className={`${prefix}__items`}>
-                {chilren.map((item) => {
+                {chilren.map((item, index) => {
                   return (
                     <div
                       className={`${prefix}__item`}
-                      key={item.icon}
+                      key={index}
                       draggable={true}
                       unselectable="on"
                       onClick={() => {
