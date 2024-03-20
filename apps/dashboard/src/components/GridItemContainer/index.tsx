@@ -3,10 +3,10 @@ import HeaderOperateContainer from './HeaderOperateContainer'
 import classnames from 'classnames'
 import { useStore, useSelector } from '@/store'
 import { widgetMap } from '@/pages/BoardEditor/widgetMap'
-import { DashComponentType } from '@/types'
+import { DashComponentType, Widget } from '@/types'
 import './index.less'
 const prefix = 'hd-grid-item-container'
-type Props = {
+interface Props extends Partial<Widget> {
   isEdit?: boolean
   title?: string
   widgetId: string
@@ -15,13 +15,13 @@ type Props = {
   showTitle?: boolean
   contentRender: ReactNode
   children?: ReactNode
-  isSelected?: boolean
+  isSelected: boolean
   onClick?: MouseEventHandler
   className?: string
   style?: CSSProperties
-  onMouseDown?: MouseEventHandler
-  onMouseUp?: MouseEventHandler
-  onTouchEnd?: TouchEventHandler
+  onMouseDown?: MouseEventHandler<HTMLDivElement>
+  onMouseUp?: MouseEventHandler<HTMLDivElement>
+  onTouchEnd?: TouchEventHandler<HTMLDivElement>
 }
 const GridItemContainer = forwardRef<HTMLDivElement, Props>(
   (
@@ -33,9 +33,10 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
       data,
       type,
       showTitle = true,
+      parent,
       contentRender,
-      onClick,
       isSelected,
+      onClick,
       className,
       style,
       onMouseDown,
@@ -46,15 +47,22 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
   ) => {
     const { isDraggableInEdit } = useStore(useSelector(['isDraggableInEdit']))
     const { isChart } = widgetMap[type]
-
+    console.log(parent, 'parent')
     return (
       <div
         ref={ref}
         onClick={onClick}
-        className={classnames(className, 'hd-grid-item-container', { 'hd-grid-item-container--selected': isSelected })}
+        className={classnames(className, 'hd-grid-item-container', { 'hd-grid-item-container--selected': isSelected, [`${prefix}--inner`]: Boolean(parent) })}
         style={style}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
+        onMouseDown={(e) => {
+          // 防止
+          e.stopPropagation()
+          onMouseDown?.(e)
+        }}
+        onMouseUp={(e) => {
+          e.stopPropagation()
+          onMouseUp?.(e)
+        }}
         onTouchEnd={onTouchEnd}
       >
         {isEdit && isDraggableInEdit && <HeaderOperateContainer widgetId={widgetId} />}

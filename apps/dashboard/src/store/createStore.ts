@@ -83,7 +83,6 @@ export const useStore = create<Store>()(
       })
     },
     moveWidgetToTab(from, to) {
-      debugger
       const { widgets } = get()
       const fromWidget = widgets[from]
       const toWidget = widgets[to]

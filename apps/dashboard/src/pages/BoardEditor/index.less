@@ -30,25 +30,3 @@
     transition: left 0.2s cubic-bezier(0.19, 1, 0.22, 1);
   }
 }
-
-.db-board-editor--edit {
-  .hd-grid-item-container {
-    &--selected {
-      box-shadow: 0 0 0 3px var(--bi-primary-color) !important;
-    }
-
-    &:hover:not(.hd-grid-item-container--selected) {
-      box-shadow: 0 0 0 3px var(--bi-primary-color-disabled, #99e3d6) !important;
-
-      .hd-header-operate-container {
-        opacity: 1;
-      }
-    }
-
-    &:hover {
-      .hd-header-operate-container {
-        opacity: 1;
-      }
-    }
-  }
-}

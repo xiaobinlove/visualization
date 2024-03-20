@@ -57,7 +57,6 @@ const DashCanvas: FC = () => {
         isResizable={isEdit}
         onResizeStop={onResizeStop}
         droppingItem={{ i: 'fromMenu', w: 12, h: 17 }}
-        // draggableHandle=".hd-grid-item-container__drag-handle"
       ></GridLayouts>
     </div>
   )

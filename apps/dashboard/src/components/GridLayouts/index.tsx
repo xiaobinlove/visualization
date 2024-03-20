@@ -43,7 +43,6 @@ const GridLayouts: FC<GridLayoutProps> = ({
         isResizable={isResizable}
         onResizeStop={onResizeStop}
         droppingItem={droppingItem}
-        // draggableHandle=".hd-grid-item-container__drag-handle"
       >
         {layout.map((item) => {
           const { component, showTitle } = widgetMap[item.type]
@@ -53,6 +52,7 @@ const GridLayouts: FC<GridLayoutProps> = ({
                 isEdit && handleItemClick(e, item.id)
               }}
               key={item.id}
+              parent={item.parent}
               contentRender={createElement(component, { widgetId: item.id, data: item.data, isEdit }, item.children.length > 0 && render(item.children))}
               title={item.title}
               widgetId={item.id}
