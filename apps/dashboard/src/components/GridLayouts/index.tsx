@@ -3,7 +3,7 @@ import { useStore, useSelector } from '@/store'
 import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout'
 import GridItemContainer from '../GridItemContainer'
 import { ComponentTreeItem } from '@/types'
-import { widgetMap } from '@/pages/BoardEditor/widgetMap'
+import { widgetMap } from '@/framework/widgetMap'
 import 'react-grid-layout/css/styles.css'
 import './index.less'
 const ReactGridLayout = WidthProvider(RGL)

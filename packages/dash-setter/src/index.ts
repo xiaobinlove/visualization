@@ -1,1 +1,5 @@
 export * from './components/SetterCollapse'
+export { ColorSelect } from './ColorSelect'
+export { UiSizeInput } from './UiSizeInput'
+export { FontStyleButton } from './FontStyleButton'
+export { TextAlign } from './TextAlign'

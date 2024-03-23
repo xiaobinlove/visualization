@@ -2,7 +2,7 @@ import { ReactNode, forwardRef, CSSProperties, MouseEventHandler, TouchEventHand
 import HeaderOperateContainer from './HeaderOperateContainer'
 import classnames from 'classnames'
 import { useStore, useSelector } from '@/store'
-import { widgetMap } from '@/pages/BoardEditor/widgetMap'
+import { widgetMap } from '@/framework/widgetMap'
 import { DashComponentType, Widget } from '@/types'
 import './index.less'
 const prefix = 'hd-grid-item-container'
