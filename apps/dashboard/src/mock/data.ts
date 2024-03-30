@@ -227,9 +227,7 @@ export const dataMap = {
 export const dataSourceMap: Record<string, Field[]> = {
   '1': [
     { fieldName: '4', fieldLabel: '工单编号', fieldType: 'number', id: 'f_32132131231231225gads132f' },
-    { fieldName: '1', fieldLabel: '处理状态', fieldType: 'number', id: 'f_321321312123213324da' },
-    { fieldName: '2', fieldLabel: '告警状态', fieldType: 'number', id: 'f_321321312312321326daf' },
-    { fieldName: '3', fieldLabel: '告警等级', fieldType: 'number', id: 'f_32132131231321326da24324f' }
+    { fieldName: '1', fieldLabel: '处理状态', fieldType: 'number', id: 'f_321321312123213324da' }
   ],
   '6': [
     { fieldName: '1', fieldLabel: '告警编号', fieldType: 'number', id: 'f_321321312312321e23f326daf' },

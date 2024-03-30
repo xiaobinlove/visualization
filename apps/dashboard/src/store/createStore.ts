@@ -71,7 +71,7 @@ export const useStore = create<Store>()(
     },
     copyWidget(widgetId) {
       const { addWidget, widgets } = get()
-      const { width, height, type } = widgets[widgetId]
+      const { width, height, type, styles, title } = widgets[widgetId]
       addWidget({
         posX:
           Object.values(widgets).reduce((pre, cur) => {
@@ -81,7 +81,8 @@ export const useStore = create<Store>()(
         width,
         height,
         type,
-        title: ''
+        title,
+        styles
       })
     },
     moveWidgetToTab(from, to) {
