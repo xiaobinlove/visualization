@@ -1,5 +1,6 @@
-import { FC, MouseEvent, useMemo } from 'react'
-import { Dropdown, MenuProps } from 'antd'
+import { FC, MouseEvent, useMemo, useState } from 'react'
+import { Dropdown } from 'antd'
+import type { MenuProps } from 'antd'
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import Droppable from '@/components/Droppable'
 import SortableItem from '@/components/SortableItem'
@@ -17,17 +18,18 @@ type Props = {
 
 const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) => {
   const sortItems = useMemo(() => fieldList.map((item) => item.id), [fieldList])
+  const [condition, setCondition] = useState<string>('')
   const items: MenuProps['items'] = [
     {
       key: '1',
       label: '汇总方式',
       children: [
         {
-          key: '1-1',
+          key: '12-1',
           label: '求和'
         },
         {
-          key: '1-2',
+          key: '12-2',
           label: '平均值'
         },
         {
@@ -53,11 +55,11 @@ const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) =>
       label: '高级计算',
       children: [
         {
-          key: '2-1',
+          key: '2-12',
           label: '环比'
         },
         {
-          key: '2-2',
+          key: '22-23',
           label: '占比'
         },
         {
@@ -75,15 +77,15 @@ const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) =>
       label: '排序',
       children: [
         {
-          key: '2-1',
+          key: '2-11',
           label: '默认'
         },
         {
-          key: '2-2',
+          key: '2-22',
           label: '升序'
         },
         {
-          key: '2-3',
+          key: '2-33',
           label: '降序'
         }
       ]
@@ -93,7 +95,16 @@ const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) =>
     event.stopPropagation()
     onDelete(id, index)
   }
-
+  const onSelect = (e) => {
+    items.forEach((item) => {
+      item?.children?.forEach((item) => {
+        if (item.key === e.selectedKeys[0]) {
+          setCondition(item.label)
+        }
+      })
+    })
+    console.log(e.selectedKeys, 'item1')
+  }
   return (
     <div className={prefix}>
       <div className={`${prefix}__header`}>{title}</div>
@@ -113,13 +124,17 @@ const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) =>
                     menu={{
                       items,
                       selectable: true,
-                      defaultSelectedKeys: ['3-1']
+                      defaultSelectedKeys: ['3-1'],
+                      onSelect: onSelect
                     }}
                     trigger={['click']}
                   >
                     <div className={`${prefix}__field-wrapper`}>
                       <SvgIcon name="箭头_下" className={`${prefix}__icon`} size={10} color="rgba(0,0,0,.65)" />
-                      <div className={`${prefix}__label`}>{item.fieldLabel}</div>
+                      <div className={`${prefix}__label`}>
+                        {item.fieldLabel}
+                        {condition ? `(${condition})` : null}
+                      </div>
                       <SvgIcon
                         name="delete"
                         className={`${prefix}__delete`}
