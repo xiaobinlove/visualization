@@ -8,9 +8,6 @@ export const UiSizeInput: FC = () => {
     <div className={prefix}>
       <InputNumber
         addonBefore={<SvgIcon size={12} name="pc" />}
-        onChange={(val) => {
-          console.log(typeof val, 'val')
-        }}
         formatter={(value) => `${value}px`}
         parser={(value) => value!.replace('px', '')}
         min={0}

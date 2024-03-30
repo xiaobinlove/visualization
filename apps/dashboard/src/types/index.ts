@@ -1,3 +1,6 @@
+export type { Styles, Background, TextStyle, indicatorStyle } from './theme-config'
+export { ThemeType, PaletteType } from './theme-config'
+import { WidgetStyle } from './theme-config'
 // 物料组件类型
 export enum DashComponentType {
   COLUMN_CHART = 'columnChart',
@@ -11,6 +14,7 @@ export enum DashComponentType {
   TAB = 'tab',
   INDICATOR_CARD = 'indicatorCard',
   DATA_TABLE = 'dataTable',
+  CROSS_TABLE = 'crossTable',
   GANTT_CHART = 'ganttChart'
 }
 export enum DataType {
@@ -49,6 +53,7 @@ export interface Widget {
   form?: string
   content?: string // 富文本
   data?: unknown
+  styles?: WidgetStyle
 }
 
 export enum DashMode {

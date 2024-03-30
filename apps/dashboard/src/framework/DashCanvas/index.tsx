@@ -1,18 +1,33 @@
-import { FC, DragEvent, MouseEvent } from 'react'
+import { FC, DragEvent } from 'react'
 import { Layout } from 'react-grid-layout'
 import { widgetMap } from '../widgetMap.tsx'
 import GridLayouts from '@/components/GridLayouts'
+import { CanvasContainer } from '../components/CanvasContainer'
 import { doResize } from '@/utils'
 import { useStore, isEditModeSelector, useSelector, gridLayoutSelector } from '@/store'
 import { DashComponentType } from '@/types'
+import { useMount } from 'ahooks'
 import 'react-grid-layout/css/styles.css'
 import './index.less'
 const prefix = 'db-dash-canvas'
 const DashCanvas: FC = () => {
   const isEdit = useStore(isEditModeSelector)
-  const { setCurWidetId, isDraggableInEdit, addWidget, updateGrid, widgets } = useStore(
-    useSelector(['setCurWidetId', 'addWidget', 'updateGrid', 'isDraggableInEdit', 'curWidgetId', 'widgets'])
+  const { setCurWidetId, isDraggableInEdit, addWidget, updateGrid, widgets, setWidgets, updateStyles } = useStore(
+    useSelector(['setCurWidetId', 'addWidget', 'updateGrid', 'isDraggableInEdit', 'curWidgetId', 'widgets', 'setWidgets', 'updateStyles'])
   )
+  const params = new URLSearchParams(location.search)
+  const id = params.get('id')
+  useMount(() => {
+    if (id) {
+      const data = localStorage.getItem(`dash-data${id}`)
+      if (data) {
+        const { widgets, styles } = JSON.parse(data)
+        widgets && setWidgets(widgets)
+        styles && updateStyles(styles)
+      }
+      doResize()
+    }
+  })
   const componentTree = useStore(gridLayoutSelector)
   const onLayoutChange = (layout: Layout[]) => {
     updateGrid(layout.filter((item) => item.i !== 'fromMenu'))
@@ -41,23 +56,25 @@ const DashCanvas: FC = () => {
     }
     doResize()
   }
-  const handleLayoutClick = (e: MouseEvent) => {
+  const handleLayoutClick = () => {
     // e.stopPropagation()
     setCurWidetId('')
   }
   return (
     <div className={prefix} onClick={handleLayoutClick}>
-      <GridLayouts
-        isEdit={isEdit}
-        onLayoutChange={onLayoutChange}
-        onDrop={onDrop}
-        componentTree={componentTree}
-        isDroppable={isEdit}
-        isDraggable={isEdit && isDraggableInEdit}
-        isResizable={isEdit}
-        onResizeStop={onResizeStop}
-        droppingItem={{ i: 'fromMenu', w: 12, h: 17 }}
-      ></GridLayouts>
+      <CanvasContainer>
+        <GridLayouts
+          isEdit={isEdit}
+          onLayoutChange={onLayoutChange}
+          onDrop={onDrop}
+          componentTree={componentTree}
+          isDroppable={isEdit}
+          isDraggable={isEdit && isDraggableInEdit}
+          isResizable={isEdit}
+          onResizeStop={onResizeStop}
+          droppingItem={{ i: 'fromMenu', w: 6, h: 17 }}
+        ></GridLayouts>
+      </CanvasContainer>
     </div>
   )
 }

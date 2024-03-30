@@ -30,7 +30,7 @@
     "@ant-design/plots": "^2.1.14",
     "@dash/icons": "workspace:*",
     "@types/lodash-es": "^4.17.12",
-    "antd": "^5.14.2",
+    "antd": "^5.15.4",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "immer": "^10.0.3",

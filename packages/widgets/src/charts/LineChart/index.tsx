@@ -1,11 +1,14 @@
 import { FC } from 'react'
 import { Line } from '@ant-design/plots'
-type Props = {
-  data: unknown
-}
-export const LineChart: FC<Props> = ({ data }) => {
+import { BaseWidget } from '../../types'
+interface Props extends BaseWidget {}
+import { getChartsTheme } from '../../utils'
+export const LineChart: FC<Props> = ({ data, colors, themeType, dark }) => {
   const config = {
     data,
+    theme: {
+      ...getChartsTheme(themeType, colors, dark)
+    },
     xField: 'year',
     yField: 'value',
     interaction: {

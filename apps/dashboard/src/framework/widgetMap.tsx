@@ -1,5 +1,8 @@
 import { DashComponentType, Widget } from '@/types'
-import { ColumnChart, BarChart, PieChart, RadarChart, LineChart, AreaChart, Tab, Image, IndicatorCard, GanttChart, DataTable } from '@dash/widgets'
+import { StylePanel as IndicatorStylePane } from './widgets/indicator-card/StylePanel.tsx'
+import { StylePanel as TabStylePane } from './widgets/tab/StylePanel.tsx'
+import { ReactNode } from 'react'
+import { ColumnChart, BarChart, PieChart, RadarChart, LineChart, AreaChart, Tab, Image, IndicatorCard, GanttChart, DataTable, CrossTable } from '@dash/widgets'
 import { RichText } from './components/RichText'
 import { FC } from 'react'
 type Config = {
@@ -9,6 +12,7 @@ type Config = {
   name: string
   isChart?: boolean // 是否是图表控件
   showTitle?: boolean // 图表是否显示标题 默认显示
+  stylePanel?: ReactNode
 }
 export const widgetMap: Record<DashComponentType, Config> = {
   [DashComponentType.COLUMN_CHART]: {
@@ -36,10 +40,24 @@ export const widgetMap: Record<DashComponentType, Config> = {
     icon: 'component-type-line',
     initData: { xFields: [], metrics: [] }
   },
+  [DashComponentType.CROSS_TABLE]: {
+    component: CrossTable,
+    isChart: true,
+    name: '交叉表',
+    icon: 'component-type-line',
+    initData: { xFields: [], metrics: [] }
+  },
   [DashComponentType.GANTT_CHART]: { component: GanttChart, isChart: true, name: '甘特图', icon: '', initData: { xFields: [], metrics: [] } },
   // 富文本
   [DashComponentType.RICH_TEXT]: { component: RichText, showTitle: false, name: '富文本', icon: '', initData: { content: '', xFields: [], metrics: [] } },
-  [DashComponentType.TAB]: { component: Tab, name: 'tab', initData: { xFields: [], metrics: [] } },
+  [DashComponentType.TAB]: { component: Tab, name: 'tab', initData: { xFields: [], metrics: [] }, stylePanel: TabStylePane },
   [DashComponentType.IMAGE]: { component: Image, showTitle: false, name: '图片', initData: { xFields: [], metrics: [] } },
-  [DashComponentType.INDICATOR_CARD]: { component: IndicatorCard, showTitle: false, isChart: true, name: '指标看板', initData: { xFields: [], metrics: [] } }
+  [DashComponentType.INDICATOR_CARD]: {
+    component: IndicatorCard,
+    showTitle: false,
+    isChart: true,
+    name: '指标看板',
+    stylePanel: IndicatorStylePane,
+    initData: { xFields: [], metrics: [] }
+  }
 }

@@ -1,11 +1,14 @@
 import { FC } from 'react'
 import { Bar } from '@ant-design/plots'
-type Props = {
-  data: unknown
-}
-export const BarChart: FC<Props> = ({ data }) => {
+import { BaseWidget } from '../../types'
+import { getChartsTheme } from '../../utils'
+interface Props extends BaseWidget {}
+export const BarChart: FC<Props> = ({ data, colors, themeType, dark }) => {
   const config = {
     data,
+    theme: {
+      ...getChartsTheme(themeType, colors, dark)
+    },
     xField: 'year',
     yField: 'value',
     shapeField: 'hollow',

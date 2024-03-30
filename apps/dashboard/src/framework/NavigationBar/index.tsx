@@ -9,11 +9,13 @@ const prefix = 'db-navigation-bar'
 const NavigationBar: FC = () => {
   const { message } = App.useApp()
   const isEdit = useStore(isEditModeSelector)
-  const { widgets } = useStore(useSelector(['widgets']))
+  const { widgets, styles } = useStore(useSelector(['widgets', 'styles']))
   const setMode = useStore((state) => state.setMode)
   const [name, setName] = useState('未命名仪表盘')
+  const params = new URLSearchParams(location.search)
+  const id = params.get('id') || '0'
   const onSave = () => {
-    localStorage.setItem('dash-data', JSON.stringify(widgets))
+    localStorage.setItem(`dash-data${id}`, JSON.stringify({ widgets, styles }))
     message.success('仪表板保存成功！')
   }
   return (

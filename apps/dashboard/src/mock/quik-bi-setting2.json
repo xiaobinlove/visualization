@@ -1,0 +1,457 @@
+{
+    "watermark": false,
+    "permitDown": true,
+    "isNewLayout": true,
+    "version": "2.0.2",
+    "hideDownAll": false,
+    "allowAudience": false,
+    "autoSave": true,
+    "isMobileGridLayout": true,
+    "permitCopy": true,
+    "showComment": true,
+    "isAutoLinkage": false,
+    "linkageWithDrill": false,
+    "linkageWorkByClick": false,
+    "tableLinkageWay": "this",
+    "layoutConfig": {
+        "gridRowHeight": 25
+    },
+    "background": "rgb(245, 248, 255)",
+    "shouldPreloadAmapApi": true,
+    "themeConfig": {
+        "display": {
+            "colorMode": "system",
+            "series": "smart",
+            "showGradientColor": true,
+            "fontFamily": "PingFang SC",
+            "borderRadius": "none",
+            "spaceSize": "regular",
+            "gridGap": {
+                "row": 16,
+                "col": 16
+            },
+            "gridGap$mobile": {
+                "row": 12,
+                "col": 12
+            },
+            "layoutMode": 0,
+            "fixPageWidth": false,
+            "pageWidth": 1440,
+            "pagePadding": {
+                "l": 64,
+                "t": 20,
+                "r": 64,
+                "b": 10,
+                "lockedLR": true,
+                "lockedTB": false,
+                "type": "custom"
+            },
+            "skin": "default",
+            "customSeries": "qbi",
+            "rootSplit": 0,
+            "sideWidth": {
+                "mode": "present",
+                "present": 25,
+                "px": 300
+            }
+        },
+        "dashboardTopImage": {
+            "defaultImage": "custom",
+            "enable": false,
+            "imageUrl": ""
+        },
+        "dashboardTitle": {
+            "show": true,
+            "showCaption": false,
+            "textAlign": "left",
+            "fontSize": "28px",
+            "showTitleLogo": true,
+            "titleLogoLink": "",
+            "bold": true,
+            "italic": false,
+            "logoPosition": "left",
+            "mark": {
+                "show": true,
+                "content": {
+                    "template": "<p style=\\"text-align: left\\"><strong><span style=\\"font-size: 28px\\" class=\\"font-size-level-3\\">互联网用户运营分析</span></strong></p><p></p><p style=\\"text-align: left\\"><span style=\\"font-size: 14px\\" class=\\"font-size-level-1\\"><span style=\\"color: #7f92b2\\"><span style=\\"background-color: transparent\\">基于AARRR模型(获客、激活、留存、收益、传播)，对某app的用户进行全生命周期追踪，助力实现用户规模持续增长(以2020年数据为例)</span></span></span></p>",
+                    "setting": {
+                        "maxHeight": 100
+                    }
+                }
+            },
+            "margin": 16,
+            "imgEnable": false,
+            "backgroundHeight": 160,
+            "titleColor": "rgb(51, 51, 51)",
+            "backgroundImgConfig": {
+                "picUrl": "https://img.alicdn.com/imgextra/i3/O1CN01FFETjD1TPnLDXGLQ7_!!6000000002375-2-tps-1440-600.png",
+                "picStyle": "autoWidth",
+                "type": "material"
+            },
+            "customUploadImg": {
+                "type": "url",
+                "uniquePicId": "LOCAL_PIC_ID_6a86e740-b425-449f-9dd5-78dff93f5da4_dashboardTitle_titleLogoLink_LOCAL_PIC_ID"
+            }
+        },
+        "dashboardFooter": {
+            "show": false,
+            "mark": {
+                "content": {
+                    "template": "<p style=\\"text-align: center\\"><span style=\\"color: #7f90b1\\">Power by Quick BI 官方</span></p>",
+                    "setting": {
+                        "maxHeight": 100
+                    }
+                }
+            },
+            "margin": 43,
+            "imgEnable": false,
+            "backgroundHeight": 100
+        },
+        "dashboardBottomImage": {
+            "defaultImage": "custom",
+            "enable": false,
+            "imageUrl": ""
+        },
+        "pageBackground": {
+            "imgEnable": true,
+            "backgroundColor": "rgb(245, 248, 255)",
+            "imgConfig": {
+                "picUrl": "",
+                "picStyle": "autoWidth",
+                "type": "material"
+            },
+            "type": "single",
+            "enable": true
+        },
+        "card": {
+            "padding": {
+                "l": 12,
+                "t": 8,
+                "r": 12,
+                "b": 8
+            },
+            "titleFontSize": 14,
+            "bold": true,
+            "italic": false,
+            "textAlign": "left",
+            "splitLine": {
+                "width": 0
+            },
+            "cardTitleBackground": {
+                "enable": true,
+                "imgEnable": true,
+                "imgConfig": {
+                    "picStyle": 0,
+                    "picUrl": "https://img.alicdn.com/imgextra/i4/O1CN014dqfhD1Lu0iF6VMsk_!!6000000001358-49-tps-640-60.webp",
+                    "type": "material"
+                },
+                "titlePosition": "inner",
+                "backgroundColor": "rgba(231, 142, 91, 0)"
+            },
+            "statusIcon": {
+                "show": true,
+                "displayType": "always",
+                "iconColor": "rgb(133, 148, 171)"
+            },
+            "hideMoreMenu": false,
+            "showChartBackground": true,
+            "customBgColor": "",
+            "bgImgConfig": {
+                "enable": false,
+                "imgSource": {
+                    "picStyle": 2,
+                    "picUrl": "//img.alicdn.com/tfs/TB1S_9fVbr1gK0jSZFDXXb9yVXa-500-500.png",
+                    "type": "material"
+                }
+            },
+            "showBorder": true,
+            "showBoxShadow": true,
+            "emptyValue": {
+                "comment": "",
+                "image": {},
+                "link": ""
+            },
+            "showInnerBorder": true,
+            "borderColor": "rgb(239, 241, 244)",
+            "titleColor": "#333333",
+            "space": false,
+            "innerBorderColor": "#f2f2f2",
+            "iconColor": "#4c7bff",
+            "tabInnerCardIconColor": "#4c7bff"
+        },
+        "query": {
+            "buttonRadius": 4,
+            "conditionGap": 8,
+            "fontSize": 12,
+            "bold": false,
+            "italic": false,
+            "content": {
+                "showBorder": false,
+                "borderWidth": 1,
+                "borderRadius": 4,
+                "fontColor": "",
+                "fontSize": 12,
+                "theme": "block",
+                "showBG": true,
+                "background": "",
+                "borderColor": "rgba(0,0,0,0.15)"
+            },
+            "showBorder": false,
+            "borderColor": "#f2f2f2",
+            "buttonColor": "#2e74ff",
+            "textColor": "#333333",
+            "fontBold": false,
+            "fontItalic": false,
+            "titleColor": "#333333"
+        },
+        "tab": {
+            "listStyle": "underline",
+            "fontSize": 14,
+            "selectedColor": "#4c7bff",
+            "titleColor": "#333333",
+            "textColor": "#333333",
+            "capsule": {
+                "selectedColor": "#2e74ff",
+                "unselectedColor": "rgba(0,0,0,0.65)",
+                "sliderFillColor": "rgba(46, 116,255,0.1)",
+                "sliderBorderColor": "#2e74ff",
+                "backgroundFillColor": "white",
+                "backgroundBorderColor": "rgba(0,0,0,0.15)",
+                "fontSize": 14,
+                "unselectedBold": false,
+                "unselectedItalic": false,
+                "selectedBold": true,
+                "selectedItalic": false,
+                "sliderFillEnabled": true,
+                "sliderBorderEnabled": false,
+                "sliderBorderWidth": 1,
+                "backgroundFillEnabled": true,
+                "backgroundBorderEnabled": false,
+                "backgroundBorderWidth": 1,
+                "heightMode": "auto"
+            },
+            "bottomSplitEnabled": true,
+            "bottomSplitColor": "rgba(0,0,0,0.1)",
+            "bottomSplitWidth": 1
+        },
+        "table": {
+            "tableStyle": "default",
+            "themeColorMode": "default",
+            "customSeriesColor": "#5156b8",
+            "tableHeadBackground": "#E5E7EE",
+            "tableHeaderColor": "#000000",
+            "tableTextColor": "rgba(0, 0, 0, 0.9)"
+        },
+        "crossTable": {
+            "crossTableStyle": "default",
+            "themeColorMode": "colorTheme",
+            "tableHeaderFontSize": 12,
+            "tableHeaderBold": false,
+            "tableHeaderItalic": false,
+            "tableTextFontSize": 12,
+            "tableTextBold": false,
+            "tableTextItalic": false,
+            "customSeriesColor": "rgba(81, 86, 184, 0.05)",
+            "tableHeadBackground": "#E5E7EE",
+            "tableHeaderColor": "#000000",
+            "tableTextColor": "rgba(0, 0, 0, 0.9)"
+        },
+        "chartStyle": {
+            "axisTitle": {
+                "fontSize": 12
+            },
+            "axisLabels": {
+                "fontSize": 12
+            },
+            "dataLabels": {
+                "fontSize": 12
+            },
+            "tooltips": {
+                "fontSize": 12
+            },
+            "legend": {
+                "fontSize": 12
+            }
+        },
+        "$$mobileStyle": {
+            "card": {
+                "padding": {
+                    "l": 16,
+                    "t": 14,
+                    "r": 16,
+                    "b": 14
+                },
+                "titleFontSize": 17,
+                "splitLine": {
+                    "width": 0
+                }
+            },
+            "chartStyle": {
+                "axisTitle": {
+                    "fontSize": 10
+                },
+                "axisLabels": {
+                    "fontSize": 10
+                },
+                "dataLabels": {
+                    "fontSize": 10
+                },
+                "legend": {
+                    "fontSize": 13
+                }
+            },
+            "crossTable": {
+                "tableHeaderFontSize": 14,
+                "tableTextFontSize": 14
+            },
+            "tab": {
+                "fontSize": 14,
+                "bottomSplitWidth": 1,
+                "capsule": {
+                    "fontSize": 12,
+                    "sliderBorderWidth": 1,
+                    "backgroundBorderWidth": 1
+                }
+            },
+            "query": {
+                "fontSize": 14,
+                "content": {
+                    "theme": "simple",
+                    "showBG": false,
+                    "background": "",
+                    "showBorder": false,
+                    "borderWidth": 1,
+                    "borderColor": "rgba(0,0,0,0.15)",
+                    "borderRadius": 4,
+                    "fontSize": 14,
+                    "fontColor": ""
+                }
+            },
+            "dashboardTitle": {
+                "show": false,
+                "showCaption": true,
+                "textAlign": "left",
+                "fontSize": "22px",
+                "showTitleLogo": false,
+                "titleLogoLink": "",
+                "margin": 16
+            }
+        },
+        "type": "dashboard-theme",
+        "isOfficial": true,
+        "basic": {
+            "caption": "未命名主题",
+            "iconColor": "#4c7bff",
+            "cover": null
+        },
+        "cardTitleBackground": {},
+        "chartsTheme": "smart",
+        "dashboardTheme": "default",
+        "themeId": "default",
+        "storyBuilder": {
+            "allowOperator": true,
+            "show": false
+        },
+        "themeInfo": {
+            "themeId": "default",
+            "officialThemeId": "default"
+        },
+        "customThemeMapping": {
+            "dashboardTitle": {
+                "show": true,
+                "showCaption": false,
+                "fontSize": "28px",
+                "bold": true,
+                "italic": false,
+                "showTitleLogo": true,
+                "logoPosition": "left",
+                "textAlign": "left",
+                "mark": {
+                    "show": true,
+                    "content": {
+                        "template": "<p style=\\"text-align: left\\"><strong><span style=\\"font-size: 28px\\" class=\\"font-size-level-3\\">互联网用户运营分析</span></strong></p><p></p><p style=\\"text-align: left\\"><span style=\\"font-size: 14px\\" class=\\"font-size-level-1\\"><span style=\\"color: #7f92b2\\"><span style=\\"background-color: transparent\\">基于AARRR模型(获客、激活、留存、收益、传播)，对某app的用户进行全生命周期追踪，助力实现用户规模持续增长(以2020年数据为例)</span></span></span></p>",
+                        "setting": {
+                            "maxHeight": 100
+                        }
+                    }
+                },
+                "margin": 16,
+                "imgEnable": false,
+                "backgroundHeight": 160,
+                "titleLogoLink": "",
+                "titleColor": "rgb(51, 51, 51)",
+                "backgroundImgConfig": {
+                    "picUrl": "https://img.alicdn.com/imgextra/i3/O1CN01FFETjD1TPnLDXGLQ7_!!6000000002375-2-tps-1440-600.png",
+                    "picStyle": "autoWidth",
+                    "type": "material"
+                },
+                "customUploadImg": {
+                    "type": "url",
+                    "uniquePicId": "LOCAL_PIC_ID_6a86e740-b425-449f-9dd5-78dff93f5da4_dashboardTitle_titleLogoLink_LOCAL_PIC_ID"
+                }
+            },
+            "dashboardTitle.show": true,
+            "display.showGradientColor": true,
+            "pageBackground.backgroundColor": "rgb(245, 248, 255)",
+            "card.showChartBackground": true,
+            "display.fontFamily": "PingFang SC",
+            "display.pagePadding": {
+                "l": 64,
+                "t": 20,
+                "r": 64,
+                "b": 10,
+                "lockedLR": true,
+                "lockedTB": false,
+                "type": "custom"
+            },
+            "display.borderRadius": "none",
+            "display.spaceSize": "regular",
+            "display.fixPageWidth": false,
+            "card.showBorder": true,
+            "card.borderColor": "rgb(239, 241, 244)",
+            "card.showBoxShadow": true,
+            "card.cardTitleBackground.enable": true,
+            "card.cardTitleBackground.titlePosition": "inner",
+            "card.cardTitleBackground.backgroundColor": "rgba(231, 142, 91, 0)",
+            "pageBackground.imgEnable": true,
+            "pageBackground.imgConfig": {
+                "picUrl": "",
+                "picStyle": "autoWidth",
+                "type": "material"
+            },
+            "card.textAlign": "left",
+            "card.splitLine.width": 0,
+            "dashboardFooter": {
+                "show": false,
+                "mark": {
+                    "content": {
+                        "template": "<p style=\\"text-align: center\\"><span style=\\"color: #7f90b1\\">Power by Quick BI 官方</span></p>",
+                        "setting": {
+                            "maxHeight": 100
+                        }
+                    }
+                },
+                "margin": 43,
+                "imgEnable": false,
+                "backgroundHeight": 100
+            },
+            "dashboardFooter.show": false,
+            "card.statusIcon.show": true,
+            "card.statusIcon.displayType": "always",
+            "card.statusIcon.iconColor": "rgb(133, 148, 171)",
+            "$$mobileStyle.card.splitLine.width": 0,
+            "query.content.background": "",
+            "query.content.fontColor": "",
+            "$$mobileStyle.query.content.background": "",
+            "$$mobileStyle.query.content.fontColor": "",
+            "card.cardTitleBackground.imgEnable": true,
+            "card.cardTitleBackground.imgConfig": {
+                "picStyle": 0,
+                "picUrl": "https://img.alicdn.com/imgextra/i4/O1CN014dqfhD1Lu0iF6VMsk_!!6000000001358-49-tps-640-60.webp",
+                "type": "material"
+            }
+        },
+        "series": "smart",
+        "skin": "default"
+    }
+}

@@ -34,7 +34,6 @@ const HeaderToolBar = forwardRef<HTMLDivElement, Props>(({ toggleExpandMenu, men
   const container = useStore(containerSelector)
   const curWidget = useStore(curWidgetSelector)
   const { curWidgetId, moveWidgetToTab } = useStore(useSelector(['curWidgetId', 'moveWidgetToTab']))
-  console.log(container, 'container')
   const onDragStart = (e: DragEvent<HTMLElement>, type: DashComponentType) => {
     e.dataTransfer.setData('text/plain', type)
   }

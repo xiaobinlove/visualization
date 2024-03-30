@@ -1,11 +1,14 @@
 import { FC } from 'react'
 import { Area } from '@ant-design/plots'
-type Props = {
-  data: unknown
-}
-export const AreaChart: FC<Props> = ({ data }) => {
+import { BaseWidget } from '../../types'
+import { getChartsTheme } from '../../utils'
+interface Props extends BaseWidget {}
+export const AreaChart: FC<Props> = ({ data, colors, themeType, dark }) => {
   const config = {
     data,
+    theme: {
+      ...getChartsTheme(themeType, colors, dark)
+    },
     xField: 'year',
     yField: 'value',
     shapeField: 'hvh',

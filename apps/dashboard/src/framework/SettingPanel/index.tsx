@@ -8,6 +8,7 @@ import SettingField from './SettingField'
 import ConfigStyle from '../components/ConfigStyle'
 import SettingDataPanel from './SettingDataPanel'
 import ConfigFunc from '../components/ConfigFunc'
+import { widgetMap } from '../widgetMap'
 import { useStore, useSelector, curWidgetSelector } from '@/store'
 const prefix = 'db-setting-panel'
 
@@ -15,6 +16,7 @@ import './index.less'
 const SettingPanel: FC = () => {
   const { curWidgetId, updateCurWidget } = useStore(useSelector(['curWidgetId', 'updateCurWidget']))
   const curWidget = useStore(curWidgetSelector)
+  const StylePanel = curWidgetId && widgetMap[curWidget.type].stylePanel ? widgetMap[curWidget.type].stylePanel : ConfigStyle
   const items: TabsProps['items'] = [
     {
       key: '1',
@@ -29,7 +31,7 @@ const SettingPanel: FC = () => {
     {
       key: '3',
       label: '样式',
-      children: <ConfigStyle />
+      children: <StylePanel />
     }
   ]
   const onTabChange = () => {

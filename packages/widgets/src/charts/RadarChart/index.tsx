@@ -1,13 +1,16 @@
 import { FC } from 'react'
 import { Radar } from '@ant-design/plots'
-type Props = {
-  data: unknown
-}
-export const RadarChart: FC<Props> = ({ data }) => {
+import { BaseWidget } from '../../types'
+interface Props extends BaseWidget {}
+import { getChartsTheme } from '../../utils'
+export const RadarChart: FC<Props> = ({ data, colors, themeType, dark }) => {
   const config = {
-    data: data.map((d) => ({ ...d, star: Math.sqrt(d.star) })),
+    data: data?.map((d) => ({ ...d, star: Math.sqrt(d.star) })) || [],
     xField: 'name',
     yField: 'star',
+    theme: {
+      ...getChartsTheme(themeType, colors, dark)
+    },
     area: {
       style: {
         fillOpacity: 0.2

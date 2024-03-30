@@ -13,6 +13,7 @@
   "dependencies": {
     "@antv/s2": "2.0.0-next.15",
     "@antv/s2-react": "2.0.0-next.14",
-    "dhtmlx-gantt": "^8.0.6"
+    "dhtmlx-gantt": "^8.0.6",
+    "@dash/board": "workspace:*"
   }
 }

@@ -1,4 +1,6 @@
-import { Widget, DashMode } from '@/types'
+import { Widget, DashMode, Styles, ThemeType } from '@/types'
+import { themeMap } from '@/framework/theme'
+
 export type State = {
   widgets: Record<string, Widget>
   // 当前选择的widgetId
@@ -6,6 +8,7 @@ export type State = {
   mode: DashMode
   // 编辑状态下 画布是否可拖拽
   isDraggableInEdit: boolean
+  styles: Styles
 }
 export const initialState: State = {
   mode: DashMode.EDIT,
@@ -40,5 +43,6 @@ export const initialState: State = {
     //     }
     //   ]
     // }
-  }
+  },
+  styles: themeMap[ThemeType.CUSTOM_LIGHT] // 全局主题
 }

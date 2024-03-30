@@ -20,32 +20,15 @@ export const dataMap = {
     { year: '1958 年', value: 48 }
   ],
   [DashComponentType.COLUMN_CHART]: [
-    { letter: 'A', frequency: 0.08167 },
-    { letter: 'B', frequency: 0.01492 },
-    { letter: 'C', frequency: 0.02782 },
-    { letter: 'D', frequency: 0.04253 },
-    { letter: 'E', frequency: 0.12702 },
-    { letter: 'F', frequency: 0.02288 },
-    { letter: 'G', frequency: 0.02015 },
-    { letter: 'H', frequency: 0.06094 },
-    { letter: 'I', frequency: 0.06966 },
-    { letter: 'J', frequency: 0.00153 },
-    { letter: 'K', frequency: 0.00772 },
-    { letter: 'L', frequency: 0.04025 },
-    { letter: 'M', frequency: 0.02406 },
-    { letter: 'N', frequency: 0.06749 },
-    { letter: 'O', frequency: 0.07507 },
-    { letter: 'P', frequency: 0.01929 },
-    { letter: 'Q', frequency: 0.00095 },
-    { letter: 'R', frequency: 0.05987 },
-    { letter: 'S', frequency: 0.06327 },
-    { letter: 'T', frequency: 0.09056 },
-    { letter: 'U', frequency: 0.02758 },
-    { letter: 'V', frequency: 0.00978 },
-    { letter: 'W', frequency: 0.0236 },
-    { letter: 'X', frequency: 0.0015 },
-    { letter: 'Y', frequency: 0.01974 },
-    { letter: 'Z', frequency: 0.00074 }
+    { type: '次要', value: 890, status: '恢复待确认' },
+    { type: '一般', value: 721, status: '恢复待确认' },
+    { type: '故障', value: 129, status: '恢复待确认' },
+    { type: '次要', value: 300, status: '处理中' },
+    { type: '一般', value: 233, status: '处理中' },
+    { type: '故障', value: 82, status: '处理中' },
+    { type: '次要', value: 602, status: '待处理' },
+    { type: '一般', value: 300, status: '待处理' },
+    { type: '故障', value: 79, status: '待处理' }
   ],
   [DashComponentType.LINE_CHART]: [
     { year: '1991', value: 3 },
@@ -59,12 +42,9 @@ export const dataMap = {
     { year: '1999', value: 13 }
   ],
   [DashComponentType.PIE_CHART]: [
-    { type: '分类一', value: 27 },
-    { type: '分类二', value: 25 },
-    { type: '分类三', value: 18 },
-    { type: '分类四', value: 15 },
-    { type: '分类五', value: 10 },
-    { type: '其他', value: 5 }
+    { type: '已逾期', value: 4, percent: 0.03 },
+    { type: '待处理', value: 88, percent: 0.48 },
+    { type: '已处理', value: 67, percent: 0.36 }
   ],
   [DashComponentType.RADAR_CHART]: [
     { name: 'G2', star: 10371 },
@@ -77,7 +57,7 @@ export const dataMap = {
   ],
   [DashComponentType.INDICATOR_CARD]: {
     name: '留存率',
-    value: '26,930.34%'
+    value: '12523'
   },
   [DashComponentType.GANTT_CHART]: {
     data: [
@@ -97,119 +77,181 @@ export const dataMap = {
   [DashComponentType.DATA_TABLE]: {
     fields: {
       rows: ['province', 'city'],
-      columns: ['type'],
-      values: ['price']
+      // rows: ['province', 'city', 'price']
+      values: ['price'],
+      // columns: ['price']
+      valueInCols: true
     },
+    meta: [
+      {
+        field: 'province',
+        name: '类别'
+      },
+      {
+        field: 'city',
+        name: '子类'
+      },
+      {
+        field: 'price',
+        name: '数量'
+      }
+    ],
+    data: [
+      { province: '工单情况', city: '已逾期', type: '笔', price: 100 },
+      { province: '工单情况', city: '待处理', type: '纸张', price: 2 },
+      { province: '工单情况', city: '已处理', type: '纸张', price: 2 },
+      { province: '告警情况', city: '待处理', type: '笔', price: 17 },
+      { province: '告警情况', city: '处理中', type: '笔', price: 17 },
+      { province: '告警情况', city: '恢复待确认', type: '笔', price: 17 },
+      { province: '告警情况', city: '处理完成', type: '笔', price: 17 },
+      { province: '分类统计', city: '资产总数', type: '笔', price: 17 },
+      { province: '分类统计', city: '资源数', type: '笔', price: 17 },
+      { province: '分类统计', city: '文档数', type: '笔', price: 17 },
+      { province: '分类统计', city: '备件备品', type: '笔', price: 17 }
+    ]
+  },
+  [DashComponentType.CROSS_TABLE]: {
+    describe: '标准交叉表数据。',
+    fields: {
+      rows: ['province', 'city'],
+      // columns: ['sub_type'],
+      values: ['number'],
+      valueInCols: true
+    },
+    meta: [
+      {
+        field: 'number',
+        name: '数量'
+      },
+      {
+        field: 'province',
+        name: '-'
+      },
+      {
+        field: 'city',
+        name: '处理状态'
+      }
+      // {
+      //   field: 'type',
+      //   name: '类别'
+      // },
+      // {
+      //   field: 'sub_type',
+      //   name: '子类别'
+      // }
+    ],
     data: [
       {
-        province: '浙江',
-        city: '杭州',
-        type: '笔',
-        price: '1'
+        number: 7789,
+        province: '工单情况',
+        city: '已逾期',
+        // type: '家具',
+        sub_type: '桌子'
       },
       {
-        province: '浙江',
-        city: '杭州',
-        type: '纸张',
-        price: '2'
+        number: 2367,
+        province: '工单情况',
+        city: '待处理',
+        // type: '家具',
+        sub_type: '桌子'
       },
       {
-        province: '浙江',
-        city: '舟山',
-        type: '笔',
-        price: '17'
+        number: 3877,
+        province: '工单情况',
+        city: '已处理',
+        // type: '家具',
+        sub_type: '桌子'
       },
       {
-        province: '浙江',
-        city: '舟山',
-        type: '纸张',
-        price: '6'
+        number: 4342,
+        province: '警告情况',
+        city: '待处理',
+        // type: '家具',
+        sub_type: '桌子'
       },
       {
-        province: '吉林',
-        city: '长春',
-        type: '笔',
-        price: '8'
+        number: 5343,
+        province: '警告情况',
+        city: '处理中',
+        // type: '家具',
+        sub_type: '沙发'
       },
       {
-        province: '吉林',
-        city: '白山',
-        type: '笔',
-        price: '12'
+        number: 632,
+        province: '警告情况',
+        city: '恢复待确认',
+        type: '家具',
+        sub_type: '沙发'
       },
       {
-        province: '吉林',
-        city: '长春',
-        type: '纸张',
-        price: '3'
+        number: 7234,
+        province: '警告情况',
+        city: '处理完成',
+        // type: '家具',
+        sub_type: '沙发'
       },
       {
-        province: '吉林',
-        city: '白山',
-        type: '纸张',
-        price: '25'
+        number: 4342,
+        province: '分类统计',
+        city: '资产数',
+        // type: '家具',
+        sub_type: '桌子'
       },
       {
-        province: '浙江',
-        city: '杭州',
-        type: '笔',
-        cost: '0.5'
+        number: 5343,
+        province: '分类统计',
+        city: '资源数',
+        // type: '家具',
+        sub_type: '沙发'
       },
       {
-        province: '浙江',
-        city: '杭州',
-        type: '纸张',
-        cost: '20'
+        number: 632,
+        province: '分类统计',
+        city: '文档数量',
+        type: '家具',
+        sub_type: '沙发'
       },
       {
-        province: '浙江',
-        city: '舟山',
-        type: '笔',
-        cost: '1.7'
+        number: 7234,
+        province: '分类统计',
+        city: '备品备件',
+        // type: '家具',
+        sub_type: '沙发'
       },
       {
-        province: '浙江',
-        city: '舟山',
-        type: '纸张',
-        cost: '0.12'
-      },
-      {
-        province: '吉林',
-        city: '长春',
-        type: '笔',
-        cost: '10'
-      },
-      {
-        province: '吉林',
-        city: '白山',
-        type: '笔',
-        cost: '9'
-      },
-      {
-        province: '吉林',
-        city: '长春',
-        type: '纸张',
-        cost: '3'
-      },
-      {
-        province: '吉林',
-        city: '白山',
-        type: '纸张',
-        cost: '1'
+        number: 78868
       }
     ]
   }
 }
 export const dataSourceMap: Record<string, Field[]> = {
   '1': [
-    { fieldName: 'height', fieldLabel: '身高', fieldType: 'number', id: 'f_321321312321' },
-    { fieldName: 'weight', fieldLabel: '体重', fieldType: 'number', id: 'f_321321312322' },
-    { fieldName: 'gender', fieldLabel: '性别', fieldType: 'text', id: 'f_321321312323' }
+    { fieldName: '4', fieldLabel: '工单编号', fieldType: 'number', id: 'f_32132131231231225gads132f' },
+    { fieldName: '1', fieldLabel: '处理状态', fieldType: 'number', id: 'f_321321312123213324da' },
+    { fieldName: '2', fieldLabel: '告警状态', fieldType: 'number', id: 'f_321321312312321326daf' },
+    { fieldName: '3', fieldLabel: '告警等级', fieldType: 'number', id: 'f_32132131231321326da24324f' }
+  ],
+  '6': [
+    { fieldName: '1', fieldLabel: '告警编号', fieldType: 'number', id: 'f_321321312312321e23f326daf' },
+    { fieldName: '2', fieldLabel: '告警状态', fieldType: 'number', id: 'f_3213213123123sfsdf21326daf' },
+    { fieldName: '3', fieldLabel: '告警等级', fieldType: 'number', id: 'f_3213213123sdfsdfsd1321326da24324f' }
   ],
   '2': [
-    { fieldName: '1', fieldLabel: '3日留存率', fieldType: 'number', id: 'f_321321312324' },
-    { fieldName: '2', fieldLabel: '次日留存率', fieldType: 'number', id: 'f_321321312325' },
-    { fieldName: '3', fieldLabel: '30日留存率', fieldType: 'number', id: 'f_321321312326' },
-    { fieldName: '4', fieldLabel: '7日留存率', fieldType: 'number', id: 'f_321321312328' }
+    { fieldName: 'height', fieldLabel: '资产编号', fieldType: 'number', id: 'f_3213212443312321' },
+    { fieldName: 'weight', fieldLabel: '资产名称', fieldType: 'number', id: 'f_3242113213212322' }
+  ],
+  '3': [
+    { fieldName: '1', fieldLabel: '文档编号', fieldType: 'number', id: 'f_321321312242324' },
+    { fieldName: '2', fieldLabel: '文档名称', fieldType: 'number', id: 'f_3213213421412325' },
+    { fieldName: '3', fieldLabel: '文档类型', fieldType: 'number', id: 'f_321321311232142326' },
+    { fieldName: '4', fieldLabel: '更新时间', fieldType: 'number', id: 'f_321321311322132328' }
+  ],
+  '4': [
+    { fieldName: 'he23ight12', fieldLabel: '资源编号', fieldType: 'number', id: 'f_32132413123132121' },
+    { fieldName: 'weight123', fieldLabel: '资源名称', fieldType: 'number', id: 'f_3213214311231232322' }
+  ],
+  '5': [
+    { fieldName: 'heig412421ht', fieldLabel: '备品编号', fieldType: 'number', id: 'f_3213211243213312321' },
+    { fieldName: 'weigh421t', fieldLabel: '备品名称', fieldType: 'number', id: 'f_3213213123512312322' }
   ]
 }

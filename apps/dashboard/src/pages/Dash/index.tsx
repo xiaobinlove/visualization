@@ -1,18 +1,32 @@
 import { FC } from 'react'
 import { useMount } from 'ahooks'
 import GridLayouts from '@/components/GridLayouts'
-import { useStore, useSelector } from '@/store'
+import { CanvasContainer } from '@/framework/components/CanvasContainer'
+import { useStore, useSelector, gridLayoutSelector } from '@/store'
 import { doResize } from '@/utils'
 import './index.less'
 const Dash: FC = () => {
-  const { setWidgets } = useStore(useSelector(['setWidgets']))
+  const { setWidgets, updateStyles } = useStore(useSelector(['setWidgets', 'updateStyles']))
+  const componentTree = useStore(gridLayoutSelector)
+  const params = new URLSearchParams(location.search)
+  const id = params.get('id') || '0'
+
   useMount(() => {
-    setWidgets(JSON.parse(localStorage.getItem('dash-data')!))
-    doResize()
+    if (id) {
+      const data = localStorage.getItem(`dash-data${id}`)
+      if (data) {
+        const { widgets, styles } = JSON.parse(data)
+        widgets && setWidgets(widgets)
+        styles && updateStyles(styles)
+      }
+      doResize()
+    }
   })
   return (
     <div className="db-dash">
-      <GridLayouts isEdit={false} isDroppable={false} isDraggable={false} isResizable={false} />
+      <CanvasContainer>
+        <GridLayouts isEdit={false} componentTree={componentTree} isDroppable={false} isDraggable={false} isResizable={false}></GridLayouts>
+      </CanvasContainer>
     </div>
   )
 }

@@ -19,17 +19,13 @@ export const gridLayoutSelector = (store: Store): ComponentTreeItem[] => {
     }
   }
   return result
-  // return Object.keys(store.widgets).reduce((list: Layout[], widgetId) => {
-  //   const { posX, posY, width, height } = store.widgets[widgetId]
-  //   list.push({ i: widgetId, w: width, h: height, x: posX, y: posY })
-  //   return list
-  // }, [])
 }
 
 export const isEditModeSelector = (store: Store): boolean => store.mode === DashMode.EDIT
 export const curWidgetSelector = (store: Store): Widget => store.widgets[store.curWidgetId]
+// 容器移动下拉框数据
 export const containerSelector = (store: Store): MenuProps['items'] => {
-  return Object.keys(store.widgets).reduce((list, key) => {
+  const containerList = Object.keys(store.widgets).reduce((list, key) => {
     const { type, title } = store.widgets[key]
     if (type === DashComponentType.TAB) {
       list.push({
@@ -39,4 +35,5 @@ export const containerSelector = (store: Store): MenuProps['items'] => {
     }
     return list
   }, [])
+  return [{ label: '默认画布', key: 'page' }, ...containerList]
 }

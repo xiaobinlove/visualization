@@ -1,25 +1,41 @@
 import { FC } from 'react'
 import { Pie } from '@ant-design/plots'
-type Props = {
-  data: unknown
-}
-export const PieChart: FC<Props> = ({ data }) => {
+import { BaseWidget } from '../../types'
+import { getChartsTheme } from '../../utils'
+interface Props extends BaseWidget {}
+export const PieChart: FC<Props> = ({ data, colors, themeType, dark }) => {
   const config = {
     data,
     angleField: 'value',
     colorField: 'type',
-    label: {
-      text: 'value',
-      style: {
-        fontWeight: 'bold'
-      }
+    theme: {
+      ...getChartsTheme(themeType, colors, dark)
     },
+    // label: {
+    //   text: 'value',
+    //   style: {
+    //     fontWeight: 'bold'
+    //   }
+    // },
+    encode: { y: 'percent', color: 'type' },
+    transform: [{ type: 'stackY' }],
+    coordinate: { type: 'theta', outerRadius: 0.8 },
     legend: {
-      color: {
-        title: false,
-        position: 'right',
-        rowPadding: 5
+      color: { position: 'top', layout: { justifyContent: 'center' } }
+    },
+    labels: [
+      {
+        position: 'outside',
+        text: (data) => `${data.type}: ${data.value} (${data.percent * 100}%)`
       }
+    ],
+    tooltip: {
+      items: [
+        (data) => ({
+          name: data.type,
+          value: `${data.percent * 100}%`
+        })
+      ]
     }
   }
   return <Pie {...config} className="global-antv-charts" />

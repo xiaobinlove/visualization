@@ -19,7 +19,7 @@ const data: ChartMenu[] = [
       {
         name: '交叉表',
         icon: 'component-type-cross-table',
-        type: DashComponentType.LINE_CHART
+        type: DashComponentType.CROSS_TABLE
       }
     ]
   },
@@ -105,6 +105,11 @@ const data: ChartMenu[] = [
         name: '饼图',
         icon: 'component-type-pie',
         type: DashComponentType.PIE_CHART
+      },
+      {
+        name: '雷达图',
+        icon: 'component-type-pie',
+        type: DashComponentType.RADAR_CHART
       }
     ]
   }

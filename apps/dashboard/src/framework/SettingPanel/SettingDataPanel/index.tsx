@@ -14,8 +14,12 @@ const SettingDataPanel: FC = () => {
     <div className={prefix}>
       <Select
         options={[
-          { label: '个人信息数据', value: '1' },
-          { label: '2023留存率数据', value: '2' }
+          { label: '工单数据', value: '1' },
+          { label: '告警数据', value: '6' },
+          { label: '资产数据', value: '2' },
+          { label: '文档数据', value: '3' },
+          { label: '资源数据', value: '4' },
+          { label: '备品数据', value: '5' }
         ]}
         value={dataSourceId}
         size="small"

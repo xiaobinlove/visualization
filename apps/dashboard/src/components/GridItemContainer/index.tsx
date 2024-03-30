@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import { useStore, useSelector } from '@/store'
 import { widgetMap } from '@/framework/widgetMap'
 import { DashComponentType, Widget } from '@/types'
+import { useBackgroundStyle } from '@/framework/hooks'
 import './index.less'
 const prefix = 'hd-grid-item-container'
 interface Props extends Partial<Widget> {
@@ -11,7 +12,9 @@ interface Props extends Partial<Widget> {
   title?: string
   widgetId: string
   data?: unknown
+  dark: boolean
   type: DashComponentType
+  titleStyle: CSSProperties
   showTitle?: boolean
   contentRender: ReactNode
   children?: ReactNode
@@ -27,10 +30,12 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
   (
     {
       title,
+      titleStyle,
       children,
       isEdit = true,
       widgetId,
       data,
+      dark,
       type,
       showTitle = true,
       parent,
@@ -46,14 +51,18 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
     ref
   ) => {
     const { isDraggableInEdit } = useStore(useSelector(['isDraggableInEdit']))
+    const background = useBackgroundStyle('styles.card.background', widgetId)
     const { isChart } = widgetMap[type]
-    console.log(parent, 'parent')
+    console.log(background, 'backbackground')
     return (
       <div
         ref={ref}
         onClick={onClick}
-        className={classnames(className, 'hd-grid-item-container', { 'hd-grid-item-container--selected': isSelected, [`${prefix}--inner`]: Boolean(parent) })}
-        style={style}
+        className={classnames(className, 'hd-grid-item-container', {
+          'hd-grid-item-container--selected': isSelected,
+          [`${prefix}--inner`]: !dark && Boolean(parent)
+        })}
+        style={{ ...style, ...background }}
         onMouseDown={(e) => {
           // 防止
           e.stopPropagation()
@@ -66,7 +75,11 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
         onTouchEnd={onTouchEnd}
       >
         {isEdit && isDraggableInEdit && <HeaderOperateContainer widgetId={widgetId} />}
-        {showTitle && <div className={`${prefix}__header`}>{title}</div>}
+        {showTitle && (
+          <div className={`${prefix}__header`} style={titleStyle}>
+            {title}
+          </div>
+        )}
         {!data && isChart && (
           <div className={`${prefix}__loader-error`}>
             <div className={`${prefix}__error-descript`}>当前图表暂无数据</div>

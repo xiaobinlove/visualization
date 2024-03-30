@@ -1,0 +1,292 @@
+{
+  "_id": "65f7a85c1cb8993f6d3eb426",
+  "appId": "65f7a85c1cb8993f6d3eb419",
+  "entryId": "5fe409d84b5cc20006d6d0af",
+  "name": "极简风",
+  "components": {
+    "_widget_1711016466287": {
+      "title": "未命名统计表",
+      "hasExport": true,
+      "chart_label": {
+        "enable": true
+      },
+      "type": "column_chart",
+      "posX": 4,
+      "posY": 0,
+      "width": 30,
+      "height": 20,
+      "isShowRawData": true,
+      "form": "5fe404512bafa50006e7f5aa",
+      "useMemberFormOpt": true,
+      "permission": "all",
+      "value_size": "S",
+      "mobile_value_size": "S",
+      "drilldown": "pc",
+      "fields": [],
+      "conditionalFormatting": [],
+      "defaultSort": [],
+      "column_type": "stack",
+      "styles": {
+        "background": {
+          "type": "color",
+          "color": "#80DCCC"
+        },
+        "theme": {},
+        "fontSetting": {
+          "titleColor": "#A3E1B7"
+        }
+      },
+      "xFields": [
+        {
+          "name": "_widget_1608778833036",
+          "form": "5fe404512bafa50006e7f5aa",
+          "type": "number",
+          "title": "重量",
+          "tag": "f_1711016473140"
+        }
+      ],
+      "yFields": [],
+      "metrics": [
+        {
+          "tag": "f_1711016473819",
+          "name": "_widget_1608778833038",
+          "form": "5fe404512bafa50006e7f5aa",
+          "type": "number",
+          "title": "总价",
+          "op": "sum"
+        }
+      ],
+      "formulas": []
+    },
+    "_widget_1711026239494": {
+      "title": "未命名统计表",
+      "hasExport": true,
+      "chart_label": {
+        "enable": true
+      },
+      "type": "bar_chart",
+      "posX": 17,
+      "posY": 20,
+      "width": 30,
+      "height": 20,
+      "isShowRawData": true,
+      "form": "5fe404512bafa50006e7f5aa",
+      "useMemberFormOpt": true,
+      "permission": "all",
+      "value_size": "L",
+      "mobile_value_size": "S",
+      "fields": [],
+      "conditionalFormatting": [],
+      "top": {},
+      "colsWidth": {},
+      "defaultSort": [],
+      "drilldown": "pc",
+      "xFields": [
+        {
+          "name": "_widget_1608778833035",
+          "form": "5fe404512bafa50006e7f5aa",
+          "type": "combo",
+          "title": "水果类型",
+          "tag": "f_1711026247171"
+        }
+      ],
+      "yFields": [],
+      "metrics": [
+        {
+          "tag": "f_1711026248684",
+          "name": "_widget_1608778833037",
+          "form": "5fe404512bafa50006e7f5aa",
+          "type": "number",
+          "title": "单价",
+          "op": "sum"
+        }
+      ],
+      "formulas": []
+    },
+    "_widget_1711360016465": {
+      "title": "未命名明细表",
+      "hasExport": false,
+      "chart_label": {
+        "enable": true
+      },
+      "type": "data_table",
+      "posX": 0,
+      "posY": 40,
+      "width": 30,
+      "height": 20,
+      "form": "5fe404512bafa50006e7f5aa",
+      "useMemberFormOpt": true,
+      "permission": "all",
+      "value_size": "S",
+      "mobile_value_size": "S",
+      "drilldown": "pc",
+      "fields": [
+        {
+          "name": "_widget_1608778833035",
+          "form": "5fe404512bafa50006e7f5aa",
+          "type": "combo",
+          "title": "水果类型",
+          "tag": "f_1711360021262"
+        },
+        {
+          "name": "createTime",
+          "type": "datetime",
+          "form": "5fe404512bafa50006e7f5aa",
+          "format": "yyyy-MM-dd HH:mm:ss",
+          "title": "提交时间",
+          "tag": "f_1711360025753"
+        },
+        {
+          "name": "_widget_1608778833037",
+          "form": "5fe404512bafa50006e7f5aa",
+          "type": "number",
+          "title": "单价",
+          "tag": "f_1711360029106"
+        },
+        {
+          "name": "updateTime",
+          "type": "datetime",
+          "form": "5fe404512bafa50006e7f5aa",
+          "format": "yyyy-MM-dd HH:mm:ss",
+          "title": "更新时间",
+          "tag": "f_1711360034357"
+        }
+      ],
+      "conditionalFormatting": [
+        {
+          "tag": "f_1711360021262",
+          "colors": [
+            {
+              "value": "梨子",
+              "color": "#FFFFFF",
+              "background": "#FA5353"
+            },
+            {
+              "value": "哈密瓜",
+              "color": "#FFFFFF",
+              "background": "#F5C13C"
+            },
+            {
+              "value": "橘子",
+              "color": "#FFFFFF",
+              "background": "#2FCD6E"
+            },
+            {
+              "value": "苹果",
+              "color": "#FFFFFF",
+              "background": "#3F8CFF"
+            },
+            {
+              "value": "枇杷",
+              "color": "#FFFFFF",
+              "background": "#D144F4"
+            },
+            {
+              "value": "葡萄",
+              "color": "#FFFFFF",
+              "background": "#656565"
+            },
+            {
+              "value": "石榴",
+              "color": "#FFFFFF",
+              "background": "#FF9D8D"
+            },
+            {
+              "value": "桃子",
+              "color": "#FFFFFF",
+              "background": "#A5C71C"
+            },
+            {
+              "value": "西红柿",
+              "color": "#FFFFFF",
+              "background": "#00C7C7"
+            },
+            {
+              "value": "香蕉",
+              "color": "#FFFFFF",
+              "background": "#7957FF"
+            },
+            {
+              "value": "樱桃",
+              "color": "#FFFFFF",
+              "background": "#F24BAF"
+            }
+          ]
+        }
+      ],
+      "filter": {
+        "cond": [
+          {
+            "name": "_widget_1608778833037",
+            "text": "单价",
+            "labelHidden": false,
+            "lineWidth": 12,
+            "id": "5fe404512bafa50006e7f5aa",
+            "form": "5fe404512bafa50006e7f5aa",
+            "type": "number",
+            "visible": true,
+            "title": "单价"
+          }
+        ],
+        "rel": "and"
+      },
+      "styles": {
+        "background": {
+          "color": "#2F7DEB",
+          "type": "color"
+        },
+        "fontSetting": {
+          "titleColor": "#55596B",
+          "headColor": "#80DCCC",
+          "textAlign": "center"
+        },
+        "theme": {
+          "color": "#2A7443"
+        }
+      },
+      "defaultSort": [],
+      "xFields": [],
+      "yFields": [],
+      "metrics": [],
+      "formulas": []
+    }
+  },
+  "styles": {
+    "theme": {
+      "name": "preset_style_light_1",
+      "highLightColor": "#1C4B8D",
+      "palette": "preset_1",
+      "gradation": "preset_map_1"
+    },
+    "background": {
+      "type": "color",
+      "color": "#F4F6F9"
+    },
+    "widget": {
+      "theme": {
+        "color": "#E9E9E9",
+        "icon": 1,
+        "cardName": "preset_metric_1"
+      },
+      "background": {
+        "type": "color",
+        "color": "#FFFFFF"
+      },
+      "fontSetting": {
+        "titleColor": "#1F2D3D",
+        "headColor": "#5E6D82",
+        "textColor": "#1F2D3D",
+        "textAlign": "default"
+      }
+    }
+  },
+  "mobileStyles": {},
+  "attr": {
+    "isPublic": false,
+    "parent": "1",
+    "isExport": false,
+    "isPublishedAsHome": false,
+    "isPublicExcelExport": false
+  },
+  "checkConfig": {}
+}

@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 import type { State } from './initialState'
 import { initialState } from './initialState'
-import { Widget, DashMode, DashComponentType } from '@/types'
+import { Widget, DashMode, DashComponentType, Styles } from '@/types'
 import { Layout } from 'react-grid-layout'
 import { COLS } from '@/components/GridLayouts'
 export type Action = {
@@ -22,6 +22,8 @@ export type Action = {
   setMode: (mode: DashMode) => void
   setDraggableInEdit: (val: boolean) => void
   setWidgets: (val: Record<string, Widget>) => void
+  updateStyles: (val: Styles) => void
+  resetWidgetStyles: () => void
 }
 export type Store = State & Action
 export const useStore = create<Store>()(
@@ -91,11 +93,11 @@ export const useStore = create<Store>()(
         return
       }
       // 如果form和to是同级，则无需移动
-      if (toWidget.parent && toWidget.parent === fromWidget.parent) {
+      if (to !== 'page' && toWidget.parent && toWidget.parent === fromWidget.parent) {
         return
       }
       // 移动到画布顶层
-      if (to === 'root') {
+      if (to === 'page') {
         // dd
         set((state) => {
           delete state.widgets[from].parent
@@ -120,6 +122,19 @@ export const useStore = create<Store>()(
     setDraggableInEdit(val) {
       set({
         isDraggableInEdit: val
+      })
+    },
+    updateStyles(styles) {
+      set({
+        styles
+      })
+    },
+    resetWidgetStyles() {
+      set((state) => {
+        const { widgets } = state
+        for (const id in widgets) {
+          delete widgets[id].styles
+        }
       })
     }
   }))
