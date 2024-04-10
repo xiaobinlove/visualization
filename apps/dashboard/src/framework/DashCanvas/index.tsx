@@ -72,7 +72,7 @@ const DashCanvas: FC = () => {
           isDraggable={isEdit && isDraggableInEdit}
           isResizable={isEdit}
           onResizeStop={onResizeStop}
-          droppingItem={{ i: 'fromMenu', w: 6, h: 17 }}
+          droppingItem={{ i: 'fromMenu', w: 4, h: 10 }}
         ></GridLayouts>
       </CanvasContainer>
     </div>

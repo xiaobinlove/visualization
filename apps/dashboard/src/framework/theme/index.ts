@@ -235,11 +235,11 @@ export const themeMap: Record<ThemeType, Styles> = {
 }
 export const themeOptions: { value: ThemeType; label: string }[] = [
   {
-    label: '浅色主题',
+    label: '系统主题-浅色',
     value: ThemeType.CUSTOM_LIGHT
   },
   {
-    label: '科技大屏',
+    label: '系统主题-暗色',
     value: ThemeType.TECHNOLOGY
   }
 ]

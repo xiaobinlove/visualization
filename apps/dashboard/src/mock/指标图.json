@@ -1,0 +1,25 @@
+{
+  "user": {},
+  "department": {},
+  "flowNameMap": {},
+  "linkItemNameMap": {},
+  "xFields": [],
+  "yFields": [],
+  "metrics": [
+    {
+      "tag": "f_1712720541650",
+      "name": "_widget_1698388338825",
+      "form": "653a305726e518c959a737b4",
+      "type": "text",
+      "title": "保养频次",
+      "op": "count",
+      "format": "",
+      "is_delete": false,
+      "fieldName": "f_1712720541650"
+    }
+  ],
+  "data": { "x": [], "val": [{ "is_summary_col": false, "y": [], "data": [], "tag": "f_1712720541650", "text": "保养频次", "sum": 37 }] },
+  "guideline": [],
+  "guideline_val": {},
+  "drilldown": "pc"
+}

@@ -5,48 +5,50 @@
   "linkItemNameMap": {},
   "xFields": [
     {
-      "name": "_widget_1608778833035",
-      "form": "5fe404512bafa50006e7f5aa",
-      "type": "combo",
-      "title": "水果类型",
-      "tag": "f_1608782353168",
+      "name": "_widget_1698135179051",
+      "form": "6530eae0143d5e9f881cee3d",
+      "type": "text",
+      "title": "设备名称",
+      "tag": "f_1712721176702",
       "is_delete": false,
-      "fieldName": "f_1608782353168"
+      "fieldName": "f_1712721176702"
     }
   ],
   "yFields": [],
   "metrics": [
     {
-      "name": "_widget_1608778833037",
-      "form": "5fe404512bafa50006e7f5aa",
+      "tag": "f_1712721199045",
+      "name": "_widget_1699424433488",
+      "form": "6530eae0143d5e9f881cee3d",
       "type": "number",
-      "title": "单价",
-      "tag": "f_1608782353190",
+      "title": "当天规定巡检次数",
       "op": "sum",
       "is_delete": false,
-      "fieldName": "f_1608782353190"
+      "fieldName": "f_1712721199045"
+    },
+    {
+      "tag": "f_1712721222959",
+      "name": "_widget_1699424433488",
+      "form": "6530eae0143d5e9f881cee3d",
+      "type": "number",
+      "title": "当天规定巡检次数",
+      "op": "avg",
+      "hasPercent": false,
+      "format": "0.",
+      "formatType": "preset",
+      "is_delete": false,
+      "fieldName": "f_1712721222959"
     }
   ],
   "data": {
-    "x": [
-      {
-        "data": ["哈密瓜", "橘子", "梨子", "枇杷", "苹果", "葡萄", "石榴", "桃子", "西红柿", "香蕉", "樱桃"]
-      }
-    ],
+    "x": [{ "data": ["切制机", "削皮机"] }],
     "val": [
-      {
-        "is_summary_col": false,
-        "y": [],
-        "data": [23, 12, 47, 24, 29, 27, 12, 12, 6, 14, 60],
-        "tag": "f_1608782353190",
-        "text": "单价"
-      }
+      { "is_summary_col": false, "y": [], "data": [2, 1], "tag": "f_1712721199045", "text": "当天规定巡检次数" },
+      { "is_summary_col": false, "y": [], "data": [1, 1], "tag": "f_1712721222959", "text": "当天规定巡检次数", "isPercent": false }
     ]
   },
   "guideline": [],
   "guideline_val": {},
-  "chart_label": {
-    "enable": true
-  },
+  "chart_label": { "enable": true },
   "drilldown": "pc"
 }
