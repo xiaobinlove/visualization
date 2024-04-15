@@ -1,6 +1,7 @@
 import { DashComponentType, Widget } from '@/types'
 import { StylePanel as IndicatorStylePane } from './widgets/indicator-card/StylePanel.tsx'
 import { StylePanel as TabStylePane } from './widgets/tab/StylePanel.tsx'
+import { StylePanel as ImageStylePane } from './widgets/image/StylePanel.tsx'
 import { ReactNode } from 'react'
 import { ColumnChart, BarChart, PieChart, RadarChart, LineChart, AreaChart, Tab, Image, IndicatorCard, GanttChart, DataTable, CrossTable } from '@dash/widgets'
 import { RichText } from './components/RichText'
@@ -51,7 +52,7 @@ export const widgetMap: Record<DashComponentType, Config> = {
   // 富文本
   [DashComponentType.RICH_TEXT]: { component: RichText, showTitle: false, name: '富文本', icon: '', initData: { content: '', xFields: [], metrics: [] } },
   [DashComponentType.TAB]: { component: Tab, name: 'tab', initData: { xFields: [], metrics: [] }, stylePanel: TabStylePane },
-  [DashComponentType.IMAGE]: { component: Image, showTitle: false, name: '图片', initData: { xFields: [], metrics: [] } },
+  [DashComponentType.IMAGE]: { component: Image, showTitle: false, name: '图片', initData: { xFields: [], metrics: [] }, stylePanel: ImageStylePane },
   [DashComponentType.INDICATOR_CARD]: {
     component: IndicatorCard,
     showTitle: false,
