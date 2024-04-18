@@ -116,7 +116,7 @@ const GlobalSettingPanel: FC = () => {
   }
 
   const children = (
-    <Form labelAlign="left" labelCol={{ span: 5 }} initialValues={styles} onValuesChange={onValuesChange} form={form}>
+    <Form labelAlign="left" labelCol={{ span: 6 }} initialValues={styles} onValuesChange={onValuesChange} form={form} colon={false}>
       <SetterCollapse items={items} defaultActiveKey={['1', '2', '3', '4', '5']} />
     </Form>
   )

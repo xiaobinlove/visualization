@@ -10,7 +10,7 @@ export const BarChart: FC<Props> = ({ data, colors, themeType, dark }) => {
       ...getChartsTheme(themeType, colors, dark)
     },
     xField: 'year',
-    yField: 'value',
+    yField: ['value', 'value2'],
     shapeField: 'hollow',
     colorField: 'year',
     legend: {

@@ -13,11 +13,11 @@ export const dataMap = {
     { year: '1999', value: 33233 }
   ],
   [DashComponentType.BAR_CHART]: [
-    { year: '1951 年', value: 38 },
-    { year: '1952 年', value: 52 },
-    { year: '1956 年', value: 61 },
-    { year: '1957 年', value: 145 },
-    { year: '1958 年', value: 48 }
+    { year: '1951 年', value: 38, value2: 22 },
+    { year: '1952 年', value: 52, value2: 33 },
+    { year: '1956 年', value: 61, value2: 55 },
+    { year: '1957 年', value: 145, value2: 66 },
+    { year: '1958 年', value: 48, value2: 77 }
   ],
   [DashComponentType.COLUMN_CHART]: [
     { type: '次要', value: 890, status: '恢复待确认' },

@@ -8,14 +8,13 @@ const prefix = 'db-setting-panel-containner'
 type Props = {
   children: ReactNode
   configList: { key: string; label: ReactNode }[]
-  closedTabClick: (key: string) => void
   width: string
   title: string
   className?: string
   titleEditable?: boolean
   onTitleChange?: (val: string) => void
 }
-const SettingPanelContainner: FC<Props> = ({ children, className, configList = [], closedTabClick, width, title, onTitleChange, titleEditable = false }) => {
+const SettingPanelContainner: FC<Props> = ({ children, className, configList = [], width, title, onTitleChange, titleEditable = false }) => {
   const [isExpand, setExpand] = useState<boolean>(true)
   const onCollaseClick = () => {
     setExpand((val) => !val)
@@ -43,7 +42,6 @@ const SettingPanelContainner: FC<Props> = ({ children, className, configList = [
                 className={`${prefix}__closed-item`}
                 onClick={() => {
                   setExpand(true)
-                  closedTabClick(item.key)
                 }}
               >
                 {item.label}

@@ -10,15 +10,15 @@ export const LineChart: FC<Props> = ({ data, colors, themeType, dark }) => {
       ...getChartsTheme(themeType, colors, dark)
     },
     xField: 'year',
-    yField: 'value',
-    interaction: {
-      tooltip: {
-        marker: false
-      }
-    },
-    style: {
-      lineWidth: 2
-    }
+    yField: 'value'
+    // interaction: {
+    //   tooltip: {
+    //     marker: false
+    //   }
+    // },
+    // style: {
+    //   lineWidth: 2
+    // }
   }
   return <Line {...config} autoFit className="global-antv-charts" />
 }

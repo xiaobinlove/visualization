@@ -1,6 +1,46 @@
 import { FC } from 'react'
 import { ColorSelect, UiSizeInput, FontStyleButton, TextAlign, PaletteSelect } from '@dash/setter'
+import { Line } from '@ant-design/plots'
+// 一个纬度，一个或者多个指标
+const data = [
+  {
+    // 纬度
+    type: '哈密瓜',
+    // 量度
+    0: 20, // 指标1
+    1: 10 // 指标2
+  },
+  {
+    // 纬度
+    type: '橘子',
+    // 量度
+    0: 30,
+    1: 12
+  },
+  {
+    // 纬度
+    type: '李子',
+    // 量度
+    0: 123,
+    1: 44
+  }
+]
 import './index.css'
+const config = {
+  data: {
+    type: 'inline',
+    value: data
+    // transform: [
+    //   {
+    //     type: 'rename',
+    //     year: '年',
+    //     value: '数值'
+    //   }
+    // ]
+  },
+  xField: 'type',
+  yField: '0'
+}
 const Test: FC = () => {
   return (
     <div>
@@ -24,6 +64,7 @@ const Test: FC = () => {
           ]}
         ></PaletteSelect> */}
       </div>
+      <Line {...config} />
     </div>
   )
 }

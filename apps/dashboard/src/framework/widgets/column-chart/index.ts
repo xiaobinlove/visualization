@@ -1,8 +1,17 @@
 import { DashComponentType } from '@/types'
 export const options = {
-  displayName: '柱状图',
+  name: '柱状图',
   type: DashComponentType.COLUMN_CHART,
-  isChart: true, //
+  // category: '', // 普通组件，
+  icon: 'component-type-line',
+  // isChart: true, //
+  // 配置面板
+  panel: {
+    // 样式面板
+    stylePanel: '',
+    configPanel: '',
+    fieldPanel: ''
+  },
   related: {
     settingRender: '',
     icon: ''

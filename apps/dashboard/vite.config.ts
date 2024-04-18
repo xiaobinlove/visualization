@@ -12,6 +12,9 @@ export default defineConfig({
       symbolId: 'icon-[dir]-[name]'
     })
   ],
+  server: {
+    host: '0.0.0.0'
+  },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.less', '.css'],
     alias: {

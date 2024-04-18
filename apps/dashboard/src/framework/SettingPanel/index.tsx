@@ -25,7 +25,7 @@ const SettingPanel: FC = () => {
     },
     {
       key: '2',
-      label: '功能',
+      label: '配置',
       children: <ConfigFunc />
     },
     {
@@ -36,9 +36,6 @@ const SettingPanel: FC = () => {
   ]
   const onTabChange = () => {
     console.log('onTabChange')
-  }
-  const closedTabClick = (key: string) => {
-    console.log(key)
   }
   console.log('curWidgetId1', curWidgetId)
   const onTitleChange = (val: string) => {
@@ -56,7 +53,6 @@ const SettingPanel: FC = () => {
                 title={curWidget.title}
                 width="240px"
                 onTitleChange={onTitleChange}
-                closedTabClick={closedTabClick}
                 configList={items.map(({ key, label }) => ({ key, label }))}
               >
                 {/* 切换图表 */}
@@ -64,9 +60,9 @@ const SettingPanel: FC = () => {
                 <Tabs centered className={`${prefix}__tabs`} defaultActiveKey="1" items={items} onChange={onTabChange} />
               </SettingPanelContainner>
             </div>
+            {/* 数据源 */}
             <div className={`${prefix}__cube-wrapper`}>
-              {/* 数据源 */}
-              <SettingPanelContainner title="数据源" width="148px" closedTabClick={closedTabClick} configList={[{ key: 'data', label: '数据' }]}>
+              <SettingPanelContainner title="数据源" width="148px" configList={[{ key: 'data', label: '数据' }]}>
                 <SettingDataPanel />
               </SettingPanelContainner>
             </div>
