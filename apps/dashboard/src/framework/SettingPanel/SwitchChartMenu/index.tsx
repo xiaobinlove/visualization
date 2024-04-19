@@ -6,6 +6,8 @@ import { useStore, curWidgetSelector, useSelector } from '@/store'
 import { widgetMap } from '../../widgetMap.tsx'
 import type { ChartMenuItem } from '@/types'
 import './index.less'
+import '../common.less'
+import SvgIcon from '@/components/SvgIcon'
 const prefix = 'switch-chart-menu'
 const SwitchChartMenu: FC = () => {
   const curWidget = useStore(curWidgetSelector)
@@ -31,12 +33,13 @@ const SwitchChartMenu: FC = () => {
   }
   return (
     <div className={classnames(prefix, { [`${prefix}--active`]: active })} ref={ref}>
-      <span className={`${prefix}__text`}>切换图表</span>
+      <span className="db-common-switch-text">切换图表</span>
       <div className={`${prefix}__select`} onClick={handleClick}>
         <div className={`${prefix}__icon-container`}>
           <i className={`global-component-icon ${prefix}__icon ${icon} light`}></i>
         </div>
         <div className={`${prefix}__name`}>{name}</div>
+        <SvgIcon name="select-down" color="#777d8c" style={{ marginTop: '-6px' }} />
       </div>
       <div className={`${prefix}__menu-box`} style={{ display: active ? 'block' : 'none' }}>
         <ChartsPanel onItemClick={onItemClick} />

@@ -1,13 +1,19 @@
 .db-setting-data-panel {
   padding: 0 12px;
   color: var(--bi-color-font-secondary);
-  border-top: 1px solid var(--bi-divider-color, rgb(0 0 0 / 6%));
-
+  // border-top: 1px solid var(--bi-divider-color, rgb(0 0 0 / 6%));
+  &__data-source {
+    margin: 10px 0;
+    width: 100%;
+  }
   &__title {
     align-items: center;
     display: flex;
     padding: 6px 0;
     color: var(--bi-color-font-primary, rgb(0 0 0 / 85%));
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 12px;
   }
 
   &__item {
@@ -17,6 +23,7 @@
     height: 29px;
     cursor: move;
     padding-left: 5px;
+    margin-left: 8px;
   }
 
   &__label {
@@ -28,7 +35,26 @@
   }
 
   &__data-select {
-    margin: 10px 0;
-    width: 100%;
+    flex: 1;
+  }
+  &__switch-data {
+    box-sizing: border-box;
+    margin: 5px -12px 8px -12px;
+    padding: 0 12px 8px 12px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--bi-color-border-divider);
+  }
+  &__entity-select {
+    width: 151px;
+    .ant-select-selector {
+      background: var(--bi-color-theme) !important;
+    }
+    .ant-select-selection-item {
+      color: #fff !important;
+    }
+    .ant-select-selection-placeholder {
+      color: rgba(255, 255, 255, 0.75);
+    }
   }
 }

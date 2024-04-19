@@ -1,4 +1,4 @@
-import { useMemo, FC, MouseEventHandler } from 'react'
+import { useMemo, FC, MouseEventHandler, CSSProperties } from 'react'
 
 type SvgIconProps = {
   size?: string | number
@@ -7,6 +7,7 @@ type SvgIconProps = {
   name: string
   className?: string
   onClick?: MouseEventHandler
+  style?: CSSProperties
 }
 
 /**
@@ -19,10 +20,10 @@ type SvgIconProps = {
  * @props  onClick
  */
 
-const SvgIcon: FC<SvgIconProps> = ({ color, name, size = 16, prefix = 'icon', className, onClick }) => {
+const SvgIcon: FC<SvgIconProps> = ({ color, name, size = 16, prefix = 'icon', className, onClick, style }) => {
   const symbolId = useMemo(() => `#${prefix}-${name}`, [prefix, name])
   return (
-    <svg aria-hidden="true" width={size} height={size} fill={color} className={'hd-svg-icon ' + className} onClick={onClick}>
+    <svg aria-hidden="true" width={size} height={size} fill={color} className={'hd-svg-icon ' + className} onClick={onClick} style={style}>
       <use href={symbolId} fill={color} />
     </svg>
   )

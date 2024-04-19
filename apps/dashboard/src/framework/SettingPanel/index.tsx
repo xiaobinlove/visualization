@@ -13,11 +13,17 @@ import { useStore, useSelector, curWidgetSelector } from '@/store'
 const prefix = 'db-setting-panel'
 
 import './index.less'
+import { SvgIcon } from '@dash/icons'
 const SettingPanel: FC = () => {
   const { curWidgetId, updateCurWidget } = useStore(useSelector(['curWidgetId', 'updateCurWidget']))
   const curWidget = useStore(curWidgetSelector)
   const StylePanel = curWidgetId && widgetMap[curWidget.type].stylePanel ? widgetMap[curWidget.type].stylePanel : ConfigStyle
   const items: TabsProps['items'] = [
+    // {
+    //   key: '0',
+    //   label: '数据',
+    //   children: <SettingField />
+    // },
     {
       key: '1',
       label: '字段',
@@ -46,24 +52,24 @@ const SettingPanel: FC = () => {
       <div className={prefix}>
         {curWidgetId ? (
           <>
+            {/* 数据源 */}
+            <div className={`${prefix}__cube-wrapper`}>
+              <SettingPanelContainner title="数据" width="177px" configList={[{ key: 'data', label: '数据' }]}>
+                <SettingDataPanel />
+              </SettingPanelContainner>
+            </div>
             <div className={`${prefix}__wrapper`}>
               <SettingPanelContainner
                 className={`${prefix}__field`}
                 titleEditable
                 title={curWidget.title}
-                width="240px"
+                width="270px"
                 onTitleChange={onTitleChange}
                 configList={items.map(({ key, label }) => ({ key, label }))}
               >
                 {/* 切换图表 */}
                 <SwitchChartMenu />
                 <Tabs centered className={`${prefix}__tabs`} defaultActiveKey="1" items={items} onChange={onTabChange} />
-              </SettingPanelContainner>
-            </div>
-            {/* 数据源 */}
-            <div className={`${prefix}__cube-wrapper`}>
-              <SettingPanelContainner title="数据源" width="148px" configList={[{ key: 'data', label: '数据' }]}>
-                <SettingDataPanel />
               </SettingPanelContainner>
             </div>
           </>

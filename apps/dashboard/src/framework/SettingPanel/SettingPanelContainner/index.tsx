@@ -12,9 +12,10 @@ type Props = {
   title: string
   className?: string
   titleEditable?: boolean
+  titleIcon?: ReactNode
   onTitleChange?: (val: string) => void
 }
-const SettingPanelContainner: FC<Props> = ({ children, className, configList = [], width, title, onTitleChange, titleEditable = false }) => {
+const SettingPanelContainner: FC<Props> = ({ children, className, configList = [], width, title, onTitleChange, titleEditable = false, titleIcon }) => {
   const [isExpand, setExpand] = useState<boolean>(true)
   const onCollaseClick = () => {
     setExpand((val) => !val)
@@ -23,9 +24,12 @@ const SettingPanelContainner: FC<Props> = ({ children, className, configList = [
     <div className={classnames([classnames, className])} style={{ width: isExpand ? width : '40px' }}>
       <div className={`${prefix}__title`}>
         {isExpand && (
-          <Typography.Paragraph editable={titleEditable ? { onChange: onTitleChange } : false} style={{ margin: 0 }}>
-            {title}
-          </Typography.Paragraph>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Typography.Paragraph editable={titleEditable ? { onChange: onTitleChange } : false} style={{ margin: 0 }}>
+              {title}
+            </Typography.Paragraph>
+            <div style={{ marginLeft: '5px' }}>{titleIcon}</div>
+          </div>
         )}
         <SvgIcon
           name="shouqidaohang"
