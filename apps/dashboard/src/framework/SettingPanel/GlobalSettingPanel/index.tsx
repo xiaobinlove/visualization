@@ -24,8 +24,6 @@ const alignOption = [
 ]
 const GlobalSettingPanel: FC = () => {
   const { styles, updateStyles, resetWidgetStyles } = useStore(useSelector(['styles', 'updateStyles', 'resetWidgetStyles']))
-  console.log(styles, 'styles11')
-  console.log(styles.theme.palette, 'styles.theme.palette')
   const [form] = Form.useForm()
   useMount(() => {
     setTimeout(() => {

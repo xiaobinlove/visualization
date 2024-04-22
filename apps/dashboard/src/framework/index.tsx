@@ -8,6 +8,8 @@ import DashCanvas from './DashCanvas'
 import SettingPanel from './SettingPanel'
 import { useStore, isEditModeSelector } from '@/store'
 import { useClickAway } from 'ahooks'
+import { registerWidgets } from './widgets'
+registerWidgets()
 const prefix = 'db-board-framework'
 const Framework: FC = () => {
   const [menuExpand, setExpandMenu] = useState<boolean>(false)

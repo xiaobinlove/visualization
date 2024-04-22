@@ -103,7 +103,6 @@ const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) =>
         }
       })
     })
-    console.log(e.selectedKeys, 'item1')
   }
   return (
     <div className={prefix}>

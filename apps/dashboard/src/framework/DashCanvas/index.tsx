@@ -1,6 +1,6 @@
 import { FC, DragEvent } from 'react'
 import { Layout } from 'react-grid-layout'
-import { widgetMap } from '../widgetMap.tsx'
+import { widgetsConfigMap } from '../base.ts'
 import GridLayouts from '@/components/GridLayouts'
 import { CanvasContainer } from '../components/CanvasContainer'
 import { doResize } from '@/utils'
@@ -35,7 +35,7 @@ const DashCanvas: FC = () => {
   const onDrop = (_: Layout[], layoutItem: Layout, event: DragEvent) => {
     const data = event.dataTransfer.getData('text/plain') as DashComponentType
     const { w, h, x, y } = layoutItem
-    const { initData, name } = widgetMap[data]
+    const { defaultData, name } = widgetsConfigMap[data]
     const widgetId = addWidget({
       posX: x,
       posY: y,
@@ -43,7 +43,7 @@ const DashCanvas: FC = () => {
       height: h,
       type: data,
       title: '未命名' + name,
-      ...initData
+      ...defaultData
     })
     setCurWidetId(widgetId)
   }

@@ -2,7 +2,7 @@ import { ReactNode, forwardRef, CSSProperties, MouseEventHandler, TouchEventHand
 import HeaderOperateContainer from './HeaderOperateContainer'
 import classnames from 'classnames'
 import { useStore, useSelector } from '@/store'
-import { widgetMap } from '@/framework/widgetMap'
+import { widgetsConfigMap } from '@/framework/base'
 import { DashComponentType, Widget } from '@/types'
 import { useBackgroundStyle } from '@/framework/hooks'
 import './index.less'
@@ -31,7 +31,6 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
     {
       title,
       titleStyle,
-      children,
       isEdit = true,
       widgetId,
       data,
@@ -52,8 +51,7 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
   ) => {
     const { isDraggableInEdit } = useStore(useSelector(['isDraggableInEdit']))
     const background = useBackgroundStyle('styles.card.background', widgetId)
-    const { isChart } = widgetMap[type]
-    console.log(background, 'backbackground')
+    const { isChart } = widgetsConfigMap[type]
     return (
       <div
         ref={ref}
@@ -85,9 +83,7 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
             <div className={`${prefix}__error-descript`}>当前图表暂无数据</div>
           </div>
         )}
-
         <div className={`${prefix}__content`}>{contentRender}</div>
-        {children}
       </div>
     )
   }

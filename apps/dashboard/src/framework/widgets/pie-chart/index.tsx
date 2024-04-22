@@ -2,12 +2,12 @@ import { DashComponentType, WidgetConfig } from '@/types'
 import ConfigPanel from './ConfigPanel'
 import StylePanel from './StylePanel'
 import SettingField from '@/framework/SettingPanel/SettingField'
-import { ColumnChart } from '@dash/widgets'
+import { PieChart } from '@dash/widgets'
 const options: WidgetConfig = {
-  name: '柱状图',
-  widgetType: DashComponentType.COLUMN_CHART,
-  icon: 'component-type-line',
-  component: ColumnChart,
+  name: '折线图',
+  widgetType: DashComponentType.PIE_CHART,
+  icon: 'component-type-pie',
+  component: PieChart,
   isChart: true,
   // 配置面板
   setterPanelTab: {

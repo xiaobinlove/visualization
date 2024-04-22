@@ -3,7 +3,7 @@ import { useStore, useSelector } from '@/store'
 import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout'
 import GridItemContainer from '../GridItemContainer'
 import { ComponentTreeItem, TextStyle } from '@/types'
-import { widgetMap } from '@/framework/widgetMap'
+import { widgetsConfigMap } from '@/framework/base'
 import { paletteMap } from '@/framework/theme'
 import 'react-grid-layout/css/styles.css'
 import './index.less'
@@ -50,11 +50,9 @@ const GridLayouts: FC<GridLayoutProps> = ({
         droppingItem={droppingItem}
       >
         {layout.map((item) => {
-          const { component } = widgetMap[item.type]
-          console.log(widgets[item.id], 'xxxdd')
-          console.log(widgets[item.id].styles?.title?.hide, 'widgets[item.id].styles?.title?.hide')
+          const { component } = widgetsConfigMap[item.type]
           // TODO: 待优化
-          const showTitle = widgetMap[item.type].showTitle !== false && !widgets[item.id].styles?.title?.hide
+          const showTitle = !widgets[item.id].hideTitle
           const titleStyle = getTextSyle(widgets[item.id].styles?.title || styles.card.title)
           return (
             <GridItemContainer

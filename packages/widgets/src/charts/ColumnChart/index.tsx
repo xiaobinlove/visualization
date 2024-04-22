@@ -4,8 +4,6 @@ import { BaseWidget } from '../../types'
 import { getChartsTheme } from '../../utils'
 interface Props extends BaseWidget {}
 export const ColumnChart: FC<Props> = ({ data, colors, themeType, dark }) => {
-  console.log(colors, 'colors1')
-  console.log(themeType, 'themeType')
   const config = {
     data,
     theme: {

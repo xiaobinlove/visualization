@@ -47,6 +47,8 @@ export interface Widget {
   height: number
   type: DashComponentType
   title: string
+  // 是否显示标题
+  hideTitle?: boolean
   parent?: string
   [SortContainerId.xFields]?: Field[]
   // yFields?: Field[]
@@ -81,7 +83,7 @@ export enum DataSource {
 // 组件配置
 export interface WidgetConfig {
   name: string // 组件名称
-  widgetType: DashComponentType.COLUMN_CHART
+  widgetType: DashComponentType
   icon: string // 组件图标
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: FunctionComponent<any>
@@ -89,11 +91,11 @@ export interface WidgetConfig {
   isChart: boolean
   // 设置器tab配置
   setterPanelTab: {
-    stylePanel: ReactNode
-    configPanel: ReactNode
-    fieldPanel: ReactNode
+    stylePanel?: ReactNode
+    configPanel?: ReactNode
+    fieldPanel?: ReactNode
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // 默认值
-  defaultData?: Widget
+  defaultData?: Partial<Widget>
 }

@@ -55,7 +55,7 @@ const data = `{
 }`
 const SettingDataPanel: FC = () => {
   const [dataSourceId, setDataSourceId] = useState<string | null>()
-  const { dataSourceType } = useStore(curWidgetSelector)
+  const { dataSourceType = DataSource.实体 } = useStore(curWidgetSelector)
   const { updateCurWidget } = useStore(useSelector(['updateCurWidget']))
   const onDataSourceSelect = (val: string) => {
     setDataSourceId(val)

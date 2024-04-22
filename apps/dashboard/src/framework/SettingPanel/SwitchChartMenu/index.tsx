@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { useHover } from 'ahooks'
 import ChartsPanel from '../../components/ChartsPanel'
 import { useStore, curWidgetSelector, useSelector } from '@/store'
-import { widgetMap } from '../../widgetMap.tsx'
+import { widgetsConfigMap } from '@/framework/base.ts'
 import type { ChartMenuItem } from '@/types'
 import './index.less'
 import '../common.less'
@@ -14,7 +14,7 @@ const SwitchChartMenu: FC = () => {
   const { updateCurWidget } = useStore(useSelector(['updateCurWidget']))
   const ref = useRef()
   const { type } = curWidget
-  const { icon, name } = widgetMap[type]
+  const { icon, name } = widgetsConfigMap[type]
   const isHover = useHover(ref, {
     onLeave() {
       setExpand(false)

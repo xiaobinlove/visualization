@@ -3,7 +3,7 @@ import { Form, Checkbox } from 'antd'
 import type { CollapseProps, FormProps } from 'antd'
 import { SetterCollapse, BackgroundSetter, ColorSelect } from '@dash/setter'
 import { useSelector, useStore, curWidgetSelector } from '@/store'
-export const StylePanel: FC = () => {
+const StylePanel: FC = () => {
   const { updateCurWidget, styles } = useStore(useSelector(['updateCurWidget', 'styles']))
   const curWidget = useStore(curWidgetSelector)
   const initialValues = {
@@ -43,3 +43,4 @@ export const StylePanel: FC = () => {
     </Form>
   )
 }
+export default StylePanel

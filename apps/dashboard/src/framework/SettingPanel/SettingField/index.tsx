@@ -16,11 +16,9 @@ const SettingField: FC = () => {
   useDndMonitor({
     onDragStart(event) {
       setActiveId(event.active.id as string)
-      console.log(event, 'event')
     },
     onDragEnd(event) {
       setActiveId(null)
-      console.log(event, 'onDragEnd')
       const { active, over } = event
       const overId = over?.id as string
       const activeId = active.id as string

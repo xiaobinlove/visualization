@@ -8,7 +8,6 @@ type Props = {
 }
 
 export const GanttChart: FC<Props> = ({ data }) => {
-  console.log(data, 'data111')
   const ganttRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     gantt.config.readonly = true // 只读

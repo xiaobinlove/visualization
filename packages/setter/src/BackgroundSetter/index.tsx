@@ -14,7 +14,6 @@ type Props = {
   palette: PaletteType
 }
 export const BackgroundSetter: FC<Props> = ({ palette, value = { type: 'color' }, onChange }) => {
-  console.log(value, 'BackgroundSetterValue')
   const [loading, setLoading] = useState(false)
   const handleTypeChange = (e: RadioChangeEvent) => {
     onChange?.({ ...value, type: e.target.value })

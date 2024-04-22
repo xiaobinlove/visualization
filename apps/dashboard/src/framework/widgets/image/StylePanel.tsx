@@ -25,7 +25,7 @@ const options = [
     value: '5'
   }
 ]
-export const StylePanel: FC = () => {
+const StylePanel: FC = () => {
   const { updateCurWidget, styles } = useStore(useSelector(['updateCurWidget', 'styles']))
   const curWidget = useStore(curWidgetSelector)
   const initialValues = { background: curWidget.styles?.background || styles.card.background, title: curWidget.styles?.title || styles.card.title }
@@ -49,7 +49,6 @@ export const StylePanel: FC = () => {
     }
   ]
   const onValuesChange: FormProps['onValuesChange'] = (changedValue, values) => {
-    console.log(values, 'values')
     updateCurWidget({ styles: values })
   }
 
@@ -59,3 +58,4 @@ export const StylePanel: FC = () => {
     </Form>
   )
 }
+export default StylePanel

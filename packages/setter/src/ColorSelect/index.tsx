@@ -12,9 +12,6 @@ interface Props extends Omit<ColorPickerProps, 'onChange'> {
   palette: PaletteType
 }
 export const ColorSelect: FC<Props> = ({ onChange, palette, ...res }) => {
-  console.log(paletteMap[palette], 'paletteMap[palette]1')
-  console.log(palette, 'palette')
-
   const [open, setOpen] = useState(false)
   return (
     <ColorPicker

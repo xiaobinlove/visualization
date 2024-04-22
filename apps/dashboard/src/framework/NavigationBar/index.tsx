@@ -22,14 +22,7 @@ const NavigationBar: FC = () => {
     <div className={prefix}>
       <div className={`${prefix}__left`}>
         {isEdit && <LeftOutlined className={`${prefix}__back`} />}
-        <Typography.Title
-          editable={isEdit ? { onChange: setName } : false}
-          level={5}
-          style={{ margin: 0 }}
-          onChange={(e) => {
-            console.log(e, '22')
-          }}
-        >
+        <Typography.Title editable={isEdit ? { onChange: setName } : false} level={5} style={{ margin: 0 }} onChange={() => {}}>
           {name}
         </Typography.Title>
       </div>
