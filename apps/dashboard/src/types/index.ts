@@ -1,3 +1,4 @@
+import { ReactNode, FunctionComponent } from 'react'
 export type { Styles, Background, TextStyle, indicatorStyle } from './theme-config'
 export { ThemeType, PaletteType } from './theme-config'
 import { WidgetStyle } from './theme-config'
@@ -54,6 +55,7 @@ export interface Widget {
   content?: string // 富文本
   data?: unknown
   styles?: WidgetStyle
+  dataSourceType?: DataSource
 }
 
 export enum DashMode {
@@ -69,4 +71,29 @@ export type ChartMenu = {
 export interface ComponentTreeItem extends Widget {
   children: ComponentTreeItem[]
   id: string
+}
+//  数据来源  实体、逻辑流 静态数据
+export enum DataSource {
+  实体 = '0',
+  逻辑流 = '1',
+  静态数据 = '2'
+}
+// 组件配置
+export interface WidgetConfig {
+  name: string // 组件名称
+  widgetType: DashComponentType.COLUMN_CHART
+  icon: string // 组件图标
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: FunctionComponent<any>
+  // 是否是图表组件
+  isChart: boolean
+  // 设置器tab配置
+  setterPanelTab: {
+    stylePanel: ReactNode
+    configPanel: ReactNode
+    fieldPanel: ReactNode
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // 默认值
+  defaultData?: Widget
 }

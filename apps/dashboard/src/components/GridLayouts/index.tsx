@@ -55,7 +55,6 @@ const GridLayouts: FC<GridLayoutProps> = ({
           console.log(widgets[item.id].styles?.title?.hide, 'widgets[item.id].styles?.title?.hide')
           // TODO: 待优化
           const showTitle = widgetMap[item.type].showTitle !== false && !widgets[item.id].styles?.title?.hide
-          console.log(showTitle, 'showTitle')
           const titleStyle = getTextSyle(widgets[item.id].styles?.title || styles.card.title)
           return (
             <GridItemContainer

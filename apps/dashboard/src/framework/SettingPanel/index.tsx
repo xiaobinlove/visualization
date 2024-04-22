@@ -40,10 +40,6 @@ const SettingPanel: FC = () => {
       children: <StylePanel />
     }
   ]
-  const onTabChange = () => {
-    console.log('onTabChange')
-  }
-  console.log('curWidgetId1', curWidgetId)
   const onTitleChange = (val: string) => {
     updateCurWidget({ title: val })
   }
@@ -69,7 +65,7 @@ const SettingPanel: FC = () => {
               >
                 {/* 切换图表 */}
                 <SwitchChartMenu />
-                <Tabs centered className={`${prefix}__tabs`} defaultActiveKey="1" items={items} onChange={onTabChange} />
+                <Tabs centered className={`${prefix}__tabs`} defaultActiveKey="1" items={items} />
               </SettingPanelContainner>
             </div>
           </>
