@@ -4,7 +4,9 @@ import { RouterProvider } from 'react-router-dom'
 import { ConfigProvider, App } from 'antd'
 import router from './router'
 import { registerChartsTheme } from './framework/theme/register'
+import { loadDashBoardConfig } from './framework/base'
 registerChartsTheme()
+loadDashBoardConfig()
 import 'virtual:svg-icons-register'
 import 'antd/dist/reset.css'
 import '@/styles/index.less'

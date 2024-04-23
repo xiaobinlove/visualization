@@ -1,13 +1,13 @@
 import { FC, useState, useRef, useMemo } from 'react'
 import classnames from 'classnames'
 import { useHover } from 'ahooks'
-import ChartsPanel from '../../components/ChartsPanel'
+import ChartsPanel from '@/framework/components/ChartsPanel'
 import { useStore, curWidgetSelector, useSelector } from '@/store'
-import { widgetsConfigMap } from '@/framework/base.ts'
+import { widgetsConfigMap, menuConfig } from '@/framework/base.ts'
 import type { ChartMenuItem } from '@/types'
+import SvgIcon from '@/components/SvgIcon'
 import './index.less'
 import '../common.less'
-import SvgIcon from '@/components/SvgIcon'
 const prefix = 'switch-chart-menu'
 const SwitchChartMenu: FC = () => {
   const curWidget = useStore(curWidgetSelector)
@@ -42,7 +42,7 @@ const SwitchChartMenu: FC = () => {
         <SvgIcon name="select-down" color="#777d8c" style={{ marginTop: '-6px' }} />
       </div>
       <div className={`${prefix}__menu-box`} style={{ display: active ? 'block' : 'none' }}>
-        <ChartsPanel onItemClick={onItemClick} />
+        <ChartsPanel data={menuConfig} onItemClick={onItemClick} />
       </div>
     </div>
   )

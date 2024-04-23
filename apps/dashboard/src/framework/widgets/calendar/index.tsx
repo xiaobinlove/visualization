@@ -4,8 +4,8 @@ import StylePanel from './StylePanel'
 import SettingField from '@/framework/SettingPanel/SettingField'
 import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
-  name: '柱状图',
-  type: DashComponentType.COLUMN_CHART,
+  name: '日历',
+  type: DashComponentType.CALENDAR,
   icon: 'component-type-line',
   component: ColumnChart,
   isChart: true,

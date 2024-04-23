@@ -4,8 +4,8 @@ import StylePanel from './StylePanel'
 import SettingField from '@/framework/SettingPanel/SettingField'
 import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
-  name: '柱状图',
-  type: DashComponentType.COLUMN_CHART,
+  name: '漏斗图',
+  type: DashComponentType.FUNNEL_PLOT,
   icon: 'component-type-line',
   component: ColumnChart,
   isChart: true,

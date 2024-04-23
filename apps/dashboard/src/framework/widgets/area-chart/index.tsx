@@ -5,7 +5,7 @@ import SettingField from '@/framework/SettingPanel/SettingField'
 import { AreaChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '面积图',
-  widgetType: DashComponentType.AREA_CHART,
+  type: DashComponentType.AREA_CHART,
   icon: 'component-type-polyline',
   component: AreaChart,
   isChart: true,

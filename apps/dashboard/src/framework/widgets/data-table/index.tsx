@@ -5,7 +5,7 @@ import SettingField from '@/framework/SettingPanel/SettingField'
 import { DataTable } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '甘特图',
-  widgetType: DashComponentType.DATA_TABLE,
+  type: DashComponentType.DATA_TABLE,
   icon: 'component-type-line',
   component: DataTable,
   isChart: true,

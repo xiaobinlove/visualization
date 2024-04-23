@@ -2,12 +2,12 @@ import { DashComponentType, WidgetConfig } from '@/types'
 import ConfigPanel from './ConfigPanel'
 import StylePanel from './StylePanel'
 import SettingField from '@/framework/SettingPanel/SettingField'
-import { RadarChart } from '@dash/widgets'
+import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
-  name: '雷达图',
-  widgetType: DashComponentType.RADAR_CHART,
-  icon: 'component-type-bar',
-  component: RadarChart,
+  name: '仪表盘',
+  type: DashComponentType.DASH_BOARD_CHART,
+  icon: 'component-type-gauge-new',
+  component: ColumnChart,
   isChart: true,
   // 配置面板
   setterPanelTab: {

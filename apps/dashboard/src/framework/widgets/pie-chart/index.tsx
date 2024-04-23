@@ -5,7 +5,7 @@ import SettingField from '@/framework/SettingPanel/SettingField'
 import { PieChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '折线图',
-  widgetType: DashComponentType.PIE_CHART,
+  type: DashComponentType.PIE_CHART,
   icon: 'component-type-pie',
   component: PieChart,
   isChart: true,

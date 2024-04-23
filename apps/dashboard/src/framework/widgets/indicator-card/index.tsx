@@ -4,7 +4,7 @@ import SettingField from '@/framework/SettingPanel/SettingField'
 import { IndicatorCard } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '指标看板',
-  widgetType: DashComponentType.INDICATOR_CARD,
+  type: DashComponentType.INDICATOR_CARD,
   icon: 'component-type-pie',
   component: IndicatorCard,
   isChart: true,

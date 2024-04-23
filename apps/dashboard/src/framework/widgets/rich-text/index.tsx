@@ -3,7 +3,7 @@ import StylePanel from './StylePanel'
 import { RichText } from '@/framework/components/RichText'
 const options: WidgetConfig = {
   name: '富文本',
-  widgetType: DashComponentType.RICH_TEXT,
+  type: DashComponentType.RICH_TEXT,
   icon: 'component-type-line',
   component: RichText,
   isChart: false,

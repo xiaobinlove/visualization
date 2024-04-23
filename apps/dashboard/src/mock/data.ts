@@ -111,7 +111,7 @@ export const dataMap = {
     ]
   },
   [DashComponentType.CROSS_TABLE]: {
-    describe: '标准交叉表数据。',
+    describe: '标准透视表数据。',
     fields: {
       rows: ['province', 'city'],
       // columns: ['sub_type'],

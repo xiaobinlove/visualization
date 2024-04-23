@@ -5,7 +5,7 @@ import SettingField from '@/framework/SettingPanel/SettingField'
 import { LineChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '折线图',
-  widgetType: DashComponentType.LINE_CHART,
+  type: DashComponentType.LINE_CHART,
   icon: 'component-type-pie',
   component: LineChart,
   isChart: true,

@@ -8,10 +8,30 @@ export enum DashComponentType {
   PIE_CHART = 'pieChart',
   RADAR_CHART = 'radarChart',
   BAR_CHART = 'barChart',
+  // 富文本
+  RICH_TEXT = 'richText',
+  // 图片
+  IMAGE = 'image',
   LINE_CHART = 'lineChart',
   AREA_CHART = 'areaChart',
-  RICH_TEXT = 'richText',
-  IMAGE = 'image',
+  // 进度条
+  PROGRESS_CHART = 'progressChart',
+  // 仪表盘
+  DASH_BOARD_CHART = 'dashBoardChart',
+  // 气泡图
+  BUBBLE_CHART = 'bubbleChart',
+  // 散点图
+  SCATTER_PLOT = 'scatterPlot',
+  // 双轴图
+  BIAXIAL_CHART = 'biaxialChart',
+  // 漏斗图
+  FUNNEL_PLOT = 'funnelPlot',
+  // 日历
+  CALENDAR = 'calendar',
+  // 嵌入页面
+  IFRAME = 'iframe',
+  // 实时时间
+  REAL_TIME = 'realTime',
   TAB = 'tab',
   INDICATOR_CARD = 'indicatorCard',
   DATA_TABLE = 'dataTable',
@@ -68,8 +88,9 @@ export enum DashMode {
 export type ChartMenuItem = { name: string; icon: string; type: DashComponentType }
 export type ChartMenu = {
   title: string
-  chilren: ChartMenuItem[]
+  children: ChartMenuItem[]
 }
+export type MenuDataItem = Record<string, DashComponentType[]>
 export interface ComponentTreeItem extends Widget {
   children: ComponentTreeItem[]
   id: string
@@ -83,7 +104,7 @@ export enum DataSource {
 // 组件配置
 export interface WidgetConfig {
   name: string // 组件名称
-  widgetType: DashComponentType
+  type: DashComponentType
   icon: string // 组件图标
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: FunctionComponent<any>
@@ -99,3 +120,4 @@ export interface WidgetConfig {
   // 默认值
   defaultData?: Partial<Widget>
 }
+export type WidgetsConfig = { [key: string]: WidgetConfig }

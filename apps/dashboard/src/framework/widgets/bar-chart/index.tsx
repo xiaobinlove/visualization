@@ -5,7 +5,7 @@ import SettingField from '@/framework/SettingPanel/SettingField'
 import { BarChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '条形图',
-  widgetType: DashComponentType.BAR_CHART,
+  type: DashComponentType.BAR_CHART,
   icon: 'component-type-bar',
   component: BarChart,
   isChart: true,
