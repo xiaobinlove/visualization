@@ -1,19 +1,19 @@
 import { FC, useState } from 'react'
-import { Radio, Upload, Button } from 'antd'
+import { Radio, Upload } from 'antd'
 import type { RadioChangeEvent, UploadProps } from 'antd'
-import { UploadOutlined, LoadingOutlined, PlusOutlined } from '@ant-design/icons'
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
 import type { ColorSelectChange } from '../types'
 import { ColorSelect } from '../ColorSelect'
 import { Background } from '@dash/board'
-import type { PaletteType } from '@dash/board'
+import { PaletteType } from '@dash/board'
 import './index.less'
 const prefix = 'db-background-setter'
 type Props = {
   value?: Background
   onChange?: (val: Background) => void
-  palette: PaletteType
+  palette?: PaletteType
 }
-export const BackgroundSetter: FC<Props> = ({ palette, value = { type: 'color' }, onChange }) => {
+export const BackgroundSetter: FC<Props> = ({ palette = PaletteType.CLASSIC, value = { type: 'color' }, onChange }) => {
   const [loading, setLoading] = useState(false)
   const handleTypeChange = (e: RadioChangeEvent) => {
     onChange?.({ ...value, type: e.target.value })
@@ -53,12 +53,7 @@ export const BackgroundSetter: FC<Props> = ({ palette, value = { type: 'color' }
       {value.type === 'color' && <ColorSelect palette={palette} defaultValue={value.color} onChange={handleColorChange} />}
       {value.type === 'image' && (
         <Upload defaultFileList={defaultFileList} onChange={handleUploadChange} maxCount={1} action="http://localhost:3000/upload" listType="picture-card">
-          {/* <UploadOutlined /> */}
-          {/* <Button icon={<UploadOutlined />}>上传图片，5M以内</Button> */}
           <div className={`${prefix}__upload`}> {value.image ? null : uploadButton}</div>
-
-          {/* 上传图片，5M以内 */}
-          {/* {value.image ? <img src={value.image} alt="avatar" style={{ width: '100%' }} /> : uploadButton} */}
         </Upload>
       )}
     </div>

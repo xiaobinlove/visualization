@@ -173,7 +173,7 @@ export const themeMap: Record<ThemeType, Styles> = {
         bold: true,
         fontSize: '14px',
         textAlign: 'left',
-        fontColor: 'rgb(31, 45, 61)'
+        color: 'rgb(31, 45, 61)'
       },
       background: {
         color: 'rgb(255, 255, 255)',
@@ -186,10 +186,10 @@ export const themeMap: Record<ThemeType, Styles> = {
       textAlign: '',
       themeColor: 'rgb(233, 233, 233)',
       head: {
-        fontColor: 'rgb(94, 109, 130)'
+        color: 'rgb(94, 109, 130)'
       },
       body: {
-        fontColor: 'rgb(31, 45, 61)'
+        color: 'rgb(31, 45, 61)'
       }
     }
   },
@@ -212,7 +212,7 @@ export const themeMap: Record<ThemeType, Styles> = {
         bold: true,
         fontSize: '14px',
         textAlign: 'left',
-        fontColor: '#fff'
+        color: '#fff'
       },
       background: {
         color: 'rgba(0, 0, 0, 0);',
@@ -225,10 +225,10 @@ export const themeMap: Record<ThemeType, Styles> = {
       textAlign: '',
       themeColor: 'rgb(233, 233, 233)',
       head: {
-        fontColor: 'rgba(255, 255, 255, 0.68)'
+        color: 'rgba(255, 255, 255, 0.68)'
       },
       body: {
-        fontColor: 'rgba(255, 255, 255, 0.92)'
+        color: 'rgba(255, 255, 255, 0.92)'
       }
     }
   }

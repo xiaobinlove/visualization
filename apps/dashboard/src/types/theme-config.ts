@@ -9,28 +9,25 @@ type TableStyle = {
   // 表头
   head: {
     // 表头文字颜色
-    fontColor: string
+    color: string
   }
   // 文字内容
   body: {
-    fontColor: string
+    color: string
   }
   // 对齐方式
   textAlign: 'left' | 'center' | ''
 }
 export type TextStyle = {
-  textAlign: 'left' | 'center'
+  textAlign?: 'left' | 'center'
   bold?: boolean
   fontSize?: string
-  fontColor: string
-  hide?: boolean // 是否不显示标题
+  color: string
 }
 export type indicatorStyle = {
-  fontColor: string
+  color: string
 }
 export enum ThemeType {
-  // CUSTOM_LIGHT = 'customLight',
-  // TECHNOLOGY = 'technology'
   CUSTOM_LIGHT = 'classic',
   TECHNOLOGY = 'classicDark'
 }
@@ -68,5 +65,5 @@ export enum PaletteType {
 }
 export type WidgetStyle = {
   background: Background
-  title: TableStyle
+  title: TextStyle
 }

@@ -61,7 +61,7 @@ const GlobalSettingPanel: FC = () => {
           <Form.Item name={['card', 'background']} label="背景">
             <BackgroundSetter palette={styles.theme.palette} />
           </Form.Item>
-          <Form.Item label="标题颜色" name={['card', 'title', 'fontColor']}>
+          <Form.Item label="标题颜色" name={['card', 'title', 'color']}>
             <ColorSelect palette={styles.theme.palette} />
           </Form.Item>
         </>
@@ -86,10 +86,10 @@ const GlobalSettingPanel: FC = () => {
           <Form.Item label="主题色" name={['table', 'themeColor']}>
             <ColorSelect palette={styles.theme.palette} />
           </Form.Item>
-          <Form.Item label="表头文字" name={['table', 'head', 'fontColor']}>
+          <Form.Item label="表头文字" name={['table', 'head', 'color']}>
             <ColorSelect palette={styles.theme.palette} />
           </Form.Item>
-          <Form.Item label="内容文字" name={['table', 'body', 'fontColor']}>
+          <Form.Item label="内容文字" name={['table', 'body', 'color']}>
             <ColorSelect palette={styles.theme.palette} />
           </Form.Item>
           <Form.Item label="对齐方式" name={['table', 'textAlign']}>

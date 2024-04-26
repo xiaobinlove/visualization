@@ -94,17 +94,17 @@ const GridLayouts: FC<GridLayoutProps> = ({
   return render(componentTree)
 }
 function getTextSyle(textStyle: TextStyle): CSSProperties {
-  const { fontColor, fontSize, bold, textAlign } = textStyle
+  const { color, fontSize, bold, textAlign } = textStyle
   const style: CSSProperties = {}
   style.fontWeight = bold ? 700 : 'normal'
-  if (fontColor) {
-    style.color = fontColor
+  if (color) {
+    style.color = color
   }
   if (fontSize) {
     style.fontSize = fontSize
   }
-  if (fontColor) {
-    style.color = fontColor
+  if (color) {
+    style.color = color
   }
   if (textAlign) {
     style.textAlign = textAlign

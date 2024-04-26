@@ -9,7 +9,7 @@ const StylePanel: FC = () => {
   const initialValues = {
     background: curWidget.styles?.background || styles.card.background,
     title: curWidget.styles?.title || styles.card.title,
-    value: curWidget.styles?.value || { fontColor: '#000' }
+    value: curWidget.styles?.value || { color: '#000' }
   }
   const items: CollapseProps['items'] = [
     {
@@ -20,13 +20,13 @@ const StylePanel: FC = () => {
           <Form.Item name="background" label="背景">
             <BackgroundSetter palette={styles.theme.palette} />
           </Form.Item>
-          <Form.Item label="标题颜色" name={['title', 'fontColor']}>
+          <Form.Item label="标题颜色" name={['title', 'color']}>
             <ColorSelect palette={styles.theme.palette} />
           </Form.Item>
           <Form.Item name={['title', 'hide']} getValueFromEvent={(e) => e.target.checked}>
             <Checkbox>隐藏标题</Checkbox>
           </Form.Item>
-          <Form.Item label="数值" name={['value', 'fontColor']}>
+          <Form.Item label="数值" name={['value', 'color']}>
             <ColorSelect palette={styles.theme.palette} />
           </Form.Item>
         </>

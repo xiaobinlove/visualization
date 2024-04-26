@@ -146,7 +146,7 @@
                 "showBorder": false,
                 "borderWidth": 1,
                 "borderRadius": 0,
-                "fontColor": "rgba(0,0,0,0.85)",
+                "color": "rgba(0,0,0,0.85)",
                 "fontSize": 12,
                 "theme": "block",
                 "showBG": true,
@@ -280,7 +280,7 @@
                     "borderColor": "rgba(0,0,0,0.15)",
                     "borderRadius": 4,
                     "fontSize": 14,
-                    "fontColor": "rgba(0,0,0,0.85)"
+                    "color": "rgba(0,0,0,0.85)"
                 }
             },
             "dashboardTitle": {
@@ -347,7 +347,7 @@
                 "borderColor": "rgba(0,0,0,0.15)",
                 "borderRadius": 4,
                 "fontSize": 12,
-                "fontColor": "rgba(0,0,0,0.85)"
+                "color": "rgba(0,0,0,0.85)"
             },
             "table.customSeriesColor": "#5156b8",
             "table.tableHeadBackground": "#E5E7EE",

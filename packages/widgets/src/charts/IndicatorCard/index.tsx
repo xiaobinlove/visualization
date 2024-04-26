@@ -18,7 +18,7 @@ export const IndicatorCard: FC<Props> = ({ data, title, titleStyle, dark, styles
           </div>
         )}
 
-        <div className={`${prefix}__value`} style={{ color: styles?.value?.fontColor }}>
+        <div className={`${prefix}__value`} style={{ color: styles?.value?.color }}>
           {data?.value}
         </div>
       </div>

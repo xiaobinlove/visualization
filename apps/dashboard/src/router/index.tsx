@@ -3,6 +3,7 @@ import Design from '@/pages/Design'
 import Dash from '@/pages/Dash'
 import Demo from '@/pages/Demo'
 import Demo2 from '@/pages/Demo2'
+import Chat from '@/pages/ChatBi'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: '/demo2',
     Component: Demo2
+  },
+  {
+    path: '/chat',
+    Component: Chat
   }
 ])
 export default router

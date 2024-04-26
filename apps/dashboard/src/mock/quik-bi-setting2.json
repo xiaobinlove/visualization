@@ -189,7 +189,7 @@
                 "showBorder": false,
                 "borderWidth": 1,
                 "borderRadius": 4,
-                "fontColor": "",
+                "color": "",
                 "fontSize": 12,
                 "theme": "block",
                 "showBG": true,
@@ -324,7 +324,7 @@
                     "borderColor": "rgba(0,0,0,0.15)",
                     "borderRadius": 4,
                     "fontSize": 14,
-                    "fontColor": ""
+                    "color": ""
                 }
             },
             "dashboardTitle": {
@@ -441,9 +441,9 @@
             "card.statusIcon.iconColor": "rgb(133, 148, 171)",
             "$$mobileStyle.card.splitLine.width": 0,
             "query.content.background": "",
-            "query.content.fontColor": "",
+            "query.content.color": "",
             "$$mobileStyle.query.content.background": "",
-            "$$mobileStyle.query.content.fontColor": "",
+            "$$mobileStyle.query.content.color": "",
             "card.cardTitleBackground.imgEnable": true,
             "card.cardTitleBackground.imgConfig": {
                 "picStyle": 0,

@@ -60,6 +60,17 @@ export interface Field {
   op?: string
   form?: string
 }
+interface YAxis {
+  title?: string
+  min?: number
+  max?: number
+}
+interface XAxis {
+  labelTransform?: number
+}
+interface Legend {
+  hide?: boolean
+}
 export interface Widget {
   posX: number
   posY: number
@@ -78,6 +89,9 @@ export interface Widget {
   data?: unknown
   styles?: WidgetStyle
   dataSourceType?: DataSource
+  xAxis?: XAxis
+  yAxis?: YAxis
+  legend?: Legend
 }
 
 export enum DashMode {
