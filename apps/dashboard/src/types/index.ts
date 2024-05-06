@@ -135,3 +135,12 @@ export interface WidgetConfig {
   defaultData?: Partial<Widget>
 }
 export type WidgetsConfig = { [key: string]: WidgetConfig }
+export interface AiChat {
+  type?: string
+  role: 'ai' | 'user'
+  config?: any
+  descript?: string
+  input?: string
+  collected?: boolean
+  id?: string
+}

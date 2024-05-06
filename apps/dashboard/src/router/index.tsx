@@ -3,7 +3,8 @@ import Design from '@/pages/Design'
 import Dash from '@/pages/Dash'
 import Demo from '@/pages/Demo'
 import Demo2 from '@/pages/Demo2'
-import Chat from '@/pages/ChatBi'
+import Chat from '@/components/ChatBi'
+import BusinessDashboard from '@/pages/BusinessDashboard'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/chat',
     Component: Chat
+  },
+  {
+    path: '/business-dashboard',
+    Component: BusinessDashboard
   }
 ])
 export default router

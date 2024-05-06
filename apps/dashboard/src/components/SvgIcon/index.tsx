@@ -23,7 +23,7 @@ type SvgIconProps = {
 const SvgIcon: FC<SvgIconProps> = ({ color, name, size = 16, prefix = 'icon', className, onClick, style }) => {
   const symbolId = useMemo(() => `#${prefix}-${name}`, [prefix, name])
   return (
-    <svg aria-hidden="true" width={size} height={size} fill={color} className={'hd-svg-icon ' + className} onClick={onClick} style={style}>
+    <svg aria-hidden="true" width={size} height={size} fill={color} className={'hd-svg-icon' + (`  ${className}` || '')} onClick={onClick} style={style}>
       <use href={symbolId} fill={color} />
     </svg>
   )

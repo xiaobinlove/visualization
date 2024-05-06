@@ -5,6 +5,8 @@ import { ConfigProvider, App } from 'antd'
 import router from './router'
 import { registerChartsTheme } from './framework/theme/register'
 import { loadDashBoardConfig } from './framework/base'
+import zhCN from 'antd/locale/zh_CN'
+import 'dayjs/locale/zh-cn'
 registerChartsTheme()
 loadDashBoardConfig()
 import 'virtual:svg-icons-register'
@@ -12,7 +14,7 @@ import 'antd/dist/reset.css'
 import '@/styles/index.less'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ConfigProvider theme={{ cssVar: true, hashed: false }}>
+    <ConfigProvider theme={{ cssVar: true, hashed: false }} locale={zhCN}>
       <App className="theme-1">
         <RouterProvider router={router} />
       </App>

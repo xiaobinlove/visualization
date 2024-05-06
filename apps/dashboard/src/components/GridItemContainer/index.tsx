@@ -45,7 +45,8 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
       style,
       onMouseDown,
       onMouseUp,
-      onTouchEnd
+      onTouchEnd,
+      children
     },
     ref
   ) => {
@@ -84,6 +85,7 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
           </div>
         )}
         <div className={`${prefix}__content`}>{contentRender}</div>
+        {children}
       </div>
     )
   }

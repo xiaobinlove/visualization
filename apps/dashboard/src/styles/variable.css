@@ -18,9 +18,10 @@
   --bi-space-050: 4px;
   --bi-color-surface-hovereffect: rgb(0 0 0 / 4%);
   --dashboard-inner-card-shadow: 0 0 1px 1px #f2f2f2;
+  --bi-color-theme: #4b6eef;
 }
 
 .theme-1 {
-  --bi-color-theme: #2e74ff;
+  --bi-color-theme: #4b6eef;
   --bi-color-surface-selectedeffect-weak: rgb(46 116 255 / 8%);
 }

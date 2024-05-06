@@ -1,0 +1,25 @@
+.db-chat-ai {
+  &__icon {
+    position: fixed;
+    cursor: pointer;
+    right: 70px;
+    bottom: 70px;
+    width: 100px;
+    height: 74px;
+    background: url(@/assets/image/ai-chat.png);
+    background-size: contain;
+  }
+  &__content {
+    .ant-drawer-header {
+      display: none;
+    }
+    .ant-drawer-body {
+      padding: 0;
+    }
+  }
+  &__close {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+}

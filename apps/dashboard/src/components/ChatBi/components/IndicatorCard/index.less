@@ -1,0 +1,27 @@
+.db-indicator-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+
+  &--dark {
+    .db-indicator-card__value {
+      color: rgb(49 215 255);
+    }
+  }
+
+  &__name {
+    color: rgb(0 0 0 / 80%);
+    line-height: 1.5;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  &__value {
+    line-height: 1.4;
+    font-size: 30px;
+    color: #000;
+    font-weight: 700;
+  }
+}

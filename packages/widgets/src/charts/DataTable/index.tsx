@@ -24,10 +24,12 @@ const s2Theme: S2Theme = {
   cornerCell: cellTheme
 }
 export const DataTable: FC<Props> = ({ data, dark }) => {
+  console.log(data, 'DataTable')
   const themeCfg = dark ? { name: 'dark', theme: s2Theme } : {}
+  themeCfg
   return (
     <div className="db-data-table">
-      <SheetComponent dataCfg={data} adaptive={{ width: true, height: true }} themeCfg={themeCfg} options={{}} />
+      <SheetComponent dataCfg={data} adaptive={{ width: true, height: true }} sheetType="table" themeCfg={themeCfg} />
     </div>
   )
 }
