@@ -17,6 +17,9 @@ importers:
       '@ant-design/plots':
         specifier: ^2.1.14
         version: 2.1.14(lodash-es@4.17.21)(react-dom@18.2.0)(react@18.2.0)
+      '@antv/s2':
+        specifier: 2.0.0-next.15
+        version: 2.0.0-next.15
       '@dash/icons':
         specifier: workspace:*
         version: link:packages/icons

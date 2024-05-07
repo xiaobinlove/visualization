@@ -8,7 +8,6 @@ import { QuestionCircleFilled, MessageFilled } from '@ant-design/icons'
 import { componentMap } from './map'
 import { AiChat, DashComponentType } from '@/types'
 import './index.less'
-import Item from 'antd/es/list/Item'
 const tabs = [
   {
     label: '智能AI',
@@ -21,7 +20,6 @@ const tabs = [
 ]
 const { TextArea } = Input
 const prefix = 'db-chat-bi'
-const guessList = ['应收款前十大客户的销售负责人', '含税总额排名前10的供应商名称']
 const ChatBi: FC = () => {
   const { message } = App.useApp()
   const [open, setOpen] = useState(false)
@@ -221,7 +219,7 @@ const ChatBi: FC = () => {
                       猜你喜欢
                     </div>
                     <div className={`${prefix}__recommend-tag-wrap`}>
-                      {guessList.map((item) => (
+                      {chatList[chatList.length - 1]?.guessList?.map((item) => (
                         <div
                           className={`${prefix}__recommend-tag`}
                           onClick={() => {
