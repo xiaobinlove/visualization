@@ -1,13 +1,14 @@
 import { FC, useState, useRef, ChangeEventHandler } from 'react'
 import SvgIcon from '@/components/SvgIcon'
-import { Popover, Button, Input, Modal, Form, App } from 'antd'
+import { Popover, Button, Input, Modal, Form, App, Spin } from 'antd'
 import classnames from 'classnames'
 import Collect from './components/Collect'
 import { chatMap } from '@/mock/chart-bi'
 import { QuestionCircleFilled, MessageFilled } from '@ant-design/icons'
 import { componentMap } from './map'
-import { AiChat } from '@/types'
+import { AiChat, DashComponentType } from '@/types'
 import './index.less'
+import Item from 'antd/es/list/Item'
 const tabs = [
   {
     label: '智能AI',
@@ -86,13 +87,16 @@ const ChatBi: FC = () => {
     setInputValue('')
   }
   const send = (input: string) => {
+    setChatLoading(true)
     const user: AiChat = {
       role: 'user',
       input: input
     }
     setChatList([...chatList, user])
-    setChatLoading(true)
     const aiObj = chatMap[input]
+    setTimeout(() => {
+      contentRef.current!.scrollTo({ behavior: 'smooth', top: 1000000 })
+    })
     setTimeout(() => {
       const ai: AiChat = {
         role: 'ai',
@@ -103,7 +107,7 @@ const ChatBi: FC = () => {
       setChatLoading(false)
     }, 1000)
     setTimeout(() => {
-      contentRef.current!.scrollTo({ behavior: 'smooth', top: 100000 })
+      contentRef.current!.scrollTo({ behavior: 'smooth', top: 1000000 })
     }, 1016)
   }
   const handleCollectClick = (id: string) => {
@@ -155,87 +159,105 @@ const ChatBi: FC = () => {
                     <div className={`${prefix}__avatar`}>
                       <div className={`${prefix}__avatar-icon`}></div>
                     </div>
-                    {/* <div className={`${prefix}__source`}>数据源：采购订单</div> */}
-                    <div className={`${prefix}__info`}>
-                      <SvgIcon name="chat-bi-info" size={20} />
-                      <div className={`${prefix}__info-text`}>{item.descript}</div>
-                    </div>
-                    {/* 图表 */}
-                    {item.type === 'text' ? (
-                      <ChartComponent {...item.config} />
-                    ) : (
-                      <div className={`${prefix}__chart`}>
+                    <>
+                      {/* <div className={`${prefix}__source`}>数据源：采购订单</div> */}
+                      <div className={`${prefix}__info`}>
+                        <SvgIcon name="chat-bi-info" size={20} />
+                        <div className={`${prefix}__info-text`}>{item.descript}</div>
+                      </div>
+                      {/* 图表 */}
+                      {item.type === 'text' ? (
                         <ChartComponent {...item.config} />
-                      </div>
-                    )}
-                    <div className={`${prefix}__tools`}>
-                      <Popover trigger="click" open={open} onOpenChange={setOpen} content={chartList}>
-                        <div className={classnames(`${prefix}__action`, { [`${prefix}__action--active`]: open })}>
-                          <SvgIcon name="switch-chat" size={20} />
+                      ) : (
+                        <div className={`${prefix}__chart`} style={{ ...item.style, ...(item.type === DashComponentType.DATA_TABLE && { border: 'none' }) }}>
+                          <ChartComponent {...item.config} />
                         </div>
-                      </Popover>
-                      <div className={`${prefix}__action`}>
-                        <SvgIcon name="share" size={20} />
+                      )}
+                      <div className={`${prefix}__tools`}>
+                        <Popover trigger="click" open={open} onOpenChange={setOpen} content={chartList}>
+                          <div className={classnames(`${prefix}__action`, { [`${prefix}__action--active`]: open })}>
+                            <SvgIcon name="switch-chat" size={20} />
+                          </div>
+                        </Popover>
+                        <div className={`${prefix}__action`}>
+                          <SvgIcon name="share" size={20} />
+                        </div>
+                        <div className={`${prefix}__action`}>
+                          <SvgIcon name="dianzan" size={20} />
+                        </div>
+                        <div className={`${prefix}__action`}>
+                          <SvgIcon name="diancai" size={20} />
+                        </div>
+                        <div
+                          className={classnames(`${prefix}__action`, { [`${prefix}__action--active`]: item.collected })}
+                          onClick={() => {
+                            handleCollectClick(item.id!)
+                          }}
+                        >
+                          <SvgIcon name={item.collected ? 'shoucang_active' : 'shoucang'} size={20} />
+                        </div>
                       </div>
-                      <div className={`${prefix}__action`}>
-                        <SvgIcon name="dianzan" size={20} />
-                      </div>
-                      <div className={`${prefix}__action`}>
-                        <SvgIcon name="diancai" size={20} />
-                      </div>
-                      <div
-                        className={classnames(`${prefix}__action`, { [`${prefix}__action--active`]: item.collected })}
-                        onClick={() => {
-                          handleCollectClick(item.id!)
-                        }}
-                      >
-                        <SvgIcon name={item.collected ? 'shoucang_active' : 'shoucang'} size={20} />
-                      </div>
-                    </div>
+                    </>
                   </div>
                 )
               }
             })}
-            {/* 猜你喜欢 */}
-            <div className={`${prefix}__recommend`}>
-              <div className={`${prefix}__recommend-title`}>
-                <SvgIcon name="chat-bi-guess" size={20} className={`${prefix}__guess-icon`} />
-                猜你喜欢
-              </div>
-              <div className={`${prefix}__recommend-tag-wrap`}>
-                {guessList.map((item) => (
-                  <div
-                    className={`${prefix}__recommend-tag`}
-                    onClick={() => {
-                      handleGuessTagClick(item)
-                    }}
-                  >
-                    <QuestionCircleFilled className={`${prefix}__question-icon`} />
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* 继续追问 */}
-            {chatList.length > 0 &&
-              (!askAgain ? (
-                <div className={`${prefix}__ask-again`} onClick={() => setAskAgain(true)}>
-                  <MessageFilled color="#4B6EEF" size={20} className={`${prefix}__message-icon`} />
-                  继续追问
+            {chatLoading ? (
+              <div className={`${prefix}__item ${prefix}__answer`}>
+                <div className={`${prefix}__avatar`}>
+                  <div className={`${prefix}__avatar-icon`}></div>
                 </div>
-              ) : (
-                <div className={`${prefix}__item ${prefix}__answer`}>
-                  <div className={`${prefix}__avatar`}>
-                    <div className={`${prefix}__avatar-icon`}></div>
-                  </div>
-                  <div>
-                    当前为多轮对话状态，将自动联系上文为您回答。若回答效果不理想，您可点击
-                    <Button type="link" onClick={() => setAskAgain(false)} className={`${prefix}__quit`}>
-                      退出追问
-                    </Button>
-                  </div>
+                <div className={`${prefix}__loading`}>
+                  正在为您分析，请稍后 <Spin size="small" className={`${prefix}__loading-icon`} />
                 </div>
-              ))}
+              </div>
+            ) : (
+              <>
+                {/* 猜你喜欢 */}
+                {chatList[chatList.length - 1]?.guessList && (
+                  <div className={`${prefix}__recommend`}>
+                    <div className={`${prefix}__recommend-title`}>
+                      <SvgIcon name="chat-bi-guess" size={20} className={`${prefix}__guess-icon`} />
+                      猜你喜欢
+                    </div>
+                    <div className={`${prefix}__recommend-tag-wrap`}>
+                      {guessList.map((item) => (
+                        <div
+                          className={`${prefix}__recommend-tag`}
+                          onClick={() => {
+                            handleGuessTagClick(item)
+                          }}
+                        >
+                          <QuestionCircleFilled className={`${prefix}__question-icon`} />
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 继续追问 */}
+                {chatList.length > 0 &&
+                  (!askAgain ? (
+                    <div className={`${prefix}__ask-again`} onClick={() => setAskAgain(true)}>
+                      <MessageFilled color="#4B6EEF" size={20} className={`${prefix}__message-icon`} />
+                      继续追问
+                    </div>
+                  ) : (
+                    <div className={`${prefix}__item ${prefix}__answer`}>
+                      <div className={`${prefix}__avatar`}>
+                        <div className={`${prefix}__avatar-icon`}></div>
+                      </div>
+                      <div>
+                        当前为多轮对话状态，将自动联系上文为您回答。若回答效果不理想，您可点击
+                        <Button type="link" onClick={() => setAskAgain(false)} className={`${prefix}__quit`}>
+                          退出追问
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+              </>
+            )}
           </div>
           <div className={`${prefix}__input-container`}>
             <div className={`${prefix}__chat-input`}>
@@ -251,7 +273,7 @@ const ChatBi: FC = () => {
 
       <Modal title="收藏到我的仪表盘" open={isCollectModalOpen} onOk={handleOk} width={400} onCancel={handleCancel}>
         <Form.Item label="图表名称">
-          <Input placeholder="请输入图表名称" />
+          <Input placeholder="请输入图表名称" defaultValue={chatList.find((item) => item.id === curCollectedIdRef.current)?.title} />
         </Form.Item>
       </Modal>
     </div>

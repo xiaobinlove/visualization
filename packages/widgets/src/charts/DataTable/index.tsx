@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { SheetComponent } from '@antv/s2-react'
+import { SheetComponent, SheetComponentsProps } from '@antv/s2-react'
 import { PivotSheet, S2DataConfig, S2Options, S2Theme } from '@antv/s2'
 import { BaseWidget } from '../../types'
 import '@antv/s2-react/dist/style.min.css'
 import './index.less'
-interface Props extends BaseWidget {
+interface Props extends BaseWidget, SheetComponentsProps {
   dark: boolean
 }
 const cellTheme = {
@@ -23,13 +23,12 @@ const s2Theme: S2Theme = {
   dataCell: cellTheme,
   cornerCell: cellTheme
 }
-export const DataTable: FC<Props> = ({ data, dark }) => {
-  console.log(data, 'DataTable')
+export const DataTable: FC<Props> = ({ dataCfg, dark, ...res }) => {
   const themeCfg = dark ? { name: 'dark', theme: s2Theme } : {}
   themeCfg
   return (
     <div className="db-data-table">
-      <SheetComponent dataCfg={data} adaptive={{ width: true, height: true }} sheetType="table" themeCfg={themeCfg} />
+      <SheetComponent dataCfg={dataCfg} adaptive={{ width: true, height: true }} sheetType="table" themeCfg={themeCfg} {...res} />
     </div>
   )
 }

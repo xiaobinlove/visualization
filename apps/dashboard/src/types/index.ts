@@ -1,4 +1,4 @@
-import { ReactNode, FunctionComponent } from 'react'
+import { ReactNode, FunctionComponent, CSSProperties } from 'react'
 export type { Styles, Background, TextStyle, indicatorStyle } from './theme-config'
 export { ThemeType, PaletteType } from './theme-config'
 import { WidgetStyle } from './theme-config'
@@ -143,4 +143,7 @@ export interface AiChat {
   input?: string
   collected?: boolean
   id?: string
+  style?: CSSProperties
+  title?: string
+  guessList?: string[]
 }

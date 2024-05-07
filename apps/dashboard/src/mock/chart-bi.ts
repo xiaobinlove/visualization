@@ -63,7 +63,7 @@ const data5 = [
 ]
 export const chatMap = {
   // 1
-  采购金额前五大的供应商: {
+  一季度采购金额前五大的供应商: {
     type: DashComponentType.COLUMN_CHART,
     config: {
       data: [
@@ -102,7 +102,7 @@ export const chatMap = {
   '一季度应收账款情况如何，订单及时交付率情况呢': {
     type: DashComponentType.DATA_TABLE,
     config: {
-      data: {
+      dataCfg: {
         fields: {
           columns: ['accountsReceivable', 'deliveryRate']
         },
@@ -123,6 +123,9 @@ export const chatMap = {
           }
         ]
       }
+    },
+    style: {
+      height: '80px'
     },
     descript: '2024年一季度应收账款总额，销售订单交付率；'
   },
@@ -194,7 +197,7 @@ export const chatMap = {
   用表格展示: {
     type: DashComponentType.DATA_TABLE,
     config: {
-      data: {
+      dataCfg: {
         fields: {
           columns: ['name', '应收款']
         },
@@ -211,13 +214,14 @@ export const chatMap = {
         data: data5
       }
     },
+    title: '应收款前十大的客户',
     descript: '以表格展示：2024年一季度财报期间交付未回款的十大客户；'
   },
   // 7
   '联系人、电话': {
     type: DashComponentType.DATA_TABLE,
     config: {
-      data: {
+      dataCfg: {
         fields: {
           columns: ['name', 'contactPerson', 'contactNumber']
         },
@@ -244,7 +248,7 @@ export const chatMap = {
   应收款前十大客户的销售负责人: {
     type: DashComponentType.DATA_TABLE,
     config: {
-      data: {
+      dataCfg: {
         fields: {
           columns: ['name', 'value']
         },
@@ -305,7 +309,7 @@ export const chatMap = {
     descript: '查找应收款前十大客户的对应销售负责人'
   },
   // 9
-  预测下今年的采购费用: {
+  预测今年的采购费用: {
     type: DashComponentType.LINE_CHART,
     config: {
       xField: 'name',
@@ -361,6 +365,7 @@ export const chatMap = {
       //   maxWidth: 30
       // }
     },
-    descript: '结合今年销售订单、历史采购订单、历史销售订单、行业销售增长趋势等；'
+    descript: '结合今年销售订单、历史采购订单、历史销售订单、行业销售增长趋势等进行预测；',
+    guessList: ['应收款前十大客户的销售负责人', '含税总额排名前10的供应商名称']
   }
 }

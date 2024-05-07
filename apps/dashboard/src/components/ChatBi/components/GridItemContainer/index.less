@@ -1,0 +1,30 @@
+.hd-grid-item-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+
+  &--inner {
+    box-shadow: var(--dashboard-inner-card-shadow);
+  }
+
+  &__header {
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 30px;
+    font-weight: 700;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    padding: 0 10px 10px;
+    flex: 1;
+    cursor: auto;
+    overflow: hidden;
+  }
+}

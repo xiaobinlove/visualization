@@ -188,8 +188,7 @@
   }
   &__quit {
     height: 22px;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0 5px;
   }
   &__input-container {
     &:extend(.db-chat-bi-conmon-wrap);
@@ -234,5 +233,12 @@
     &:hover {
       border: 1px solid var(--bi-color-theme);
     }
+  }
+  &__loading {
+    display: flex;
+    align-items: center;
+  }
+  &__loading-icon {
+    margin-left: 5px;
   }
 }
