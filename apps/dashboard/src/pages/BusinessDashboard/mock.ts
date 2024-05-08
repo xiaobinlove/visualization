@@ -5,6 +5,10 @@ export const mock1 = {
   data: [
     {
       月份: '2023/12',
+      净利率: 46232111
+    },
+    {
+      月份: '2023/12',
       净利率: 40232111
     },
     {
@@ -22,10 +26,6 @@ export const mock1 = {
     {
       月份: '2024/04',
       净利率: 60232111
-    },
-    {
-      月份: '2024/05',
-      净利率: 46232111
     }
   ],
   xField: '月份',
@@ -46,6 +46,10 @@ export const mock1 = {
 export const mock8 = {
   data: [
     {
+      月份: '2023/11',
+      资产负债: 12232111
+    },
+    {
       月份: '2023/12',
       资产负债: 20232111
     },
@@ -64,10 +68,6 @@ export const mock8 = {
     {
       月份: '2024/04',
       资产负债: 36232111
-    },
-    {
-      月份: '2024/05',
-      资产负债: 12232111
     }
   ],
   xField: '月份',
@@ -89,6 +89,10 @@ export const mock8 = {
 export const mock9 = {
   data: [
     {
+      月份: '2023/11',
+      现金流: 7923211
+    },
+    {
       月份: '2023/12',
       现金流: 30023211
     },
@@ -107,10 +111,6 @@ export const mock9 = {
     {
       月份: '2024/04',
       现金流: 3223211
-    },
-    {
-      月份: '2024/05',
-      现金流: 7923211
     }
   ],
   xField: '月份',
@@ -198,6 +198,11 @@ export const mock3 = {
   data: [
     {
       name: '新签客户',
+      月份: '2023/11',
+      客户数: 15
+    },
+    {
+      name: '新签客户',
       月份: '2023/12',
       客户数: 18
     },
@@ -222,9 +227,9 @@ export const mock3 = {
       客户数: 47
     },
     {
-      name: '新签客户',
-      月份: '2024/05',
-      客户数: 20
+      name: '新增客户',
+      月份: '2023/11',
+      客户数: 15
     },
     {
       name: '新增客户',
@@ -250,11 +255,6 @@ export const mock3 = {
       name: '新增客户',
       月份: '2024/04',
       客户数: 20
-    },
-    {
-      name: '新增客户',
-      月份: '2024/05',
-      客户数: 30
     }
   ],
   xField: '月份',
@@ -354,24 +354,32 @@ export const mock5 = {
 // 销售合同
 export const mock6 = {
   data: [
+    { year: '2023/11', 销售合同额: 82040200, 销售合同数: 14 },
     { year: '2023/12', 销售合同额: 62040200, 销售合同数: 10 },
     { year: '2024/01', 销售合同额: 72040200, 销售合同数: 7 },
     { year: '2024/02', 销售合同额: 32040200, 销售合同数: 6 },
     { year: '2024/03', 销售合同额: 52040200, 销售合同数: 9 },
-    { year: '2024/04', 销售合同额: 62040200, 销售合同数: 5 },
-    { year: '2024/05', 销售合同额: 82040200, 销售合同数: 14 }
+    { year: '2024/04', 销售合同额: 62040200, 销售合同数: 5 }
   ],
+  //   data: [
+  //     { year: '2023/11', 销售合同额: 1421, 销售合同数: 14 },
+  //     { year: '2023/12', 销售合同额: 1231, 销售合同数: 10 },
+  //     { year: '2024/01', 销售合同额: 1242, 销售合同数: 7 },
+  //     { year: '2024/02', 销售合同额: 1234, 销售合同数: 6 },
+  //     { year: '2024/03', 销售合同额: 1412, 销售合同数: 9 },
+  //     { year: '2024/04', 销售合同额: 1322, 销售合同数: 5 }
+  //   ],
   xField: 'year',
-  legend: { size: false },
+  legend: true,
   children: [
     {
       type: 'line',
+      //   shapeField: 'smooth',
       yField: '销售合同额',
       style: {
         stroke: '#5B8FF9',
         lineWidth: 2
       },
-
       axis: {
         y: {
           title: '金额（万）',
@@ -400,53 +408,72 @@ export const mock6 = {
     }
   ]
 }
+const data = [
+  { time: '2019-03', value: 350, count: 800 },
+  { time: '2019-04', value: 900, count: 600 },
+  { time: '2019-05', value: 300, count: 400 },
+  { time: '2019-06', value: 450, count: 380 },
+  { time: '2019-07', value: 470, count: 220 }
+]
+
+export const config = {
+  data,
+  xField: 'time',
+  legend: true,
+  children: [
+    {
+      type: 'line',
+      yField: 'value',
+      style: { lineWidth: 2 }
+    },
+    {
+      type: 'line',
+      yField: 'count',
+      style: { lineWidth: 2 },
+      axis: { y: { position: 'right' } }
+    }
+  ]
+}
 // 产需率
 export const mock7 = {
   percent: 0.8,
   style: {
     outlineBorder: 4,
     outlineDistance: 8,
-    waveLength: 128
+    waveLength: 128,
+    textFill: '#fff'
   }
 }
 // 生产主题
 export const mock10 = {
-  //   data: [
-  //     { year: '2023/12', 库存量: 300, 产能利用率: 10, 产能: 32, 在建产能: 123 },
-  //     { year: '2024/01', 库存量: 400, 产能利用率: 7, 产能: 45, 在建产能: 142 },
-  //     { year: '2024/02', 库存量: 354, 产能利用率: 6, 产能: 66, 在建产能: 122 },
-  //     { year: '2024/03', 库存量: 230, 产能利用率: 9, 产能: 44, 在建产能: 156 },
-  //     { year: '2024/04', 库存量: 134, 产能利用率: 5, 产能: 55, 在建产能: 166 },
-  //     { year: '2024/05', 库存量: 142, 产能利用率: 14, 产能: 77, 在建产能: 188 }
-  //   ],
   data: [
+    { year: '2023/11', value: 142, type: '库存量' },
     { year: '2023/12', value: 300, type: '库存量' },
     { year: '2024/01', value: 400, type: '库存量' },
     { year: '2024/02', value: 354, type: '库存量' },
     { year: '2024/03', value: 230, type: '库存量' },
     { year: '2024/04', value: 134, type: '库存量' },
-    { year: '2024/05', value: 142, type: '库存量' },
 
+    { year: '2023/11', value: 8, type: '产能利用率' },
     { year: '2023/12', value: 10, type: '产能利用率' },
     { year: '2024/01', value: 7, type: '产能利用率' },
     { year: '2024/02', value: 5, type: '产能利用率' },
     { year: '2024/03', value: 3, type: '产能利用率' },
     { year: '2024/04', value: 5, type: '产能利用率' },
-    { year: '2024/05', value: 8, type: '产能利用率' },
 
+    { year: '2023/11', value: 52, type: '产能' },
     { year: '2023/12', value: 23, type: '产能' },
     { year: '2024/01', value: 42, type: '产能' },
     { year: '2024/02', value: 52, type: '产能' },
     { year: '2024/03', value: 32, type: '产能' },
     { year: '2024/04', value: 22, type: '产能' },
-    { year: '2024/05', value: 55, type: '产能' },
 
+    { year: '2023/11', value: 152, type: '在建产能' },
     { year: '2023/12', value: 123, type: '在建产能' },
     { year: '2024/01', value: 144, type: '在建产能' },
     { year: '2024/02', value: 164, type: '在建产能' },
     { year: '2024/03', value: 135, type: '在建产能' },
-    { year: '2024/04', value: 123, type: '在建产能' },
-    { year: '2024/05', value: 156, type: '在建产能' }
+    { year: '2024/04', value: 123, type: '在建产能' }
   ],
   xField: 'year',
   yField: 'value',

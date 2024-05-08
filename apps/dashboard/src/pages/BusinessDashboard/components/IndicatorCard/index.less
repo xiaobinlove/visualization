@@ -1,7 +1,8 @@
 .db-indicator-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   height: 100%;
   // text-align: center;
 
@@ -23,5 +24,23 @@
     font-size: 30px;
     color: #000;
     font-weight: 700;
+  }
+  &__alarm {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background: url(../../image/alarm.png) no-repeat;
+    background-size: cover;
+  }
+  &__ratio {
+    // position: absolute;
+    // right: 8px;
+    // top: 8px;
+    // width: 16px;
+    // height: 16px;
+    color: #ff8800;
+    font-size: 12px;
   }
 }

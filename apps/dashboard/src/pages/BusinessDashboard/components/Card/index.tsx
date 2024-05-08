@@ -13,6 +13,7 @@ const Card: FC<Props> = ({ children, title, className }) => {
       {title && (
         <div className={`${prefix}__header`}>
           <div className={`${prefix}__title`}>{title}</div>
+          <div className={`${prefix}__icon`}></div>
         </div>
       )}
       {title ? <div className={`${prefix}__content`}>{children}</div> : children}

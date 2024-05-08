@@ -3,7 +3,11 @@
   box-shadow: 0 2px 6px 0 rgba(84, 48, 132, 0.1);
   height: 100%;
   width: 100%;
+  &:hover {
+    box-shadow: 0 6px 14px 0 rgba(84, 48, 132, 0.15);
+  }
   &__header {
+    position: relative;
     height: 40px;
     line-height: 30px;
     padding: 5px;
@@ -19,5 +23,21 @@
   }
   &__content {
     height: calc(100% - 40px);
+  }
+  &:hover {
+    .db-dashboard-card__icon {
+      display: block;
+    }
+  }
+  &__icon {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url('../../image/eyes.png') no-repeat;
+    background-size: 100% 100%;
+    width: 128px;
+    height: 24px;
   }
 }
