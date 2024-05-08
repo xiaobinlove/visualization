@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { SheetComponent } from '@antv/s2-react'
-import { PivotSheet, S2DataConfig, S2Options, S2Theme } from '@antv/s2'
+import { S2Theme } from '@antv/s2'
 import { BaseWidget } from '../../types'
 import '@antv/s2-react/dist/style.min.css'
 import './index.less'
@@ -26,7 +26,8 @@ const s2Theme: S2Theme = {
   cornerCell: cellTheme
 }
 export const CrossTable: FC<Props> = ({ data, dark }) => {
-  const themeCfg = dark ? { name: 'dark', theme: s2Theme } : {}
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const themeCfg: any = dark ? { name: 'dark', theme: s2Theme } : {}
   return (
     <div className="db-cross-table">
       <SheetComponent

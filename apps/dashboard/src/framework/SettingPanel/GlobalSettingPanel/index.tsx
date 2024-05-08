@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Tabs, Form, Radio, Select, theme } from 'antd'
+import { Tabs, Form, Radio, Select } from 'antd'
 import type { CollapseProps, FormProps, RadioChangeEvent } from 'antd'
 import { SetterCollapse, BackgroundSetter, ColorSelect, PaletteSetter } from '@dash/setter'
 import { useSelector, useStore } from '@/store'

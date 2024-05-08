@@ -48,7 +48,7 @@ const StylePanel: FC = () => {
       )
     }
   ]
-  const onValuesChange: FormProps['onValuesChange'] = (changedValue, values) => {
+  const onValuesChange: FormProps['onValuesChange'] = (_, values) => {
     updateCurWidget({ styles: values })
   }
 

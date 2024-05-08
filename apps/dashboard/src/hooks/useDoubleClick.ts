@@ -30,7 +30,7 @@ const useDoubleClick = <T extends HTMLElement = HTMLElement>(options: UseDBClick
   }
 
   const intervalRef = useRef<number | null>()
-  const timerRef = useRef<NodeJS.Timeout | null>()
+  const timerRef = useRef<number | null>()
 
   const isDom = (node: unknown): node is HTMLElement | SVGElement => node instanceof HTMLElement || node instanceof SVGElement
 

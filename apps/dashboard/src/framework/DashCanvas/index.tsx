@@ -1,4 +1,4 @@
-import { FC, DragEvent } from 'react'
+import { FC } from 'react'
 import { Layout } from 'react-grid-layout'
 import { widgetsConfigMap } from '../base.ts'
 import GridLayouts from '@/components/GridLayouts'
@@ -32,7 +32,8 @@ const DashCanvas: FC = () => {
   const onLayoutChange = (layout: Layout[]) => {
     updateGrid(layout.filter((item) => item.i !== 'fromMenu'))
   }
-  const onDrop = (_: Layout[], layoutItem: Layout, event: DragEvent) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onDrop = (_: Layout[], layoutItem: Layout, event: any) => {
     const data = event.dataTransfer.getData('text/plain') as DashComponentType
     const { w, h, x, y } = layoutItem
     const { defaultData, name } = widgetsConfigMap[data]

@@ -19,7 +19,7 @@ type Props = {
 const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) => {
   const sortItems = useMemo(() => fieldList.map((item) => item.id), [fieldList])
   const [condition, setCondition] = useState<string>('')
-  const items: MenuProps['items'] = [
+  const items = [
     {
       key: '1',
       label: '汇总方式',
@@ -95,7 +95,7 @@ const SettingFieldItem: FC<Props> = ({ title, fieldList = [], id, onDelete }) =>
     event.stopPropagation()
     onDelete(id, index)
   }
-  const onSelect = (e) => {
+  const onSelect: MenuProps['onSelect'] = (e) => {
     items.forEach((item) => {
       item?.children?.forEach((item) => {
         if (item.key === e.selectedKeys[0]) {

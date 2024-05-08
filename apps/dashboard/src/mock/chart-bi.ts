@@ -61,7 +61,8 @@ const data5 = [
     contactNumber: '158****5820'
   }
 ]
-export const chatMap = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const chatMap: Record<string, any> = {
   // 1
   一季度采购磷酸铁锂电池福建工厂供货金额前五大的供应商: {
     type: DashComponentType.COLUMN_CHART,

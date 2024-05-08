@@ -12,7 +12,7 @@ const prefix = 'switch-chart-menu'
 const SwitchChartMenu: FC = () => {
   const curWidget = useStore(curWidgetSelector)
   const { updateCurWidget } = useStore(useSelector(['updateCurWidget']))
-  const ref = useRef()
+  const ref = useRef(null)
   const { type } = curWidget
   const { icon, name } = widgetsConfigMap[type]
   const isHover = useHover(ref, {

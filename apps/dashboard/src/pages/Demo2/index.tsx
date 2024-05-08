@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Editor } from '@tinymce/tinymce-react'
 export const Tiptap = () => {
-  const editorRef = useRef(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const editorRef = useRef<any>(null)
   const log = () => {
     if (editorRef.current) {
       console.log(editorRef.current.getContent())
@@ -17,7 +18,7 @@ export const Tiptap = () => {
     <>
       <Editor
         tinymceScriptSrc="/tinymce/tinymce.min.js"
-        onInit={(evt, editor) => (editorRef.current = editor)}
+        onInit={(_evt, editor) => (editorRef.current = editor)}
         initialValue="<p>This is the initial content of the editor.</p>"
         onBlur={onBlur}
         onFocus={onFocus}

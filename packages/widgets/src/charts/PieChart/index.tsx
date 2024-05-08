@@ -26,12 +26,14 @@ export const PieChart: FC<Props> = ({ data, colors, themeType, dark }) => {
     labels: [
       {
         position: 'outside',
-        text: (data) => `${data.type}: ${data.value} (${data.percent * 100}%)`
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        text: (data: any) => `${data.type}: ${data.value} (${data.percent * 100}%)`
       }
     ],
     tooltip: {
       items: [
-        (data) => ({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (data: any) => ({
           name: data.type,
           value: `${data.percent * 100}%`
         })

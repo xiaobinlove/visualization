@@ -5,7 +5,8 @@ interface Props extends BaseWidget {}
 import { getChartsTheme } from '../../utils'
 export const RadarChart: FC<Props> = ({ data, colors, themeType, dark }) => {
   const config = {
-    data: data?.map((d) => ({ ...d, star: Math.sqrt(d.star) })) || [],
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data: data?.map((d: any) => ({ ...d, star: Math.sqrt(d.star) })) || [],
     xField: 'name',
     yField: 'star',
     theme: {

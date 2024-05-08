@@ -6,11 +6,12 @@ import SvgIcon from '@/components/SvgIcon'
 import Card from './components/Card'
 import InnerCard from './components/InnerCard'
 import { Column, Line, Area, Pie, Liquid, DualAxes } from '@ant-design/plots'
-import { mock1, mock2, mock3, mock4, mock5, mock6, mock7, mock8, mock9, mock10, config } from './mock'
+import { mock1, mock2, mock3, mock4, mock5, mock6, mock7, mock8, mock9, mock10 } from './mock'
 import './index.less'
 const prefix = 'db-business-dashboard'
 const BusinessDashboard: FC = () => {
-  const [mockData, setMockData] = useState({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [mockData, setMockData] = useState<Record<string, any>>({
     mock1: {
       data: []
     },

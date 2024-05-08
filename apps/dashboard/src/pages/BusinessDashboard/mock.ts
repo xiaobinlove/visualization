@@ -1,5 +1,3 @@
-import { color } from '@uiw/react-codemirror'
-
 // 净利率
 export const mock1 = {
   data: [
@@ -163,7 +161,7 @@ export const mock2 = {
   colorField: 'name',
   radius: 0.8,
   label: {
-    text: (d) => `${d.销售额 / 100000000}亿`,
+    text: (d: { 销售额: number }) => `${d.销售额 / 100000000}亿`,
     position: 'spider'
   }
   //   legend: {
@@ -285,7 +283,7 @@ export const mock4 = {
   //   paddingRight: 80,
   innerRadius: 0.6,
   label: {
-    text: (d) => `${d.销售额 / 100000000}亿`,
+    text: (d: { 销售额: number }) => `${d.销售额 / 100000000}亿`,
     position: 'spider'
   }
   //   legend: {
@@ -336,8 +334,8 @@ export const mock5 = {
   //     ]
   //   },
   label: {
-    text: (d) => {
-      console.log(d, 'd')
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    text: (d: any) => {
       return d.value
     },
     position: 'spider'

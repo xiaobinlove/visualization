@@ -1,4 +1,4 @@
-import { FC, createElement, CSSProperties } from 'react'
+import { FC, createElement, CSSProperties, MouseEvent } from 'react'
 import { useStore, useSelector } from '@/store'
 import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout'
 import GridItemContainer from '../GridItemContainer'

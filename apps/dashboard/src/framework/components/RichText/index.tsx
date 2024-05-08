@@ -1,5 +1,5 @@
 import { useRef, FC } from 'react'
-import { Editor } from '@tinymce/tinymce-react'
+import { Editor, IAllProps } from '@tinymce/tinymce-react'
 import { useStore, useSelector } from '@/store'
 import { useDoubleClick } from '@/hooks'
 import './index.less'

@@ -3,6 +3,7 @@ import { Drawer } from 'antd'
 import ChatBi from '../ChatBi'
 import { CloseOutlined } from '@ant-design/icons'
 import SvgIcon from '../SvgIcon'
+import { doResize } from '@/utils'
 import './index.less'
 const prefix = 'db-chat-ai'
 const ChatAi: FC = () => {
@@ -18,6 +19,7 @@ const ChatAi: FC = () => {
   }
   const handleExpandClick = () => {
     setFullScreem((val) => !val)
+    doResize()
   }
   return (
     <div className={prefix}>

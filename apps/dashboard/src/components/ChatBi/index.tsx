@@ -30,7 +30,7 @@ const ChatBi: FC = () => {
   const [chatLoading, setChatLoading] = useState(false)
   const [isCollectModalOpen, setIsCollectModalOpen] = useState(false)
   const [askAgain, setAskAgain] = useState(false)
-  const contentRef = useRef<HTMLDivElement>()
+  const contentRef = useRef<HTMLDivElement>(null)
   const handleTabClick = (val: string) => {
     setCurTab(val)
   }
@@ -151,7 +151,7 @@ const ChatBi: FC = () => {
                   </div>
                 )
               } else {
-                const ChartComponent = componentMap[item.type]
+                const ChartComponent = componentMap[item.type!]
                 return (
                   <div className={`${prefix}__item ${prefix}__answer`} key={index}>
                     <div className={`${prefix}__avatar`}>

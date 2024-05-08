@@ -45,7 +45,7 @@ export const GanttChart: FC<Props> = ({ data }) => {
       { unit: 'month', step: 1, format: '%M' },
       { unit: 'day', step: 1, format: '%d' }
     ]
-    gantt.templates.tooltip_text = function (start, end, task) {
+    gantt.templates.tooltip_text = function (_start, _end, task) {
       return (
         '<a-card> <b>任务名称:</b>' +
         task.text +
@@ -64,6 +64,7 @@ export const GanttChart: FC<Props> = ({ data }) => {
         width: '*',
         // width: 150,
         align: 'left',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         template: function (obj: any) {
           return obj.text
         }
@@ -73,6 +74,7 @@ export const GanttChart: FC<Props> = ({ data }) => {
         label: '开始时间',
         width: '*',
         align: 'center',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         template: function (obj: any) {
           return obj.start_date
         }
@@ -82,6 +84,7 @@ export const GanttChart: FC<Props> = ({ data }) => {
         label: '结束时间',
         width: '*',
         align: 'center',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         template: function (obj: any) {
           return obj.end_date
         }
@@ -91,6 +94,7 @@ export const GanttChart: FC<Props> = ({ data }) => {
         label: '进度',
         width: '*',
         align: 'center',
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         template: function (obj: any) {
           return `${obj.progress * 100}%`
         }

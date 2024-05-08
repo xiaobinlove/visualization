@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import React from 'react'
 import { Form, Select } from 'antd'
 const options = [
   {

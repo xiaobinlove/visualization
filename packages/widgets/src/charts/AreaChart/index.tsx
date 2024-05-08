@@ -12,17 +12,6 @@ export const AreaChart: FC<Props> = ({ data, colors, themeType, dark }) => {
     xField: 'year',
     yField: 'value',
     shapeField: 'hvh',
-    label: {
-      text: 'value',
-      style: {
-        fontSize: 10,
-        textAlign: (_, idx, arr) => {
-          if (idx === 0) return 'left'
-          if (idx === arr.length - 1) return 'right'
-          return 'center'
-        }
-      }
-    },
     style: {
       opacity: 0.4
     },

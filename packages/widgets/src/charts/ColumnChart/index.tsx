@@ -13,10 +13,6 @@ export const ColumnChart: FC<Props> = ({ data, colors, themeType, dark, ...res }
     yField: 'value',
     colorField: 'status',
     group: true,
-    label: {
-      text: (d) => d.value,
-      textBaseline: 'bottom'
-    },
     ...res
   }
   return <Column {...config} className="global-antv-charts" />

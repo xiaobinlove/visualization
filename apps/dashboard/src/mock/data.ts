@@ -1,6 +1,7 @@
 import { DashComponentType } from '@/types'
 import { Field } from '@/types'
-export const dataMap = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const dataMap: Record<string, any> = {
   [DashComponentType.AREA_CHART]: [
     { year: '1991', value: 15468 },
     { year: '1992', value: 16100 },

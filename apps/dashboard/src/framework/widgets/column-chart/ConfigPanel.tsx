@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { Schema, useForm } from 'form-render'
 import { xAxis, yAxis, legend, getChartType } from '../common'
-import { useStore, useSelector } from '@/store'
 import { useMount } from 'ahooks'
 import FormRender from '@/framework/components/FormRender'
 const schema: Schema = {

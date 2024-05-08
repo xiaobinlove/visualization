@@ -1,6 +1,8 @@
 import { ThemeType } from '@dash/board'
-export const getChartsTheme = (themeType?: ThemeType = ThemeType.CUSTOM_LIGHT, colors?: string[], dark?: boolean = false): any => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getChartsTheme = (themeType: ThemeType = ThemeType.CUSTOM_LIGHT, colors?: string[], dark: boolean = false): any => {
   const view = { viewFill: 'transparent', plotFill: 'transparent', mainFill: 'transparent', contentFill: 'transparent' }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const theme: any = {
     type: themeType
   }
