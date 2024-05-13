@@ -76,7 +76,9 @@ export interface Widget {
   posY: number
   width: number
   height: number
+  // 图表类型
   type: DashComponentType
+  // 图表名称
   title: string
   // 是否显示标题
   hideTitle?: boolean
@@ -84,9 +86,9 @@ export interface Widget {
   [SortContainerId.xFields]?: Field[]
   // yFields?: Field[]
   [SortContainerId.metrics]?: Field[]
-  form?: string
+  form?: string //
   content?: string // 富文本
-  data?: unknown
+  data?: unknown // 图表数据
   styles?: WidgetStyle
   dataSourceType?: DataSource
   xAxis?: XAxis

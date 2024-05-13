@@ -24,7 +24,9 @@ const s2Theme: S2Theme = {
   cornerCell: cellTheme
 }
 export const DataTable: FC<Props> = ({ dataCfg, dark, ...res }) => {
-  const themeCfg = dark ? { name: 'dark', theme: s2Theme } : {}
+  // TODO
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const themeCfg: any = dark ? { name: 'dark', theme: s2Theme } : {}
   themeCfg
   return (
     <div className="db-data-table">

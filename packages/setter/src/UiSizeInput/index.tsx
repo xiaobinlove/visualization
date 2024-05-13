@@ -10,7 +10,7 @@ export const UiSizeInput: FC = () => {
         addonBefore={<SvgIcon size={12} name="pc" />}
         formatter={(value) => `${value}px`}
         parser={(value) => value!.replace('px', '')}
-        min={0}
+        // min={0}
         size="small"
       />
     </div>

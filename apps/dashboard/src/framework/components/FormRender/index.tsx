@@ -5,6 +5,8 @@ const FormRender = (props: Omit<FRProps, 'widgets'>) => (
   <Form
     displayType="row"
     column={1}
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     labelCol={7}
     fieldCol={17}
     labelAlign="left"
