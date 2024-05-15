@@ -4,9 +4,9 @@ import StylePanel from './StylePanel'
 import SettingField from '@/framework/SettingPanel/SettingField'
 import { GanttChart } from '@dash/widgets'
 const options: WidgetConfig = {
-  name: '柱状图',
+  name: '甘特图',
   type: DashComponentType.GANTT_CHART,
-  icon: 'component-type-line',
+  icon: '甘特图',
   component: GanttChart,
   isChart: true,
   // 配置面板

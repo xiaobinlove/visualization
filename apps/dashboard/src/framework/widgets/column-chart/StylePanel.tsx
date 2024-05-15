@@ -12,7 +12,11 @@ const schema: Schema = {
 const StylePanel: FC = () => {
   const form = useForm()
   useMount(() => {})
-  const watch = {}
+  const watch = {
+    // '#': (v) => {
+    //   console.log(v, 'v111')
+    // }
+  }
   return <FormRender form={form} schema={schema} watch={watch} />
 }
 export default StylePanel

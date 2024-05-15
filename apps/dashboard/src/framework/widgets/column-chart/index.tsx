@@ -6,7 +6,7 @@ import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '柱状图',
   type: DashComponentType.COLUMN_CHART,
-  icon: 'component-type-line',
+  icon: '柱状图1',
   component: ColumnChart,
   isChart: true,
   // 配置面板

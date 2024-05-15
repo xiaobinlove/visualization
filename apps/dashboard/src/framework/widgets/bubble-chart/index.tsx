@@ -6,7 +6,7 @@ import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '气泡图',
   type: DashComponentType.BUBBLE_CHART,
-  icon: 'component-type-line',
+  icon: '气泡图',
   component: ColumnChart,
   isChart: true,
   // 配置面板

@@ -144,15 +144,11 @@ export const getChartCardStyle = (title: string = '整体样式') => {
           title: '背景',
           type: 'object',
           widget: 'BackgroundSetter'
-          //   props: {
-          //     placeholder: '请输入标题'
-          //   }
         },
         color: {
           title: '标题颜色',
           type: 'string',
-          widget: 'ColorSelect',
-          bind: ''
+          widget: 'ColorSelect'
         }
         // title: {
         //   type: 'object',

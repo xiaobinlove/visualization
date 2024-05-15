@@ -6,7 +6,7 @@ import { PieChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '饼图',
   type: DashComponentType.PIE_CHART,
-  icon: 'component-type-pie',
+  icon: '饼图1',
   component: PieChart,
   isChart: true,
   // 配置面板

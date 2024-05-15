@@ -35,9 +35,7 @@ const SwitchChartMenu: FC = () => {
     <div className={classnames(prefix, { [`${prefix}--active`]: active })} ref={ref}>
       <span className="db-common-switch-text">切换图表</span>
       <div className={`${prefix}__select`} onClick={handleClick}>
-        <div className={`${prefix}__icon-container`}>
-          <i className={`global-component-icon ${prefix}__icon ${icon} light`}></i>
-        </div>
+        <SvgIcon size={20} name={icon} className={`${prefix}__icon ${icon}`} />
         <div className={`${prefix}__name`}>{name}</div>
         <SvgIcon name="select-down" color="#777d8c" style={{ marginTop: '-6px' }} />
       </div>

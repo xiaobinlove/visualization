@@ -1,6 +1,7 @@
 import { FC, DragEvent } from 'react'
 import './index.less'
 import type { ChartMenuItem, ChartMenu } from '@/types'
+import SvgIcon from '@/components/SvgIcon'
 import { DashComponentType } from '@/types'
 const prefix = 'hd-charts-panel'
 
@@ -40,7 +41,7 @@ const ChartsPanel: FC<Props> = ({ onItemClick, data }) => {
                     >
                       <div className={`${prefix}__item-inner`}>
                         <div className={`${prefix}__icon-container`}>
-                          <div className={`global-component-icon ${item.icon} light`}></div>
+                          <SvgIcon name={item.icon} size={30} />
                         </div>
                         <div className={`${prefix}__name`}>{item.name}</div>
                       </div>

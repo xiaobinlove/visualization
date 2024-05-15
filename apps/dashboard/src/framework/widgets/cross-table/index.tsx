@@ -6,7 +6,7 @@ import { CrossTable } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '透视表',
   type: DashComponentType.CROSS_TABLE,
-  icon: 'component-type-line',
+  icon: '透视表',
   component: CrossTable,
   isChart: true,
   // 配置面板

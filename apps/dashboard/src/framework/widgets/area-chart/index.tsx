@@ -6,7 +6,7 @@ import { AreaChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '面积图',
   type: DashComponentType.AREA_CHART,
-  icon: 'component-type-polyline',
+  icon: '面积图',
   component: AreaChart,
   isChart: true,
   // 配置面板

@@ -6,7 +6,7 @@ import { LineChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '折线图',
   type: DashComponentType.LINE_CHART,
-  icon: 'component-type-pie',
+  icon: '折线图',
   component: LineChart,
   isChart: true,
   // 配置面板

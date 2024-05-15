@@ -6,7 +6,7 @@ import { BarChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '条形图',
   type: DashComponentType.BAR_CHART,
-  icon: 'component-type-bar',
+  icon: '条形图1',
   component: BarChart,
   isChart: true,
   // 配置面板

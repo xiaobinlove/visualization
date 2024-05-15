@@ -6,7 +6,7 @@ import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '双轴图',
   type: DashComponentType.BIAXIAL_CHART,
-  icon: 'component-type-line',
+  icon: '双轴图',
   component: ColumnChart,
   isChart: true,
   // 配置面板

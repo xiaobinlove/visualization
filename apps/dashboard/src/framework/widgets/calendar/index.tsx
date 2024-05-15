@@ -6,7 +6,7 @@ import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '日历',
   type: DashComponentType.CALENDAR,
-  icon: 'component-type-line',
+  icon: '日历',
   component: ColumnChart,
   isChart: true,
   // 配置面板

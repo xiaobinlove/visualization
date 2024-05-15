@@ -6,7 +6,7 @@ import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '进度条',
   type: DashComponentType.PROGRESS_CHART,
-  icon: 'component-type-progress-new',
+  icon: '进度条',
   component: ColumnChart,
   isChart: true,
   // 配置面板

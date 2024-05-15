@@ -6,7 +6,7 @@ import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '仪表盘',
   type: DashComponentType.DASH_BOARD_CHART,
-  icon: 'component-type-gauge-new',
+  icon: '仪表盘',
   component: ColumnChart,
   isChart: true,
   // 配置面板

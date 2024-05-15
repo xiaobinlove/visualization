@@ -4,7 +4,7 @@ export const menuData: MenuDataItem[] = [
     表格: [DashComponentType.DATA_TABLE, DashComponentType.CROSS_TABLE]
   },
   {
-    指标图: [DashComponentType.INDICATOR_CARD, DashComponentType.PROGRESS_CHART, DashComponentType.INDICATOR_CARD]
+    指标图: [DashComponentType.INDICATOR_CARD, DashComponentType.PROGRESS_CHART]
   },
   {
     统计图表: [
@@ -19,17 +19,17 @@ export const menuData: MenuDataItem[] = [
       DashComponentType.BIAXIAL_CHART,
       DashComponentType.FUNNEL_PLOT
     ]
-  },
-  {
-    组件: [
-      // 日历
-      DashComponentType.CALENDAR,
-      // iframe
-      DashComponentType.IFRAME,
-      // 实时时间
-      DashComponentType.REAL_TIME
-    ]
-  },
+  }
+  // {
+  //   组件: [
+  //     // 日历
+  //     DashComponentType.CALENDAR,
+  //     // iframe
+  //     DashComponentType.IFRAME,
+  //     // 实时时间
+  //     DashComponentType.REAL_TIME
+  //   ]
+  // },
   //   {
   //     title: '地图',
   //     chilren: [
@@ -45,7 +45,7 @@ export const menuData: MenuDataItem[] = [
   //       }
   //     ]
   //   },
-  {
-    其他: [DashComponentType.GANTT_CHART]
-  }
+  // {
+  //   其他: [DashComponentType.GANTT_CHART]
+  // }
 ]

@@ -53,6 +53,17 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
     const { isDraggableInEdit } = useStore(useSelector(['isDraggableInEdit']))
     const background = useBackgroundStyle('styles.card.background', widgetId)
     const { isChart } = widgetsConfigMap[type]
+    const renderContent = () => {
+      if (isChart && !data) {
+        return (
+          <div className={`${prefix}__loader-error`}>
+            <div className={`${prefix}__error-descript`}>当前图表暂无数据</div>
+          </div>
+        )
+      } else {
+        return <div className={`${prefix}__content`}>{contentRender}</div>
+      }
+    }
     return (
       <div
         ref={ref}
@@ -79,12 +90,7 @@ const GridItemContainer = forwardRef<HTMLDivElement, Props>(
             {title}
           </div>
         )}
-        {!data && isChart && (
-          <div className={`${prefix}__loader-error`}>
-            <div className={`${prefix}__error-descript`}>当前图表暂无数据</div>
-          </div>
-        )}
-        <div className={`${prefix}__content`}>{contentRender}</div>
+        {renderContent()}
         {children}
       </div>
     )

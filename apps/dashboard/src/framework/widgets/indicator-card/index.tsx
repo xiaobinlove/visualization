@@ -5,7 +5,7 @@ import { IndicatorCard } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '指标看板',
   type: DashComponentType.INDICATOR_CARD,
-  icon: 'component-type-pie',
+  icon: '指标',
   component: IndicatorCard,
   isChart: true,
   // 配置面板

@@ -6,7 +6,7 @@ import { RadarChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '雷达图',
   type: DashComponentType.RADAR_CHART,
-  icon: 'component-type-bar',
+  icon: '雷达图',
   component: RadarChart,
   isChart: true,
   // 配置面板
