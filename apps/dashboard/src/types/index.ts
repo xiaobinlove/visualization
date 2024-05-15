@@ -2,41 +2,52 @@ import { ReactNode, FunctionComponent, CSSProperties } from 'react'
 export type { Styles, Background, TextStyle, indicatorStyle } from './theme-config'
 export { ThemeType, PaletteType } from './theme-config'
 import { WidgetStyle } from './theme-config'
-// 物料组件类型
+// 仪表盘组件类型
 export enum DashComponentType {
-  COLUMN_CHART = 'columnChart',
-  PIE_CHART = 'pieChart',
-  RADAR_CHART = 'radarChart',
-  BAR_CHART = 'barChart',
-  // 富文本
-  RICH_TEXT = 'richText',
-  // 图片
-  IMAGE = 'image',
-  LINE_CHART = 'lineChart',
-  AREA_CHART = 'areaChart',
+  // 柱状图
+  COLUMN_CHART = 'COLUMN_CHART',
+  // 饼图
+  PIE_CHART = 'PIE_CHART',
+  // 雷达图
+  RADAR_CHART = 'RADAR_CHART',
+  // 条形图
+  BAR_CHART = 'BAR_CHART',
+  // 折线图
+  LINE_CHART = 'LINE_CHART',
+  // 面积图
+  AREA_CHART = 'AREA_CHART',
   // 进度条
-  PROGRESS_CHART = 'progressChart',
-  // 仪表盘
-  DASH_BOARD_CHART = 'dashBoardChart',
+  DASH_BOARD_CHART = 'DASH_BOARD_CHART',
   // 气泡图
-  BUBBLE_CHART = 'bubbleChart',
+  BUBBLE_CHART = 'BUBBLE_CHART',
   // 散点图
-  SCATTER_PLOT = 'scatterPlot',
+  SCATTER_PLOT = 'SCATTER_PLOT',
   // 双轴图
-  BIAXIAL_CHART = 'biaxialChart',
+  BIAXIAL_CHART = 'BIAXIAL_CHART',
   // 漏斗图
-  FUNNEL_PLOT = 'funnelPlot',
+  FUNNEL_PLOT = 'FUNNEL_PLOT',
+  // 甘特图
+  GANTT_CHART = 'GANTT_CHART',
+  // 指标图
+  INDICATOR_CARD = 'INDICATOR_CARD',
+  // 仪表盘
+  PROGRESS_CHART = 'PROGRESS_CHART',
+  // 明细表
+  DATA_TABLE = 'DATA_TABLE',
+  // 透视表
+  CROSS_TABLE = 'CROSS_TABLE',
   // 日历
-  CALENDAR = 'calendar',
+  CALENDAR = 'CALENDAR',
   // 嵌入页面
-  IFRAME = 'iframe',
+  IFRAME = 'IFRAME',
   // 实时时间
-  REAL_TIME = 'realTime',
-  TAB = 'tab',
-  INDICATOR_CARD = 'indicatorCard',
-  DATA_TABLE = 'dataTable',
-  CROSS_TABLE = 'crossTable',
-  GANTT_CHART = 'ganttChart'
+  REAL_TIME = 'REAL_TIME',
+  // 富文本
+  RICH_TEXT = 'RICH_TEXT',
+  // 图片
+  IMAGE = 'IMAGE',
+  // tab容器
+  TAB = 'TAB'
 }
 export enum DataType {
   NUMBER = 'number',

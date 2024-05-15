@@ -57,8 +57,8 @@ const DashCanvas: FC = () => {
     }
     doResize()
   }
+
   const handleLayoutClick = () => {
-    // e.stopPropagation()
     setCurWidetId('')
   }
   return (

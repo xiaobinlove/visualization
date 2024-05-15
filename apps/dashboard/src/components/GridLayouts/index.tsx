@@ -28,6 +28,7 @@ const GridLayouts: FC<GridLayoutProps> = ({
   const { setCurWidetId, curWidgetId, styles, widgets } = useStore(useSelector(['curWidgetId', 'setCurWidetId', 'styles', 'widgets']))
   const palette = paletteMap[useStore((state) => state.styles.theme.palette)]
   const themeType = useStore((state) => state.styles.theme.type)
+  // TODO  深色由主题类型自动判断
   const dark = useStore((state) => state.styles.theme.dark)
   const handleItemClick = (e: MouseEvent, widgetId: string) => {
     e.stopPropagation()

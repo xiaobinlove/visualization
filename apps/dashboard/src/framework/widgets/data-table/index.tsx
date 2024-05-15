@@ -6,7 +6,7 @@ import { DataTable } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '明细表',
   type: DashComponentType.DATA_TABLE,
-  icon: 'component-type-line',
+  icon: '明细表',
   component: DataTable,
   isChart: true,
   // 配置面板
