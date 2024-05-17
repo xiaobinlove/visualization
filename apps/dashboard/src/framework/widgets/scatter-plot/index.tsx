@@ -6,7 +6,7 @@ import { ColumnChart } from '@dash/widgets'
 const options: WidgetConfig = {
   name: '散点图',
   type: DashComponentType.SCATTER_PLOT,
-  icon: 'component-type-line',
+  icon: '散点图',
   component: ColumnChart,
   isChart: true,
   // 配置面板
