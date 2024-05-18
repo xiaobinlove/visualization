@@ -1,0 +1,30 @@
+.db-dashType-select {
+  display: flex;
+  &__item {
+    padding: 4px;
+    width: 128px;
+    border-radius: 4px;
+    margin-right: 34px;
+    &--active {
+      .db-dashType-select__item-top {
+        border: 1px solid #4b6eef;
+      }
+      .db-dashType-select__title {
+        color: #4b6eef;
+      }
+    }
+  }
+  &__item-top {
+    box-sizing: border-box;
+    height: 72px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #eef0f5;
+  }
+
+  &__title {
+    text-align: center;
+    padding-top: 4px;
+    color: #595959;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,36 @@
+.db-dashboard-home {
+  padding: 60px 20px 20px 60px;
+  background-color: rgb(244, 246, 249);
+  min-height: 100%;
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 40px;
+  }
+  &__item {
+    cursor: pointer;
+  }
+  &__thumb {
+    background-color: #fff;
+  }
+  &__item-top {
+    box-sizing: border-box;
+    height: 140px;
+  }
+  &__add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #000000;
+  }
+
+  &__title {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 16px;
+    color: #595959;
+  }
+  &__dash-type {
+    margin-bottom: 20px;
+  }
+}
