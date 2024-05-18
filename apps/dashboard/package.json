@@ -19,7 +19,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@tinymce/tinymce-react": "^4.3.2",
     "@uiw/codemirror-theme-basic": "^4.21.25",
-    "@uiw/react-codemirror": "^4.21.25",
+    "@uiw/react-codemirror": "^4.22.1",
     "ahooks": "^3.7.10",
     "cheerio": "1.0.0-rc.12",
     "react-grid-layout": "^1.4.4",

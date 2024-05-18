@@ -35,6 +35,7 @@
     "@dash/icons": "workspace:*",
     "@types/lodash-es": "^4.17.12",
     "antd": "^5.15.4",
+    "axios": "^1.6.8",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "form-render": "^2.4.4",

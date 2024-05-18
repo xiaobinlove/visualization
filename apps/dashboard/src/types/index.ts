@@ -20,6 +20,8 @@ export enum DashComponentType {
   DASH_BOARD_CHART = 'DASH_BOARD_CHART',
   // 气泡图
   BUBBLE_CHART = 'BUBBLE_CHART',
+  // 水波图
+  LIQUID_CHAR = 'LIQUID_CHART',
   // 散点图
   SCATTER_PLOT = 'SCATTER_PLOT',
   // 双轴图
@@ -44,6 +46,7 @@ export enum DashComponentType {
   REAL_TIME = 'REAL_TIME',
   // 富文本
   RICH_TEXT = 'RICH_TEXT',
+
   // 图片
   IMAGE = 'IMAGE',
   // tab容器
