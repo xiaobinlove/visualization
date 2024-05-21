@@ -48,13 +48,7 @@ const DashCanvas: FC = () => {
     })
     setCurWidetId(widgetId)
   }
-  const onResizeStop = (_layout: Layout[], layoutItem: Layout) => {
-    const whiteList = [DashComponentType.COLUMN_CHART, DashComponentType.AREA_CHART]
-    const cur = widgets[layoutItem.i]
-    // 有些组件不存在resize后 视图组件无法autofit的问题，所以排除在名单外，无需手动强制resize
-    if (whiteList.includes(cur.type)) {
-      return
-    }
+  const onResizeStop = () => {
     doResize()
   }
 

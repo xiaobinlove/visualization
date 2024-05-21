@@ -9,8 +9,10 @@ import { dataSourceMap } from '@/mock/data.ts'
 const prefix = 'db-setting-data-panel'
 import './index.less'
 import '../common.less'
-
-const SettingDataPanel: FC = () => {
+type Props = {
+  onDataSourceTypeChange: (val: DataSource) => void
+}
+const SettingDataPanel: FC<Props> = ({ onDataSourceTypeChange }) => {
   const [dataSourceId, setDataSourceId] = useState<string | null>()
   const { dataSourceType = DataSource.实体 } = useStore(curWidgetSelector)
   const { updateCurWidget } = useStore(useSelector(['updateCurWidget']))
@@ -81,6 +83,7 @@ const SettingDataPanel: FC = () => {
           value={dataSourceType}
           onChange={(val) => {
             updateCurWidget({ dataSourceType: val })
+            onDataSourceTypeChange(val)
           }}
           suffixIcon={<SvgIcon name="select-down" color="#777d8c" style={{ marginTop: '-6px' }} />}
           placeholder="请选择"
@@ -88,20 +91,6 @@ const SettingDataPanel: FC = () => {
         />
       </div>
       {dataSourceType && renderMap[dataSourceType]}
-
-      {/* <Form.Item label="数据内容">
-        <CodeMirror
-          height="600px"
-          style={{ margin: '0 -10px', border: '1px solid #e6e6e6' }}
-          extensions={[json()]}
-          value={data}
-          basicSetup={{
-            tabSize: 2,
-            lineNumbers: false,
-            foldGutter: false
-          }}
-        />
-      </Form.Item> */}
     </div>
   )
 }

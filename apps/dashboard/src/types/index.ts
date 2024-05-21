@@ -2,6 +2,9 @@ import { ReactNode, FunctionComponent, CSSProperties } from 'react'
 export type { Styles, Background, TextStyle, indicatorStyle } from './theme-config'
 export { ThemeType, PaletteType } from './theme-config'
 import { WidgetStyle } from './theme-config'
+// antv config配置
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ChartConfig = Record<string, any>
 // 仪表盘组件类型
 export enum DashComponentType {
   // 柱状图
@@ -61,7 +64,7 @@ export enum SortContainerId {
   xFields = 'xFields',
   metrics = 'metrics'
 }
-
+type Data = Record<string, any>[]
 // 字段
 export interface Field {
   fieldName: string
@@ -102,12 +105,15 @@ export interface Widget {
   [SortContainerId.metrics]?: Field[]
   form?: string //
   content?: string // 富文本
-  data?: unknown // 图表数据
+  data?: Data // 图表数据
   styles?: WidgetStyle
-  dataSourceType?: DataSource
   xAxis?: XAxis
   yAxis?: YAxis
   legend?: Legend
+  // 数据类型
+  dataSourceType: DataSource
+  // 静态数据
+  staticConfigStr?: string
 }
 
 export enum DashMode {
@@ -149,12 +155,15 @@ export interface WidgetConfig {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   // 默认值
   defaultData?: Partial<Widget>
+  // 静态数据
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  defaultStaticConfig?: string
 }
 export type WidgetsConfig = { [key: string]: WidgetConfig }
 export interface AiChat {
   type?: string
   role: 'ai' | 'user'
-  config?: any
+  config?: ChartConfig
   descript?: string
   input?: string
   collected?: boolean

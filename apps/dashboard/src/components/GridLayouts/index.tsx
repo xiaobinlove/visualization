@@ -2,9 +2,10 @@ import { FC, createElement, CSSProperties, MouseEvent } from 'react'
 import { useStore, useSelector } from '@/store'
 import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout'
 import GridItemContainer from '../GridItemContainer'
-import { ComponentTreeItem, TextStyle } from '@/types'
+import { ComponentTreeItem, TextStyle, DataSource } from '@/types'
 import { widgetsConfigMap } from '@/framework/base'
 import { paletteMap } from '@/framework/theme'
+import { codeStrToChartConfig } from '@/utils'
 import 'react-grid-layout/css/styles.css'
 import './index.less'
 const ReactGridLayout = WidthProvider(RGL)
@@ -51,10 +52,13 @@ const GridLayouts: FC<GridLayoutProps> = ({
         droppingItem={droppingItem}
       >
         {layout.map((item) => {
+          const curWidget = widgets[item.id]
           const { component } = widgetsConfigMap[item.type]
           // TODO: 待优化
           const showTitle = !widgets[item.id].hideTitle
-          const titleStyle = getTextSyle(widgets[item.id].styles?.title || styles.card.title)
+          const titleStyle = getTextSyle(curWidget.styles?.title || styles.card.title)
+          const staticConfig = codeStrToChartConfig(curWidget.staticConfigStr)
+          const curData = curWidget.dataSourceType === DataSource.静态数据 ? staticConfig.data : curWidget.data
           return (
             <GridItemContainer
               dark={dark}
@@ -67,15 +71,11 @@ const GridLayouts: FC<GridLayoutProps> = ({
               contentRender={createElement(
                 component,
                 {
-                  widgetId: item.id,
-                  data: item.data,
-                  isEdit,
+                  data: curData,
                   colors: palette,
                   themeType,
-                  title: item.title,
-                  titleStyle,
                   dark,
-                  styles: widgets[item.id].styles
+                  ...staticConfig
                 },
                 item.children.length > 0 && render(item.children)
               )}
@@ -83,7 +83,7 @@ const GridLayouts: FC<GridLayoutProps> = ({
               widgetId={item.id}
               isEdit={isEdit}
               type={item.type}
-              data={item.data}
+              data={curData}
               showTitle={showTitle}
               isSelected={curWidgetId === item.id}
             />

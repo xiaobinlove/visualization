@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react'
+import { FC, useMemo, useCallback } from 'react'
 import { Tabs, TabsProps } from 'antd'
 import SettingPannelDndContext from '../../components/SettingPannelDndContext'
 import SettingPanelContainner from '../SettingPanelContainner'
@@ -13,8 +13,16 @@ const prefix = 'db-widget-setting-panel'
 import './index.less'
 const WidgetSettingPanel: FC = () => {
   const { updateCurWidget } = useStore(useSelector(['curWidgetId', 'updateCurWidget']))
-  const { type, dataSourceType = DataSource.实体, title } = useStore(curWidgetSelector)
-  const { stylePanel, configPanel, fieldPanel } = widgetsConfigMap[type].setterPanelTab
+
+  const { type, dataSourceType = DataSource.实体, title, staticConfigStr } = useStore(curWidgetSelector)
+  const { setterPanelTab, defaultStaticConfig } = widgetsConfigMap[type]
+  const { stylePanel, configPanel, fieldPanel } = setterPanelTab
+  const handleCodeChange = useCallback(
+    (val: string) => {
+      updateCurWidget({ staticConfigStr: val })
+    },
+    [updateCurWidget]
+  )
   const items: TabsProps['items'] = useMemo(() => {
     const list: TabsProps['items'] = []
     if (fieldPanel) {
@@ -29,7 +37,7 @@ const WidgetSettingPanel: FC = () => {
         },
         [DataSource.静态数据]: {
           label: '数据内容',
-          children: <SettingStaticData />
+          children: <SettingStaticData value={staticConfigStr} onChange={handleCodeChange} />
         }
       }
       const { label, children } = itemMap[dataSourceType]
@@ -54,10 +62,30 @@ const WidgetSettingPanel: FC = () => {
       })
     }
     return list
-  }, [configPanel, dataSourceType, fieldPanel, stylePanel])
-
+  }, [configPanel, dataSourceType, fieldPanel, handleCodeChange, staticConfigStr, stylePanel])
   const onTitleChange = (val: string) => {
     updateCurWidget({ title: val })
+  }
+  const onDataSourceTypeChange = (val: DataSource) => {
+    if (val === DataSource.静态数据) {
+      // TODO 清空数据配置 DefaultData
+      updateCurWidget({
+        metrics: [],
+        xFields: []
+      })
+      if (!staticConfigStr) {
+        updateCurWidget({
+          staticConfigStr: defaultStaticConfig
+        })
+      }
+      // 获取默认静态数据
+    } else {
+      // 清空数据
+      updateCurWidget({
+        staticConfigStr: undefined
+      })
+    }
+    // TODO: 清空数据配置 DefaultData
   }
   return (
     <div className={prefix}>
@@ -66,7 +94,7 @@ const WidgetSettingPanel: FC = () => {
           {/* 数据源 */}
           <div className={`${prefix}__data-panel`}>
             <SettingPanelContainner title="数据" width="177px" configList={[{ key: 'data', label: '数据' }]}>
-              <SettingDataPanel />
+              <SettingDataPanel onDataSourceTypeChange={onDataSourceTypeChange} />
             </SettingPanelContainner>
           </div>
           <div className={`${prefix}__content`}>
