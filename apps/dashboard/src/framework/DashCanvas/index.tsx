@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, forwardRef } from 'react'
 import { Layout } from 'react-grid-layout'
 import { widgetsConfigMap } from '../base.ts'
 import GridLayouts from '@/components/GridLayouts'
@@ -9,8 +9,9 @@ import { DashComponentType } from '@/types'
 import { useMount } from 'ahooks'
 import 'react-grid-layout/css/styles.css'
 import './index.less'
+type Ref = HTMLDivElement | null
 const prefix = 'db-dash-canvas'
-const DashCanvas: FC = () => {
+const DashCanvas = forwardRef<Ref>((_, ref) => {
   const isEdit = useStore(isEditModeSelector)
   const { setCurWidetId, isDraggableInEdit, addWidget, updateGrid, widgets, setWidgets, updateStyles } = useStore(
     useSelector(['setCurWidetId', 'addWidget', 'updateGrid', 'isDraggableInEdit', 'curWidgetId', 'widgets', 'setWidgets', 'updateStyles'])
@@ -56,7 +57,7 @@ const DashCanvas: FC = () => {
     setCurWidetId('')
   }
   return (
-    <div className={prefix} onClick={handleLayoutClick}>
+    <div className={prefix} onClick={handleLayoutClick} ref={ref}>
       <CanvasContainer>
         <GridLayouts
           isEdit={isEdit}
@@ -72,5 +73,5 @@ const DashCanvas: FC = () => {
       </CanvasContainer>
     </div>
   )
-}
+})
 export default DashCanvas
