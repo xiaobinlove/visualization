@@ -7,6 +7,7 @@ import Chat from '@/components/ChatBi'
 import Home from '@/pages/Home'
 import BusinessDashboard from '@/pages/BusinessDashboard'
 import DslDemo from '@/pages/DslDemo'
+import HncDashboard from '@/pages/HncDashboard'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: '/dsl-demo',
     Component: DslDemo
+  },
+  {
+    path: '/hnc-dashboard',
+    Component: HncDashboard
   }
 ])
 export default router
