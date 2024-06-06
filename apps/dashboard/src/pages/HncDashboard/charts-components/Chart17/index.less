@@ -1,0 +1,39 @@
+.hnc-chart17 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  &__chart {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    & > div {
+      position: absolute !important;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 10;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 188px;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+  }
+  &__value {
+    color: #75e0fe;
+    font-size: 18px;
+  }
+  &__unit {
+    font-size: 12px;
+    margin-left: 18px;
+  }
+}

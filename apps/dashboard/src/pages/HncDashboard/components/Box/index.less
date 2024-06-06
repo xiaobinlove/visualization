@@ -1,25 +1,42 @@
 .db-hnc-box {
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   &__header {
     display: flex;
     justify-content: space-between;
     padding-right: 20px;
+    height: 20px;
   }
   &__content {
-    height: 300px;
+    flex: 1;
     background: rgba(0, 6, 46, 0.62);
     box-sizing: border-box;
     border: 1px solid;
     border-image: linear-gradient(180deg, #5790fc 0%, #5862f0 44%, #5862f0 100%) 1;
   }
+  &__noboard {
+    border: none;
+  }
+  &__tabs {
+    height: 100%;
+  }
   &__tab {
+    box-sizing: border-box;
     display: inline-block;
     min-width: 92px;
     height: 20px;
     line-height: 20px;
     text-align: center;
-    background: url();
+    padding: 0 13px;
+    background-repeat: no-repeat;
+    background-image: url(../../image/box-tab.png);
+    background-size: 100% 100%;
     font-size: 14px;
     cursor: pointer;
+    &--active {
+      background-image: url(../../image/box-tab-active.png);
+    }
   }
 }

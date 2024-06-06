@@ -8,6 +8,7 @@ import Home from '@/pages/Home'
 import BusinessDashboard from '@/pages/BusinessDashboard'
 import DslDemo from '@/pages/DslDemo'
 import HncDashboard from '@/pages/HncDashboard'
+import Hnc1 from '@/pages/Hnc1'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: '/hnc-dashboard',
     Component: HncDashboard
+  },
+  {
+    path: '/hnc1',
+    Component: Hnc1
   }
 ])
 export default router
