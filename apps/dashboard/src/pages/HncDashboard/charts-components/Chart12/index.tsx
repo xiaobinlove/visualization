@@ -3,10 +3,7 @@ import Progress from '../../components/Process'
 import './index.less'
 
 const prefix = 'hnc-chart12'
-type Props = {
-  list: { name: string; percent: number; value: number }[]
-}
-const Chart12: FC<Props> = ({
+const Chart12: FC = ({
   list = [
     { name: '销售目标达成', value: 87000, percent: 0.7 },
     { name: '毛利目标达成', value: 56000, percent: 0.7 },

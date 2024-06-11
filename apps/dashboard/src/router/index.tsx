@@ -8,7 +8,8 @@ import Home from '@/pages/Home'
 import BusinessDashboard from '@/pages/BusinessDashboard'
 import DslDemo from '@/pages/DslDemo'
 import HncDashboard from '@/pages/HncDashboard'
-import Hnc1 from '@/pages/Hnc1'
+import Hnc1 from '@/pages/HncDashboard/Analysis'
+import ChartEdit from '@/pages/HncDashboard/ChartEdit'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
   {
     path: '/hnc1',
     Component: Hnc1
+  },
+  {
+    path: '/chart-edit',
+    Component: ChartEdit
   }
 ])
 export default router

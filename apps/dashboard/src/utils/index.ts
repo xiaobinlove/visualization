@@ -24,3 +24,7 @@ export const codeStrToChartConfig = (str?: string): ChartConfig => {
   }
   return dsl
 }
+export const getQueryParam = (name: string) => {
+  const urlParams = new URLSearchParams(window.location.search)
+  return urlParams.get(name)
+}

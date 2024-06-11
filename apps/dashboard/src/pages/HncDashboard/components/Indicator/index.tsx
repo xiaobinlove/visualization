@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, MouseEventHandler } from 'react'
 import { Statistic, StatisticProps } from 'antd'
 import classnames from 'classnames'
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons'
@@ -11,12 +11,13 @@ export type IndicatorProps = {
   valueSuffix?: string
   unit?: boolean
   yoy?: 'up' | 'down'
+  onClick?: MouseEventHandler<HTMLDivElement>
 }
 const prefix = 'db-hnc-indicator'
-const Indicator: FC<IndicatorProps> = ({ name, value, percent, yoy, valueSuffix, unit = true }) => {
+const Indicator: FC<IndicatorProps> = ({ name, value, percent, yoy, valueSuffix, unit = true, onClick }) => {
   const formatter: StatisticProps['formatter'] = (value) => <CountUp duration={3} end={value as number} />
   return (
-    <div className={classnames(prefix, { [`${prefix}--down`]: yoy === 'down' })}>
+    <div className={classnames(prefix, { [`${prefix}--down`]: yoy === 'down' })} onClick={onClick}>
       <div className={`${prefix}__value`}>
         <Statistic formatter={formatter} suffix={valueSuffix} valueStyle={{ color: '#48d1ff', fontSize: '18px' }} value={value} />
       </div>

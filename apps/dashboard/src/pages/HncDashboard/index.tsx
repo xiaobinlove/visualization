@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import classnames from 'classnames'
 import Box from './components/Box'
+import './common.css'
 import CustomSelect from './components/CustomSelect'
 import * as Comp from './charts-components/index'
 import './index.less'
@@ -129,7 +130,7 @@ const HncDashboard: FC = () => {
               <Box
                 items={[
                   {
-                    label: '合作客户2',
+                    label: '合作客户',
                     key: '1',
                     children: <Comp.Chart3 />
                   }
