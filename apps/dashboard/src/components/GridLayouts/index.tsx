@@ -7,6 +7,7 @@ import { widgetsConfigMap } from '@/framework/base'
 import { paletteMap } from '@/framework/theme'
 import { codeStrToChartConfig } from '@/utils'
 import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css'
 import './index.less'
 const ReactGridLayout = WidthProvider(RGL)
 export interface GridLayoutProps extends ReactGridLayoutProps {

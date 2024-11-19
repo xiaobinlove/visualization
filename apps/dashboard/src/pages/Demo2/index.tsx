@@ -1,60 +1,62 @@
-import { useRef } from 'react'
-import { Editor } from '@tinymce/tinymce-react'
-export const Tiptap = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const editorRef = useRef<any>(null)
-  const log = () => {
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent())
+import './index.less'
+
+const DemoFunnel = () => {
+  const data = [
+    { stage: '简历筛选', number: 253 },
+    { stage: '初试人数', number: 151 },
+    { stage: '复试人数', number: 113 },
+    { stage: '录取人数', number: 87 },
+    { stage: '入职人数2', number: 59 },
+    { stage: '入职人数3', number: 59 },
+    { stage: '入职人数4', number: 59 }
+  ]
+
+  const config = {
+    data,
+    xField: 'stage',
+    yField: 'number',
+    label: {
+      text: (d) => `${d.stage}\n${d.number}`
+    },
+    legend: {
+      color: {
+        layout: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row'
+        }
+      }
     }
   }
-  const onBlur = () => {
-    console.log('onBlur')
-  }
-  const onFocus = () => {
-    console.log('onFocus')
-  }
+
   return (
-    <>
-      <Editor
-        tinymceScriptSrc="/tinymce/tinymce.min.js"
-        onInit={(_evt, editor) => (editorRef.current = editor)}
-        initialValue="<p>This is the initial content of the editor.</p>"
-        onBlur={onBlur}
-        onFocus={onFocus}
-        init={{
-          height: 500,
-          menubar: false,
-          promotion: false,
-          branding: false,
-          language: 'zh-Hans',
-          plugins: [
-            'advlist',
-            'autolink',
-            'lists',
-            'link',
-            'image',
-            'charmap',
-            'anchor',
-            'searchreplace',
-            'visualblocks',
-            'code',
-            'fullscreen',
-            'insertdatetime',
-            'media',
-            'table',
-            'preview'
-            // 'help',
-            // 'wordcount'
-          ],
-          inline: true,
-          toolbar: 'blocks | ' + 'bold italic forecolor | alignleft aligncenter ' + 'alignright alignjustify' + 'removeformat | link image',
-          content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-        }}
-      />
-      <button onClick={log}>Log editor content</button>
-    </>
+    <div>
+      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <div className="bg-blue-500 size-[500px] pt-[10px] mx-auto">ddd</div>
+      <div className="space-x-4">
+        <div className="inline-block bg-slate-400">1</div>
+        <div className="inline-block bg-slate-500">1</div>
+        <div className="inline-block bg-slate-600">1</div>
+        <div className="inline-block bg-slate-700">1</div>
+      </div>
+      <div className="border-blue-500 border-solid border mt-4 size-24">dd22</div>
+      <div className="grid grid-cols-3 divide-x font-mono text-sm text-center font-bold leading-6 rounded-6 shadow-lg">
+        <div>01</div>
+        <div>02</div>
+        <div>03</div>
+      </div>
+      <button className="outline outline-offset-2 outline-1">buttona</button>
+      <div className="pt-[20px]">ddd</div> */}
+      <div className="grid grid-cols-4 gap-4" style={{ columns: 2 }}>
+        {new Array(6).fill(0).map((_, index) => {
+          return (
+            <div key={index} className=" bg-slate-400">
+              {index}
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }
-
-export default Tiptap
+export default DemoFunnel
