@@ -64,6 +64,7 @@ export enum SortContainerId {
   xFields = 'xFields',
   metrics = 'metrics'
 }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Data = Record<string, any>[]
 // 字段
 export interface Field {
@@ -111,7 +112,7 @@ export interface Widget {
   yAxis?: YAxis
   legend?: Legend
   // 数据类型
-  dataSourceType: DataSource
+  dataSourceType?: DataSource
   // 静态数据
   staticConfigStr?: string
 }

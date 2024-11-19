@@ -9,7 +9,8 @@ const StylePanel: FC = () => {
   const initialValues = {
     background: curWidget.styles?.background || styles.card.background,
     title: curWidget.styles?.title || styles.card.title,
-    value: curWidget.styles?.value || { color: '#000' }
+    // value: curWidget.styles?.value || { color: '#000' }
+    value: ''
   }
   const items: CollapseProps['items'] = [
     {

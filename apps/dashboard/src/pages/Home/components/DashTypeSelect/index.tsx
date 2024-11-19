@@ -28,7 +28,7 @@ const DashTypeSelect: FC<Props> = ({ value, onChange }) => {
   }
   return (
     <div className={prefix}>
-      {list.map(({ value: curValue, label, bg }) => {
+      {list.map(({ value: curValue, label }) => {
         return (
           <div
             className={classnames(`${prefix}__item`, { [`${prefix}__item--active`]: curValue === type })}

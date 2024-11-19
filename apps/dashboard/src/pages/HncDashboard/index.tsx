@@ -2,7 +2,6 @@ import { FC, useState } from 'react'
 import classnames from 'classnames'
 import Box from './components/Box'
 import './common.css'
-import CustomSelect from './components/CustomSelect'
 import * as Comp from './charts-components/index'
 import './index.less'
 const prefix = 'db-hnc-dashboard'
@@ -49,16 +48,6 @@ const tabs: { label: string; url: string; height?: string }[] = [
   {
     label: '人力资源部视角',
     url: ''
-  }
-]
-const options = [
-  {
-    label: '理想',
-    value: '1'
-  },
-  {
-    label: '小米',
-    value: '2'
   }
 ]
 const HncDashboard: FC = () => {
@@ -351,7 +340,7 @@ const HncDashboard: FC = () => {
                   {
                     label: '目标达成情况',
                     key: '1',
-                    children: <Comp.Chart12 />
+                    children: <Comp.Chart12 list={{}} />
                   }
                 ]}
               />

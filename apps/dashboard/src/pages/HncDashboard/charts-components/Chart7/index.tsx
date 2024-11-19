@@ -28,7 +28,7 @@ const Chart7: FC = () => {
     },
     legend: {
       color: {
-        itemMarker: (v) => {
+        itemMarker: (v: string) => {
           if (v === 'waiting') return 'rect'
           return 'smooth'
         }

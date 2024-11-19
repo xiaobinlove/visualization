@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { SheetComponent, SheetComponentsProps } from '@antv/s2-react'
+import { SheetComponent, SheetComponentProps } from '@antv/s2-react'
 import { S2Theme } from '@antv/s2'
 import { BaseWidget } from '../../types'
 import '@antv/s2-react/dist/style.min.css'
 import './index.less'
-interface Props extends BaseWidget, SheetComponentsProps {
+interface Props extends BaseWidget, SheetComponentProps {
   dark: boolean
 }
 const cellTheme = {

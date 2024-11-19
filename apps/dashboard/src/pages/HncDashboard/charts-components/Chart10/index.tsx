@@ -3,7 +3,6 @@ import './index.less'
 import { Line } from '@ant-design/plots'
 import { getChartsTheme } from '@dash/widgets'
 import { ThemeType } from '@/types'
-import { values } from 'lodash-es'
 const prefix = 'hnc-chart10'
 const Chart10: FC = () => {
   // const config = {
@@ -183,7 +182,7 @@ const Chart10: FC = () => {
     colorField: 'type',
     style: {
       lineWidth: 2,
-      lineDash: (data) => {
+      lineDash: (data: { type: string }[]) => {
         if (data[0].type === '预测营收数据') return [4, 4]
       }
     }

@@ -1,34 +1,6 @@
 import './index.less'
 
 const DemoFunnel = () => {
-  const data = [
-    { stage: '简历筛选', number: 253 },
-    { stage: '初试人数', number: 151 },
-    { stage: '复试人数', number: 113 },
-    { stage: '录取人数', number: 87 },
-    { stage: '入职人数2', number: 59 },
-    { stage: '入职人数3', number: 59 },
-    { stage: '入职人数4', number: 59 }
-  ]
-
-  const config = {
-    data,
-    xField: 'stage',
-    yField: 'number',
-    label: {
-      text: (d) => `${d.stage}\n${d.number}`
-    },
-    legend: {
-      color: {
-        layout: {
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'row'
-        }
-      }
-    }
-  }
-
   return (
     <div>
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1>

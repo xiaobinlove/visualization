@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import { ReactSortable } from 'react-sortablejs'
 import CustomTree from './Tree'
 import './index.less'
@@ -8,7 +8,7 @@ interface ItemType {
   name: string
 }
 
-export const BasicFunction: FC = (props) => {
+export const BasicFunction: FC = () => {
   const [state, setState] = useState<ItemType[]>([
     { id: 1, name: 'shrek4' },
     { id: 2, name: 'fiona3' },

@@ -11,7 +11,8 @@ interface Props extends Partial<Widget> {
   isEdit?: boolean
   title?: string
   widgetId: string
-  data?: unknown
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: any
   dark: boolean
   type: DashComponentType
   titleStyle: CSSProperties

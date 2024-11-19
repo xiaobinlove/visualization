@@ -7,6 +7,8 @@ type Props = {
   title: string
   titleStyle: CSSProperties
   dark: boolean
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  styles: any
 }
 export const IndicatorCard: FC<Props> = ({ data, title, titleStyle, dark, styles }) => {
   return (

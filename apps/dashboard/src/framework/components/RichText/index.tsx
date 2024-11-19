@@ -13,7 +13,8 @@ export const RichText: FC<Props> = ({ widgetId, isEdit = true }) => {
     useSelector(['isDraggableInEdit', 'setDraggableInEdit', 'updateWidget', 'widgets'])
   )
   const curWidget = widgets[widgetId]
-  const editorRef = useRef(null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const editorRef = useRef<any>(null)
   const contentRef = useRef(null)
   useDoubleClick({
     ref: contentRef,
@@ -46,7 +47,7 @@ export const RichText: FC<Props> = ({ widgetId, isEdit = true }) => {
       {!isDraggableInEdit && (
         <Editor
           tinymceScriptSrc="/tinymce/tinymce.min.js"
-          onInit={(evt, editor) => {
+          onInit={(_evt, editor) => {
             editorRef.current = editor
           }}
           initialValue={curWidget.content}

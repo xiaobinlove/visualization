@@ -73,7 +73,7 @@ const config2 = {
   data: data2,
   legend: {
     color: {
-      itemMarker: (v) => {
+      itemMarker: (v: string) => {
         if (v === '库存量') return 'rect'
         return 'smooth'
       }

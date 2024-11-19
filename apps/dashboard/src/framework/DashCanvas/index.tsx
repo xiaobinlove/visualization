@@ -1,4 +1,4 @@
-import { FC, forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { Layout } from 'react-grid-layout'
 import { widgetsConfigMap } from '../base.ts'
 import GridLayouts from '@/components/GridLayouts'
@@ -13,7 +13,7 @@ type Ref = HTMLDivElement | null
 const prefix = 'db-dash-canvas'
 const DashCanvas = forwardRef<Ref>((_, ref) => {
   const isEdit = useStore(isEditModeSelector)
-  const { setCurWidetId, isDraggableInEdit, addWidget, updateGrid, widgets, setWidgets, updateStyles } = useStore(
+  const { setCurWidetId, isDraggableInEdit, addWidget, updateGrid, setWidgets, updateStyles } = useStore(
     useSelector(['setCurWidetId', 'addWidget', 'updateGrid', 'isDraggableInEdit', 'curWidgetId', 'widgets', 'setWidgets', 'updateStyles'])
   )
   const params = new URLSearchParams(location.search)

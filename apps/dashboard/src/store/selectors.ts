@@ -26,12 +26,13 @@ export const curWidgetSelector = (store: Store): Widget => store.widgets[store.c
 // 容器移动下拉框数据
 export const containerSelector = (store: Store): MenuProps['items'] => {
   const containerList = Object.keys(store.widgets).reduce((list, key) => {
-    const { type, title } = store.widgets[key]
+    // const { type, title } = store.widgets[key]
+    const { type } = store.widgets[key]
     if (type === DashComponentType.TAB) {
-      list.push({
-        label: title,
-        key
-      })
+      // list.push({
+      //   label: title,
+      //   key
+      // })
     }
     return list
   }, [])
