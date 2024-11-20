@@ -1,0 +1,50 @@
+{
+  "type": "ADD_DATA",
+  "dsl": [
+    {
+      "component": "text",
+      "id": "1122222",
+      "props": {
+        "value": "好的，请确认您希望新增的数据的具体内容："
+      }
+    },
+    {
+      "component": "form",
+      "id": "1122222",
+      "props": {
+        "fields": [
+          {
+            "name": "name",
+            "label": "名称",
+            "component": "input",
+            "id": "1122222"
+          },
+          {
+            "name": "sex",
+            "label": "性别",
+            "component": "select",
+            "id": "1122222",
+            "props": {
+              "options": [
+                {
+                  "label": "男",
+                  "value": "male"
+                },
+                {
+                  "label": "女",
+                  "value": "male"
+                }
+              ]
+            }
+          },
+          {
+            "name": "time",
+            "label": "时间",
+            "component": "datePicker",
+            "id": "1122222"
+          }
+        ]
+      }
+    }
+  ]
+}
