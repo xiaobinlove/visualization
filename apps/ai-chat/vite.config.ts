@@ -10,5 +10,17 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
+  },
+  server: {
+    port: 3000,
+    host: '0.0.0.0',
+    cors: true,
+    proxy: {
+      '^/api': {
+        target: 'http://8.130.25.124:8101/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
 })

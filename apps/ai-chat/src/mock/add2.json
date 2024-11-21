@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "code": "1",
+  "message": "返回成功",
+  "data": {
+    "type": "ADD_DATA",
+    "dsl": [
+      { "component": "text", "id": "9762d463bc7d4269b89b16a73371af90", "props": { "value": "好的，请确认您希望新增的数据的具体内容：" } },
+      {
+        "component": "form",
+        "id": "7c49b459dcef4e969d49dc885d8549f7",
+        "props": {
+          "initialValues": { "ROOM_NAME": "会议室1", "USE_STATUS": "77785819354113" },
+          "fields": [
+            { "component": "input", "id": "fd1dffc61c934d309d4a21529d762050", "name": "ROOM_NAME", "label": "会议室名称" },
+            {
+              "component": "select",
+              "id": "179eb9f19a1c450db1072dde9b394b5d",
+              "name": "USE_STATUS",
+              "label": "使用状态",
+              "props": {
+                "options": [
+                  { "label": "空闲中", "value": "77785819354113" },
+                  { "label": "谈案中", "value": "78008753910785" },
+                  { "label": "其他", "value": "78008759098369" }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "questionID": "920e3a83be1a4373848baa07b9b00a13"
+  },
+  "cause": null
+}

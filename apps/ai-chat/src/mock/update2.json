@@ -1,0 +1,199 @@
+{
+  "success": true,
+  "code": "1",
+  "message": "返回成功",
+  "data": {
+    "type": "UPDATE_DATA",
+    "dsl": [
+      { "component": "text", "id": "fd4b9213e2b84b86964d5b55973fc50c", "props": { "value": "好的，请确认您希望更新的数据的具体内容：" } },
+      { "component": "text", "id": "22c685ba45c54c3491f50833e5b607eb", "props": { "value": "更新前数据为：" } },
+      {
+        "component": "table",
+        "id": "6d8ad034bb7f4bb182e4b56b2f5c19ee",
+        "props": {
+          "columns": [
+            { "title": "唯一标识", "dataIndex": "ID" },
+            { "title": "租户编号", "dataIndex": "AGENCY_ID" },
+            { "title": "批次号", "dataIndex": "BATCH_NO" },
+            { "title": "创建时间", "dataIndex": "CREATE_DATE" },
+            { "title": "归属部门", "dataIndex": "CREATE_ORG_ID" },
+            { "title": "创建人", "dataIndex": "CREATE_USER" },
+            { "title": "最后修改时间", "dataIndex": "LAST_MODIFIED_DATE" },
+            { "title": "最后修改用户编号", "dataIndex": "LAST_MODIFIED_USER" },
+            { "title": "最后修改用户名称", "dataIndex": "LAST_MODIFIED_USER_NAME" },
+            { "title": "记录状态", "dataIndex": "REC_STATUS" },
+            { "title": "会议室名称", "dataIndex": "ROOM_NAME" },
+            { "title": "地点", "dataIndex": "ROOM_ADDR" },
+            { "title": "描述", "dataIndex": "ROOM_DESC" },
+            { "title": "使用状态", "dataIndex": "USE_STATUS" }
+          ],
+          "dataSource": [
+            {
+              "ID": 77981778368256,
+              "AGENCY_ID": 20,
+              "BATCH_NO": 77981778359552,
+              "CREATE_DATE": "2024-08-26 15:38:41",
+              "CREATE_ORG_ID": 0,
+              "CREATE_USER": 999999999960002,
+              "LAST_MODIFIED_DATE": "2024-08-29 22:20:08",
+              "LAST_MODIFIED_USER": 78021372058241,
+              "LAST_MODIFIED_USER_NAME": "liumin",
+              "REC_STATUS": "Y",
+              "ROOM_NAME": "北翼15楼1",
+              "ROOM_ADDR": 77763167424001,
+              "ROOM_DESC": "北翼15楼1",
+              "USE_STATUS": "谈案中",
+              "_key": "a853094164c6431d835f33dc899aea46"
+            },
+            {
+              "ID": 77981778374144,
+              "AGENCY_ID": 20,
+              "BATCH_NO": 77981778359552,
+              "CREATE_DATE": "2024-08-26 15:38:41",
+              "CREATE_ORG_ID": 0,
+              "CREATE_USER": 999999999960002,
+              "LAST_MODIFIED_DATE": "2024-08-27 20:55:44",
+              "LAST_MODIFIED_USER": 999999999960002,
+              "LAST_MODIFIED_USER_NAME": "BeaverAdmin",
+              "REC_STATUS": "Y",
+              "ROOM_NAME": "北翼15楼3",
+              "ROOM_ADDR": 77763167424001,
+              "ROOM_DESC": "北翼15楼3",
+              "USE_STATUS": "谈案中",
+              "_key": "a0f9047b57d5480f8b62ccce10fb5e4f"
+            },
+            {
+              "ID": 77981778389504,
+              "AGENCY_ID": 20,
+              "BATCH_NO": 77981778359552,
+              "CREATE_DATE": "2024-08-26 15:38:41",
+              "CREATE_ORG_ID": 0,
+              "CREATE_USER": 999999999960002,
+              "LAST_MODIFIED_DATE": "2024-08-27 20:55:53",
+              "LAST_MODIFIED_USER": 999999999960002,
+              "LAST_MODIFIED_USER_NAME": "BeaverAdmin",
+              "REC_STATUS": "Y",
+              "ROOM_NAME": "北翼15楼6",
+              "ROOM_ADDR": 77763167424001,
+              "ROOM_DESC": "北翼15楼6",
+              "USE_STATUS": "谈案中",
+              "_key": "aa130301b90f4d0db0195d17991bf872"
+            },
+            {
+              "ID": 77981778394624,
+              "AGENCY_ID": 20,
+              "BATCH_NO": 77981778359552,
+              "CREATE_DATE": "2024-08-26 15:38:41",
+              "CREATE_ORG_ID": 0,
+              "CREATE_USER": 999999999960002,
+              "LAST_MODIFIED_DATE": "2024-08-27 20:58:07",
+              "LAST_MODIFIED_USER": 999999999960002,
+              "LAST_MODIFIED_USER_NAME": "BeaverAdmin",
+              "REC_STATUS": "Y",
+              "ROOM_NAME": "北翼15楼7",
+              "ROOM_ADDR": 77763167424001,
+              "ROOM_DESC": "北翼15楼7",
+              "USE_STATUS": "谈案中",
+              "_key": "3cfd4e5b5ada4ff6b4d9523305ab2495"
+            }
+          ]
+        }
+      },
+      { "component": "text", "id": "c41273939629413d9fe3917efe7f5917", "props": { "value": "更新后数据为：" } },
+      {
+        "component": "table",
+        "id": "ffc13bab171a4283ac9b6e9a6ecf698f",
+        "props": {
+          "columns": [
+            { "title": "唯一标识", "dataIndex": "ID" },
+            { "title": "租户编号", "dataIndex": "AGENCY_ID" },
+            { "title": "批次号", "dataIndex": "BATCH_NO" },
+            { "title": "创建时间", "dataIndex": "CREATE_DATE" },
+            { "title": "归属部门", "dataIndex": "CREATE_ORG_ID" },
+            { "title": "创建人", "dataIndex": "CREATE_USER" },
+            { "title": "最后修改时间", "dataIndex": "LAST_MODIFIED_DATE" },
+            { "title": "最后修改用户编号", "dataIndex": "LAST_MODIFIED_USER" },
+            { "title": "最后修改用户名称", "dataIndex": "LAST_MODIFIED_USER_NAME" },
+            { "title": "记录状态", "dataIndex": "REC_STATUS" },
+            { "title": "会议室名称", "dataIndex": "ROOM_NAME" },
+            { "title": "地点", "dataIndex": "ROOM_ADDR" },
+            { "title": "描述", "dataIndex": "ROOM_DESC" },
+            { "title": "使用状态", "dataIndex": "USE_STATUS" }
+          ],
+          "dataSource": [
+            {
+              "AGENCY_ID": 20,
+              "ROOM_DESC": "北翼15楼1",
+              "LAST_MODIFIED_USER": 78021372058241,
+              "CREATE_USER": 999999999960002,
+              "ROOM_ADDR": 77763167424001,
+              "LAST_MODIFIED_DATE": "2024-08-29 22:20:08",
+              "BATCH_NO": 77981778359552,
+              "_key": "b858f94f7d914c32b917135533fc8728",
+              "CREATE_DATE": "2024-08-26 15:38:41",
+              "REC_STATUS": "Y",
+              "ROOM_NAME": "北翼15楼1",
+              "ID": 77981778368256,
+              "CREATE_ORG_ID": 0,
+              "LAST_MODIFIED_USER_NAME": "liumin",
+              "USE_STATUS": "空闲中"
+            },
+            {
+              "AGENCY_ID": 20,
+              "ROOM_DESC": "北翼15楼3",
+              "LAST_MODIFIED_USER": 999999999960002,
+              "CREATE_USER": 999999999960002,
+              "ROOM_ADDR": 77763167424001,
+              "LAST_MODIFIED_DATE": "2024-08-27 20:55:44",
+              "BATCH_NO": 77981778359552,
+              "_key": "f02f7b410a93429e8d694fee0a40b618",
+              "CREATE_DATE": "2024-08-26 15:38:41",
+              "REC_STATUS": "Y",
+              "ROOM_NAME": "北翼15楼3",
+              "ID": 77981778374144,
+              "CREATE_ORG_ID": 0,
+              "LAST_MODIFIED_USER_NAME": "BeaverAdmin",
+              "USE_STATUS": "空闲中"
+            },
+            {
+              "AGENCY_ID": 20,
+              "ROOM_DESC": "北翼15楼6",
+              "LAST_MODIFIED_USER": 999999999960002,
+              "CREATE_USER": 999999999960002,
+              "ROOM_ADDR": 77763167424001,
+              "LAST_MODIFIED_DATE": "2024-08-27 20:55:53",
+              "BATCH_NO": 77981778359552,
+              "_key": "e6b3c5586483463db2c380950c1e9d59",
+              "CREATE_DATE": "2024-08-26 15:38:41",
+              "REC_STATUS": "Y",
+              "ROOM_NAME": "北翼15楼6",
+              "ID": 77981778389504,
+              "CREATE_ORG_ID": 0,
+              "LAST_MODIFIED_USER_NAME": "BeaverAdmin",
+              "USE_STATUS": "空闲中"
+            },
+            {
+              "AGENCY_ID": 20,
+              "ROOM_DESC": "北翼15楼7",
+              "LAST_MODIFIED_USER": 999999999960002,
+              "CREATE_USER": 999999999960002,
+              "ROOM_ADDR": 77763167424001,
+              "LAST_MODIFIED_DATE": "2024-08-27 20:58:07",
+              "BATCH_NO": 77981778359552,
+              "_key": "cfee9dc9996140e7913d2e34710c7ba0",
+              "CREATE_DATE": "2024-08-26 15:38:41",
+              "REC_STATUS": "Y",
+              "ROOM_NAME": "北翼15楼7",
+              "ID": 77981778394624,
+              "CREATE_ORG_ID": 0,
+              "LAST_MODIFIED_USER_NAME": "BeaverAdmin",
+              "USE_STATUS": "空闲中"
+            }
+          ]
+        }
+      }
+    ],
+    "questionID": "c38a0c5b1ece4b3d890732359e77b2b1"
+  },
+  "cause": null
+}

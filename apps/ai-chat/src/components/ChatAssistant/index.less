@@ -1,0 +1,49 @@
+.ac-chat-assistant {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  // &__header {
+  //   width: 150px;
+  //   height: 34px;
+  //   line-height: 34px;
+  //   text-align: center;
+  //   border-radius: 40px;
+  //   background: linear-gradient(270deg, rgba(40, 99, 250, 0.1) 0%, rgba(100, 75, 241, 0.1) 100%);
+  //   font-size: 14px;
+  //   color: #515170;
+  //   margin: 0 auto;
+  // }
+  &__scan-tool {
+    width: 145px;
+    height: 145px;
+    position: absolute;
+    right: -200px;
+    top: 0;
+    font-size: 16px;
+    color: #050738;
+    z-index: 10;
+  }
+  &__scan-img {
+    width: 145px;
+    height: 145px;
+  }
+  &__content {
+    flex: 1;
+  }
+  &__message-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+    padding: 16px;
+    word-break: break-word;
+    line-height: 1.8;
+  }
+  .ant-pro-chat-input-area {
+    background-image: none;
+  }
+}

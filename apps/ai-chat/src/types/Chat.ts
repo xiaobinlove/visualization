@@ -1,10 +1,20 @@
 import { ChatMessage } from '@ant-design/pro-chat'
-type Dsl = {
-  type: string
+import { ReactNode } from 'react'
+export type ChatMsgItem = ChatMessage<ChatCard> & {
+  content: string | ReactNode
 }
-export type ChatItem = ChatMessage<{
-  dsl?: Dsl
-}>
-const item: ChatItem = { id: '1', content: '1', role: 'user', createAt: 1, updateAt: 1 }
-
-// item.extra?.dsl
+export type ChatCardType = 'SEARCH_DATA' | 'DELETE_DATA' | 'ADD_DATA' | 'UPDATE_DATA'
+export type ChatComponentType = 'input' | 'select' | 'table' | 'text' | 'datePicker'
+export type ChatComponent = {
+  component: ChatComponentType
+  id: string
+  props?: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: string]: any
+  }
+}
+export type ChatCard = {
+  type?: ChatCardType
+  dsl?: ChatComponent[]
+  questionID?: string
+}
