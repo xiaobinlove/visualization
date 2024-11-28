@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { StompClient } from '@/assets/lib/ipu-stomp'
 const url = 'ws://8.130.25.124:8613/stomp'
+import { nanoid } from 'nanoid'
 const clientId = 'instruction'
 const pass = '123456'
 const host = ''
@@ -46,6 +47,7 @@ export const useStomp = (callback: (msg: string) => void) => {
 
   const onFailure = (msg: string) => {
     console.log('连接失败：', msg)
+    connectToStomp()
     // 可以考虑将错误传递给上层组件或显示给用户
   }
 
@@ -54,7 +56,7 @@ export const useStomp = (callback: (msg: string) => void) => {
     if (!client || !client.connected()) {
       const stompClient = new StompClient(url)
       stompClientRef.current = stompClient
-      stompClient.connect(clientId, pass, { onConnected, onFailure }, host)
+      stompClient.connect(nanoid(6), pass, { onConnected, onFailure }, host)
     } else {
       console.log('已经建立了连接')
     }
