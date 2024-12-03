@@ -4,7 +4,7 @@ const url = 'ws://8.130.25.124:8613/stomp'
 import { nanoid } from 'nanoid'
 const clientId = 'instruction'
 const pass = '123456'
-const host = ''
+const host = 'host'
 export const useStomp = (callback: (msg: string) => void) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stompClientRef = useRef<any>(null)

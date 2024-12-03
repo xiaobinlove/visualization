@@ -1,0 +1,37 @@
+{
+  "name": "@zov/agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/react-components.umd.js",
+  "module": "./dist/react-components.es.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/react-components.es.js",
+      "require": "./dist/react-components.umd.js"
+    }
+  },
+  "scripts": {
+    "build": "vite build && tsc --project tsconfig.build.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/pro-chat": "^1.15.3",
+    "ahooks": "^3.7.10",
+    "await-to-js": "^3.0.0",
+    "@stomp/rx-stomp": "^2.0.0",
+    "react-rnd": "^10.4.13",
+    "axios": "^1.6.1"
+  },
+  "peerDependencies": {
+    "@ant-design/icons": ">=5.3.1",
+    "antd": ">=5.12.8",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
