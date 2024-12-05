@@ -5,15 +5,17 @@ import { RxStomp } from '@stomp/rx-stomp'
 export const useStomp = (
   {
     topic,
-    url
+    url,
+    disabledStomp
   }: {
     url: string
     topic: string
-    //   onMessage: (content: string, body: { content: string; [key: string]: unknown }) => void
+    disabledStomp?: boolean // 是否连接stomp
   },
   onMessage: (content: string, body: { content: string; [key: string]: unknown }) => void
 ) => {
   useEffect(() => {
+    if (disabledStomp) return
     const rxStomp = new RxStomp()
     rxStomp.configure({
       brokerURL: url,
@@ -25,7 +27,6 @@ export const useStomp = (
     })
     rxStomp.activate()
     const subscription = rxStomp.watch({ destination: topic }).subscribe((message) => {
-      console.log(message, 'message')
       const body = JSON.parse(message.body)
       onMessage(body.content, body)
     })

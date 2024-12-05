@@ -1,32 +1,23 @@
 .ac-chat-modal {
-  //   display: inline-block;
+  position: fixed !important;
   border-radius: 12px;
   box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1);
   border: 1px solid #e5e6e8;
   box-sizing: border-box;
   z-index: 1001;
   background: #f1f2f3;
-  //   overflow-y: hidden;
-  //   overflow: hidden;
-  //   height: calc(100vh -10px);
   &--hide {
-    // display: none;
-    // width: 0 !important;
     visibility: hidden;
-    overflow: hidden;
   }
   &__header {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     padding: 15px 12px 15px 12px;
-    // height: 60px;
-    // background-color: blue;
     background-image: url('../../assets/images/chat-header-bg.png');
     background-repeat: no-repeat;
     background-size: 100% 60px;
     cursor: move;
-    // border-radius: 12px 12px 0 0;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
   }

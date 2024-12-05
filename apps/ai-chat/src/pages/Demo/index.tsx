@@ -1,16 +1,18 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState, useRef } from 'react'
 import { Button } from 'antd'
-import { Rnd } from 'react-rnd'
-import Randar from './Randar'
-import { AgentChatEntry } from '@zov/agent'
+import { ChatModal, AgentChat } from '../../../../../packages/agent/src/index'
+import type { ChatRef } from '@zov/agent'
 import { nanoid } from 'nanoid'
 import './index.less'
 import { RxStomp } from '@stomp/rx-stomp'
+import { getQueryParam } from '@/utils'
 const url = 'ws://8.130.25.124:8613/stomp'
+
 const topc = 'instruction'
-const width = 400
 const Demo: FC = () => {
-  const [list, setList] = useState<string[]>([])
+  const appCode = getQueryParam('appCode') || ''
+  const chatRef = useRef<ChatRef>(null)
+  const [open, setOpen] = useState<boolean>(false)
   useEffect(() => {
     const rxStomp = new RxStomp()
     rxStomp.configure({
@@ -28,7 +30,6 @@ const Demo: FC = () => {
     const subscription = rxStomp.watch({ destination: topc }).subscribe((message) => {
       console.log(message, 'message')
       console.log(typeof message.body, 'typeof')
-      setList((prev) => [...prev, message.body])
     })
     return () => {
       subscription.unsubscribe()
@@ -51,6 +52,15 @@ const Demo: FC = () => {
       ))} */}
       {/* <Randar /> */}
       <Button
+        onClick={() => {
+          setOpen(true)
+          // setMessage('fdsfds')
+          chatRef.current?.proChatInstance?.sendMessage('你好')
+        }}
+      >
+        发送消息
+      </Button>
+      <Button
         className="demo-button"
         type="primary"
         onClick={() => {
@@ -59,7 +69,17 @@ const Demo: FC = () => {
       >
         按钮
       </Button>
-      <AgentChatEntry />
+      <ChatModal open={open} onOpenChange={setOpen}>
+        <AgentChat
+          ref={chatRef}
+          disabledStomp={true}
+          appCode={appCode}
+          callback={(params) => {
+            console.log(params, 'callback')
+          }}
+        />
+      </ChatModal>
+      {/* <AgentChatEntry appCode={appCode} message={message} open={open} disabledStomp onOpenChange={setOpen} /> */}
     </div>
   )
 }
