@@ -1,6 +1,6 @@
 import { FC, useEffect, useState, useRef } from 'react'
 import { Button } from 'antd'
-import { ChatModal, AgentChat } from '../../../../../packages/agent/src/index'
+import { ChatModal, AgentChat, AgentChatEntry } from '../../../../../packages/agent/src/index'
 import type { ChatRef } from '@zov/agent'
 import { nanoid } from 'nanoid'
 import './index.less'
@@ -12,7 +12,7 @@ const topc = 'instruction'
 const Demo: FC = () => {
   const appCode = getQueryParam('appCode') || ''
   const chatRef = useRef<ChatRef>(null)
-  const [open, setOpen] = useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(true)
   useEffect(() => {
     const rxStomp = new RxStomp()
     rxStomp.configure({
@@ -51,7 +51,7 @@ const Demo: FC = () => {
         </div>
       ))} */}
       {/* <Randar /> */}
-      <Button
+      {/* <Button
         onClick={() => {
           setOpen(true)
           // setMessage('fdsfds')
@@ -78,8 +78,8 @@ const Demo: FC = () => {
             console.log(params, 'callback')
           }}
         />
-      </ChatModal>
-      {/* <AgentChatEntry appCode={appCode} message={message} open={open} disabledStomp onOpenChange={setOpen} /> */}
+      </ChatModal> */}
+      <AgentChatEntry appCode={appCode} open={open} disabledStomp onOpenChange={setOpen} />
     </div>
   )
 }

@@ -1,23 +1,35 @@
 .ac-chat-modal {
-  position: fixed !important;
+  position: fixed;
+  width: 500px;
+  top: 0;
+  right: 10px;
+  bottom: 0;
   border-radius: 12px;
   box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1);
   border: 1px solid #e5e6e8;
   box-sizing: border-box;
   z-index: 1001;
   background: #f1f2f3;
+  background: #f8faff;
   &--hide {
     visibility: hidden;
+  }
+  &--full {
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-origin: padding-box;
   }
   &__header {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 15px 12px 15px 12px;
+    padding: 15px;
     background-image: url('../../assets/images/chat-header-bg.png');
     background-repeat: no-repeat;
     background-size: 100% 60px;
-    cursor: move;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
   }
@@ -40,7 +52,6 @@
   &__content {
     display: flex;
     flex-direction: column;
-    // background: red;
     height: 100%;
   }
   &__chat {
@@ -51,8 +62,5 @@
     gap: 14px;
     font-size: 14px;
     cursor: pointer;
-  }
-  .ant-pro-chat-chat-list-container {
-    height: 100% !important;
   }
 }

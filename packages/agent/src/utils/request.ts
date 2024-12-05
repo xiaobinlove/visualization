@@ -1,4 +1,5 @@
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios'
+import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import { getToken } from './localstorage'
 import { message } from 'antd'
 
 const serviceAxios = axios.create({
@@ -9,14 +10,18 @@ const serviceAxios = axios.create({
   }
 })
 //请求拦截器
-serviceAxios.interceptors.request
-  .use
-  //根据业务需求在请求时候做一些配置
-  // (response: AxiosRequestConfig) => {
-  //     // response.headers['Access-Control-Allow-Origin'] = '*'
-  //     response.headers?.['Content-Type'] = 'application/json'        return response;
-  // }
-  ()
+serviceAxios.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  const token = getToken()
+  if (token) {
+    config.headers['Authorization'] = token
+  }
+  return config
+})
+//根据业务需求在请求时候做一些配置
+// (response: AxiosRequestConfig) => {
+//     // response.headers['Access-Control-Allow-Origin'] = '*'
+//     response.headers?.['Content-Type'] = 'application/json'        return response;
+// }
 
 serviceAxios.interceptors.response.use((response: AxiosResponse) => {
   // response.headers['Access-Control-Allow-Origin'] = '*'
@@ -25,6 +30,7 @@ serviceAxios.interceptors.response.use((response: AxiosResponse) => {
   // } else {
   //   return requestHandler
   // }
+  console.log('response', response)
   const data = response.data
   if (data.success) {
     return data

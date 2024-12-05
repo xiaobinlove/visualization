@@ -317,15 +317,15 @@ importers:
       axios:
         specifier: ^1.6.1
         version: 1.6.8
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       react:
         specifier: '>=16.8.0'
         version: 18.3.1
       react-dom:
         specifier: '>=16.8.0'
         version: 18.3.1(react@18.3.1)
-      react-rnd:
-        specifier: ^10.4.13
-        version: 10.4.13(react-dom@18.3.1)(react@18.3.1)
 
   packages/core:
     dependencies:

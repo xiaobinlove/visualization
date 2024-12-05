@@ -25,6 +25,7 @@ type Props = {
 }
 const AgentChat = forwardRef<ChatRef, Props>(({ appCode, appId, disabledStomp, callback }, ref) => {
   const { message } = App.useApp()
+  // const [inputLoading, setInputLoading] = useState(false)
   const proChatRef = useRef<ProChatInstance>()
   useMount(() => {
     if (!appCode && !appId) {
@@ -100,80 +101,73 @@ const AgentChat = forwardRef<ChatRef, Props>(({ appCode, appId, disabledStomp, c
   }))
   return (
     <div className={prefix}>
-      {/* <div className={`${prefix}__header`}>业务智能体</div> */}
-      {/* <div className={`${prefix}__scan-tool`}>
-        <Popover
-          content={
-            <div>
-              <div>请扫描二维码连接</div>
-              <img src="/images/scan.png" className={`${prefix}__scan-img`} />
-            </div>
-          }
-        >
-          <img src="/images/erweima-icon.png" alt="" />
-        </Popover>
-      </div> */}
-      <div className={`${prefix}__content`}>
-        <ProChat<ChatCard>
-          chatRef={proChatRef}
-          chats={chats}
-          helloMessage="您好，我是您的海狸业务智能助手，您可以描述所需处理的业务，我会自动帮您完成，快来试试吧!"
-          onChatsChange={setChats}
-          userMeta={{
-            avatar: userAvatar
-          }}
-          style={{ height: '100%' }}
-          assistantMeta={{ avatar: assistantAatar }}
-          request={handleRequest}
-          chatItemRenderConfig={{
-            contentRender: (item, defaultDom) => {
-              const { originData } = item
-              const { content, role } = originData as ChatMessage
-              if (role === 'assistant') {
-                const res = parseJson(content)
-                if (typeof res === 'string') {
-                  return <div className={`${prefix}__message-content`}>{res}</div>
-                }
-                if (res && typeof res === 'object') {
-                  const obj = res as ChatCard
-                  if (obj.type === 'COMMAND') {
-                    handleComMand(obj)
-                    return (
-                      <div className={`${prefix}__message-content`}>
-                        <div>
-                          此业务操作需要使用
-                          {
-                            <a
-                              onClick={() => {
-                                executeComMand(obj.params)
-                              }}
-                            >
-                              【{obj.name}】
-                            </a>
-                          }
-                          功能，3秒后跳转
-                        </div>
-                      </div>
-                    )
-                  }
+      <ProChat<ChatCard>
+        chatRef={proChatRef}
+        chats={chats}
+        helloMessage="您好，我是您的海狸业务智能助手，您可以描述所需处理的业务，我会自动帮您完成，快来试试吧!"
+        onChatsChange={setChats}
+        userMeta={{
+          avatar: userAvatar
+        }}
+        // inputAreaRender={(defaultDom, onMessageSend, onClearAllHistory) => {
+        // }}
+        style={{ height: '100%' }}
+        assistantMeta={{ avatar: assistantAatar }}
+        // onChatStart={() => {
+        //   setInputLoading(true)
+        // }}
+        // onChatEnd={() => {
+        //   setInputLoading(false)
+        // }}
+        request={handleRequest}
+        chatItemRenderConfig={{
+          contentRender: (item, defaultDom) => {
+            const { originData } = item
+            const { content, role } = originData as ChatMessage
+            if (role === 'assistant') {
+              const res = parseJson(content)
+              if (typeof res === 'string') {
+                return <div className={`${prefix}__message-content`}>{res}</div>
+              }
+              if (res && typeof res === 'object') {
+                const obj = res as ChatCard
+                if (obj.type === 'COMMAND') {
+                  handleComMand(obj)
                   return (
                     <div className={`${prefix}__message-content`}>
-                      <CardRender
-                        chatComponentList={obj.dsl!}
-                        bottomRender={bottomRender(obj)}
-                        onFinish={(values) => {
-                          onFinish({ values, questionID: obj.questionID })
-                        }}
-                      />
+                      <div>
+                        此业务操作需要使用
+                        {
+                          <a
+                            onClick={() => {
+                              executeComMand(obj.params)
+                            }}
+                          >
+                            【{obj.name}】
+                          </a>
+                        }
+                        功能，3秒后跳转
+                      </div>
                     </div>
                   )
                 }
+                return (
+                  <div className={`${prefix}__message-content`}>
+                    <CardRender
+                      chatComponentList={obj.dsl!}
+                      bottomRender={bottomRender(obj)}
+                      onFinish={(values) => {
+                        onFinish({ values, questionID: obj.questionID })
+                      }}
+                    />
+                  </div>
+                )
               }
-              return defaultDom
             }
-          }}
-        />
-      </div>
+            return defaultDom
+          }
+        }}
+      />
     </div>
   )
 })

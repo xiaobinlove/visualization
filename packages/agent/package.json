@@ -1,6 +1,6 @@
 {
   "name": "@zov/agent",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "./dist/react-components.umd.js",
   "module": "./dist/react-components.es.js",
@@ -16,11 +16,11 @@
   "license": "ISC",
   "dependencies": {
     "@ant-design/pro-chat": "^1.15.3",
+    "@stomp/rx-stomp": "^2.0.0",
     "ahooks": "^3.7.10",
     "await-to-js": "^3.0.0",
-    "@stomp/rx-stomp": "^2.0.0",
-    "react-rnd": "^10.4.13",
-    "axios": "^1.6.1"
+    "axios": "^1.6.1",
+    "classnames": "^2.5.1"
   },
   "peerDependencies": {
     "@ant-design/icons": ">=5.3.1",

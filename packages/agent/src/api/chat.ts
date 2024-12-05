@@ -1,5 +1,5 @@
-import requestHandler from '@/utils/request'
-import { ChatCard } from '@/types'
+import requestHandler from '../utils/request'
+import { ChatCard } from '../types'
 type ConversationApiParams = {
   questionStr: string
 }
