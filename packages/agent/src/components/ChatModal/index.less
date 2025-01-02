@@ -9,8 +9,32 @@
   border: 1px solid #e5e6e8;
   box-sizing: border-box;
   z-index: 1001;
-  background: #f1f2f3;
-  background: #f8faff;
+  &::after {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 164px;
+    background: url('../../assets/images/header-bg.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: -1;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 164px;
+    bottom: 0;
+    background: #f8faff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-size: 100% 100%;
+    z-index: -1;
+  }
   &--hide {
     visibility: hidden;
   }
@@ -27,9 +51,6 @@
     justify-content: space-between;
     box-sizing: border-box;
     padding: 15px;
-    background-image: url('../../assets/images/chat-header-bg.png');
-    background-repeat: no-repeat;
-    background-size: 100% 60px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
   }
@@ -50,6 +71,7 @@
     margin-left: 6px;
   }
   &__content {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;

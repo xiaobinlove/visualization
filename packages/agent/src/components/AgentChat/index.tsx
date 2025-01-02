@@ -1,6 +1,7 @@
 import { useState, useRef, useImperativeHandle, forwardRef } from 'react'
 import { ProChat, ChatMessage, ProChatInstance } from '@ant-design/pro-chat'
 import { ChatRequest } from '@ant-design/pro-chat/es/ProChat/store/initialState'
+import ChatInput from '../ChatInput'
 import assistantAatar from '../../assets/images/assistant-avatar.png'
 import userAvatar from '../../assets/images/user-avatar.png'
 import { ChatCard, ChatMsgItem, ChatRef } from '../../types'
@@ -109,8 +110,6 @@ const AgentChat = forwardRef<ChatRef, Props>(({ appCode, appId, disabledStomp, c
         userMeta={{
           avatar: userAvatar
         }}
-        // inputAreaRender={(defaultDom, onMessageSend, onClearAllHistory) => {
-        // }}
         style={{ height: '100%' }}
         assistantMeta={{ avatar: assistantAatar }}
         // onChatStart={() => {
@@ -119,6 +118,13 @@ const AgentChat = forwardRef<ChatRef, Props>(({ appCode, appId, disabledStomp, c
         // onChatEnd={() => {
         //   setInputLoading(false)
         // }}
+        inputAreaRender={(_defaultDom, onMessageSend) => {
+          return (
+            <div className={`${prefix}__input-wrapper`}>
+              <ChatInput onSend={onMessageSend} />
+            </div>
+          )
+        }}
         request={handleRequest}
         chatItemRenderConfig={{
           contentRender: (item, defaultDom) => {

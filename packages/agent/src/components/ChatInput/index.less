@@ -1,0 +1,77 @@
+.ac-chat-input {
+  box-sizing: border-box;
+  height: 110px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(to right, #fff, #fff),
+    linear-gradient(90deg, rgba(36, 170, 253, 0.5) 0%, rgba(31, 103, 253, 0.5) 50%, rgba(107, 81, 255, 0.5) 100%);
+  &__input {
+    box-sizing: border-box;
+    height: 58px;
+    padding: 8px;
+    padding-bottom: 0;
+    outline: none;
+    resize: none;
+    color: #242424;
+    font-size: 14px;
+    line-height: normal;
+    overflow-y: auto;
+  }
+  &__send-wrapper {
+    padding: 0 16px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__send {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../assets/images/send-icon.png');
+    background-size: contain;
+    margin-left: 16px;
+    cursor: pointer;
+  }
+  &__like-question {
+    height: 26px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 73px;
+    background: rgba(27, 104, 252, 0.08);
+    color: #1b68fc;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  &__like-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 16px;
+    background-image: url('../../assets/images/like-question.png');
+    background-size: contain;
+    margin-right: 2px;
+  }
+  &__send-right {
+    display: flex;
+  }
+}
+.ac-chat-input--disabled {
+  .ac-chat-input {
+    &__like-question {
+      cursor: not-allowed;
+      background: #f1f2f3;
+      color: #b9babb;
+    }
+    &__send {
+      cursor: not-allowed;
+      background-image: url('../../assets/images/send-icon--disabled.png');
+    }
+    &__like-icon {
+      background-image: url('../../assets/images/like-question--disabled.png');
+    }
+  }
+}
+.ac-chat-input--focused {
+  background-image: linear-gradient(to right, #fff, #fff), linear-gradient(90deg, #24aafd 0%, #1f67fd 50%, #6b51ff 100%);
+}
