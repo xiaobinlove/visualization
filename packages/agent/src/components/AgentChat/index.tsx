@@ -1,7 +1,8 @@
 import { useState, useRef, useImperativeHandle, forwardRef } from 'react'
 import { ProChat, ChatMessage, ProChatInstance } from '@ant-design/pro-chat'
 import { ChatRequest } from '@ant-design/pro-chat/es/ProChat/store/initialState'
-import ChatInput from '../ChatInput'
+import FrequentlyQuestion from '../ FrequentlyQuestion'
+import ChatInput from '../ChatBiInput'
 import assistantAatar from '../../assets/images/assistant-avatar.png'
 import userAvatar from '../../assets/images/user-avatar.png'
 import { ChatCard, ChatMsgItem, ChatRef } from '../../types'
@@ -121,6 +122,28 @@ const AgentChat = forwardRef<ChatRef, Props>(({ appCode, appId, disabledStomp, c
         inputAreaRender={(_defaultDom, onMessageSend) => {
           return (
             <div className={`${prefix}__input-wrapper`}>
+              <FrequentlyQuestion
+                questions={[
+                  {
+                    question: '如何办理信用卡1'
+                  },
+                  {
+                    question: '如何办理信用卡3'
+                  },
+                  {
+                    question: '如何办理信用卡4'
+                  },
+                  {
+                    question: '如何办理信用卡2'
+                  },
+                  {
+                    question: '如何办理信用卡5'
+                  },
+                  {
+                    question: '如何办理信用卡6'
+                  }
+                ]}
+              />
               <ChatInput onSend={onMessageSend} />
             </div>
           )

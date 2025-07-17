@@ -3,8 +3,7 @@
   "version": "1.0.5",
   "description": "",
   "main": "./dist/react-components.umd.js",
-  "module": "./dist/react-components.es.js",
-  "typings": "./dist/index.d.ts",
+  "module": "./src/index.ts",
   "files": [
     "dist"
   ],
